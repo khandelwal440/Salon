@@ -933,29 +933,33 @@ export default function ChapterThreeSection() {
         }
         .chapter-3 .sect-3-photos {
           display: flex;
-          gap: 10rem;
-          padding: 0 120vw;
+          gap: 2.5rem;
+          padding: 0 35vw 0 45vw;
           width: max-content;
           will-change: transform;
+          align-items: center;
         }
         @media (max-width: 1023px) {
           .chapter-3 .sect-3-photos {
-            gap: 2rem;
+            gap: 1.25rem;
+            padding: 0 15vw 0 20vw;
           }
         }
         .chapter-3 .sect-3-img {
-          height: 37.75rem;
+          height: 23rem;
           position: relative;
-          width: 29.25rem;
+          width: 17.5rem;
           z-index: 100;
           border-radius: 1rem;
           overflow: hidden;
-          box-shadow: 0 25px 50px rgba(0,0,0,0.35);
+          box-shadow: 0 20px 40px rgba(0,0,0,0.25), 0 0 0 1px rgba(0,0,0,0.06);
+          background: #000;
+          flex-shrink: 0;
         }
         @media (max-width: 1023px) {
           .chapter-3 .sect-3-img {
-            height: 25rem;
-            width: 18.75rem;
+            height: 16rem;
+            width: 12.5rem;
           }
         }
         .chapter-3 .sect-3-desc2 {
