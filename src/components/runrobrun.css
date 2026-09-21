@@ -1,0 +1,602 @@
+/* =========================================================================
+   RUNROBRUN TOOLS & WORK SECTION CSS
+   Exact Stylesheet from runrobrun.com
+   ========================================================================= */
+
+.runrobrun-wrapper {
+  --o: #20B364; /* Aluma Emerald signature accent, vibrant & high fashion */
+  --o-alt: #6875E9; /* Iris secondary */
+  --k: #07080B;
+  --k-sub: #10131B;
+  --g: #F1F1F1;
+  --mono: "Space Mono", ui-monospace, Menlo, Consolas, monospace;
+  --head: "Archivo", "Alata", "Arial Black", Impact, sans-serif;
+  
+  position: relative;
+  background: var(--o);
+  color: var(--k);
+  font-family: var(--mono);
+}
+
+/* ---------- ABOUT: gallery + skills ---------- */
+.runrobrun-wrapper .about {
+  position: relative;
+  padding: 0 46px 12vh;
+  background: var(--o);
+  overflow: hidden;
+}
+
+.runrobrun-wrapper .gal {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 0 16px;
+  align-items: start;
+  padding-top: 2vh;
+  min-height: 100vh;
+  margin-bottom: 14vh;
+}
+
+.runrobrun-wrapper .gal figure {
+  will-change: transform;
+}
+
+.runrobrun-wrapper .g1 {
+  grid-column: 1 / 4;
+  margin-top: 35vh;
+}
+
+.runrobrun-wrapper .g2 {
+  grid-column: 4 / 10;
+  position: relative;
+}
+
+.runrobrun-wrapper .g3 {
+  grid-column: 10 / 13;
+  margin-top: 6vh;
+}
+
+.runrobrun-wrapper .g1 .im,
+.runrobrun-wrapper .g3 .im {
+  aspect-ratio: 1;
+}
+
+.runrobrun-wrapper .g2 .im {
+  aspect-ratio: 8 / 9;
+}
+
+.runrobrun-wrapper .g2::after {
+  content: "";
+  position: absolute;
+  left: 37%;
+  bottom: 0;
+  width: 12.5%;
+  height: 11%;
+  background: var(--o);
+}
+
+.runrobrun-wrapper .im {
+  width: 100%;
+  background: linear-gradient(160deg, #8a8a88, #2b2b2a);
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(1) contrast(1.05);
+  display: grid;
+  place-items: end start;
+  padding: 10px;
+  color: #fff;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.runrobrun-wrapper .im.has {
+  padding: 0;
+  color: transparent;
+}
+
+.runrobrun-wrapper .skills {
+  border-bottom: 1px solid var(--k);
+}
+
+.runrobrun-wrapper .skill {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 0 16px;
+  align-items: center;
+  padding: 2.4vh 8px;
+  border-top: 1px solid var(--k);
+  isolation: isolate;
+  transition: color 0.25s;
+  cursor: pointer;
+}
+
+.runrobrun-wrapper .skill::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--k);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.28s cubic-bezier(0.7, 0, 0.2, 1);
+  z-index: -1;
+}
+
+.runrobrun-wrapper .skill:hover,
+.runrobrun-wrapper .skill:focus-visible {
+  color: var(--o);
+  outline: none;
+}
+
+.runrobrun-wrapper .skill:hover::before,
+.runrobrun-wrapper .skill:focus-visible::before {
+  transform: scaleY(1);
+}
+
+.runrobrun-wrapper .skill .n {
+  grid-column: 1 / 4;
+  font-size: 12px;
+}
+
+.runrobrun-wrapper .skill h3 {
+  grid-column: 5 / 9;
+  font: 400 clamp(22px, 2.8vw, 40px) / 1.1 var(--head);
+  font-stretch: 100%;
+  letter-spacing: -0.01em;
+}
+
+.runrobrun-wrapper .skill p {
+  grid-column: 10 / 13;
+  font-size: 11px;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+@media (max-width: 700px) {
+  .runrobrun-wrapper .gal {
+    gap: 0 8px;
+  }
+  .runrobrun-wrapper .g1 {
+    grid-column: 1 / 6;
+    margin-top: 0;
+  }
+  .runrobrun-wrapper .g2 {
+    grid-column: 6 / 13;
+    margin-top: 10vh;
+  }
+  .runrobrun-wrapper .g3 {
+    grid-column: 1 / 7;
+    margin-top: 4vh;
+  }
+  .runrobrun-wrapper .skill .n {
+    grid-column: 1 / 13;
+    margin-bottom: 6px;
+  }
+  .runrobrun-wrapper .skill h3 {
+    grid-column: 1 / 13;
+  }
+  .runrobrun-wrapper .skill p {
+    grid-column: 1 / 13;
+    margin-top: 8px;
+  }
+}
+
+/* ---------- PINNED TOOLS SECTION ---------- */
+.runrobrun-wrapper .tools {
+  position: relative;
+  background: var(--o);
+}
+
+.runrobrun-wrapper .stick {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  padding: 0 10px;
+  overflow: hidden;
+}
+
+.runrobrun-wrapper .x {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+}
+
+.runrobrun-wrapper .x::before,
+.runrobrun-wrapper .x::after {
+  content: "";
+  position: absolute;
+  background: var(--k);
+}
+
+.runrobrun-wrapper .x::before {
+  left: 9px;
+  top: 0;
+  width: 1px;
+  height: 20px;
+}
+
+.runrobrun-wrapper .x::after {
+  top: 9px;
+  left: 0;
+  height: 1px;
+  width: 20px;
+}
+
+.runrobrun-wrapper .x.tl {
+  left: 10px;
+  top: 10px;
+}
+
+.runrobrun-wrapper .x.tr {
+  right: 10px;
+  top: 10px;
+}
+
+.runrobrun-wrapper .x.bl {
+  left: 10px;
+  bottom: 10px;
+}
+
+.runrobrun-wrapper .x.br {
+  right: 10px;
+  bottom: 10px;
+}
+
+.runrobrun-wrapper .x.tc {
+  left: 50%;
+  top: 10px;
+  margin-left: -10px;
+}
+
+.runrobrun-wrapper .x.bc {
+  left: 50%;
+  bottom: 10px;
+  margin-left: -10px;
+}
+
+.runrobrun-wrapper .crosses {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+}
+
+.runrobrun-wrapper h2 {
+  font-family: var(--head);
+  font-stretch: 125%;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: clamp(56px, 11vw, 180px);
+  line-height: 0.82;
+  letter-spacing: -0.02em;
+  padding-top: 2.2vh;
+  color: var(--k);
+}
+
+.runrobrun-wrapper .rule {
+  height: 1px;
+  background: var(--k);
+  margin-top: 1.6vh;
+  position: relative;
+}
+
+.runrobrun-wrapper .meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding-top: 1.6vh;
+  font-size: 12px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  min-height: 64px;
+}
+
+.runrobrun-wrapper #copy {
+  max-width: 400px;
+  transition: opacity 0.18s;
+}
+
+.runrobrun-wrapper #copy.out {
+  opacity: 0;
+}
+
+/* ---------- MEDIA STRIP ---------- */
+.runrobrun-wrapper .media {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.runrobrun-wrapper .track {
+  display: flex;
+  height: 100%;
+  will-change: transform;
+}
+
+.runrobrun-wrapper .slide {
+  flex: 0 0 calc(100% / var(--n));
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.runrobrun-wrapper .frame {
+  position: relative;
+  height: 86%;
+  aspect-ratio: 16 / 10;
+  max-width: 92%;
+  background: var(--g);
+  overflow: hidden;
+}
+
+.runrobrun-wrapper .frame video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.runrobrun-wrapper .frame.ready video {
+  opacity: 1;
+}
+
+.runrobrun-wrapper .ph {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: var(--head);
+  font-stretch: 125%;
+  font-weight: 900;
+  font-size: clamp(20px, 4vw, 56px);
+  text-transform: uppercase;
+  color: var(--o);
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0 40px,
+    rgba(0, 0, 0, 0.06) 40px 41px
+  );
+}
+
+.runrobrun-wrapper .run {
+  width: min(260px, 40vw);
+  aspect-ratio: 1;
+  image-rendering: pixelated;
+}
+
+.runrobrun-wrapper #px {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.runrobrun-wrapper .arrows {
+  position: absolute;
+  right: 0;
+  bottom: 8px;
+  display: flex;
+  gap: 6px;
+  z-index: 2;
+}
+
+.runrobrun-wrapper .arrows button {
+  font: inherit;
+  font-size: 18px;
+  width: 44px;
+  height: 44px;
+  background: var(--o);
+  color: var(--k);
+  border: 1px solid var(--k);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+
+.runrobrun-wrapper .arrows button:hover {
+  background: var(--k);
+  color: var(--o);
+}
+
+.runrobrun-wrapper .arrows button:focus-visible,
+.runrobrun-wrapper .arrows button:active {
+  outline: 2px solid var(--k);
+  outline-offset: 2px;
+}
+
+/* ---------- FOOTER ---------- */
+.runrobrun-wrapper .foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 1vh 0 2.4vh;
+  position: relative;
+}
+
+.runrobrun-wrapper .foot .rule {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  margin: 0;
+}
+
+.runrobrun-wrapper #puck {
+  position: absolute;
+  top: -4px;
+  left: 0;
+  width: 9px;
+  height: 9px;
+  background: var(--k);
+  transform: translateX(-50%);
+}
+
+.runrobrun-wrapper #ttl {
+  font-family: var(--head);
+  font-stretch: 125%;
+  font-weight: 900;
+  font-size: clamp(20px, 3vw, 44px);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+
+.runrobrun-wrapper #big {
+  font-family: var(--head);
+  font-stretch: 125%;
+  font-weight: 900;
+  font-size: clamp(48px, 8vw, 130px);
+  line-height: 0.85;
+  letter-spacing: -0.03em;
+}
+
+/* ---------- WORK ---------- */
+.runrobrun-wrapper .work {
+  position: relative;
+  background: var(--g);
+}
+
+.runrobrun-wrapper .wstick {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.runrobrun-wrapper .work h2 {
+  font-size: clamp(48px, 8.5vw, 140px);
+  padding: 2vh 0 1.4vh;
+  color: var(--k);
+}
+
+.runrobrun-wrapper .wrow {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 26fr 46fr 26fr;
+  border-top: 1px solid var(--k);
+  border-bottom: 1px solid var(--k);
+  margin-bottom: 4vh;
+}
+
+.runrobrun-wrapper .wl,
+.runrobrun-wrapper .wr {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 0;
+}
+
+.runrobrun-wrapper .wl {
+  border-right: 1px solid var(--k);
+}
+
+.runrobrun-wrapper .wr {
+  border-left: 1px solid var(--k);
+}
+
+.runrobrun-wrapper .widx {
+  font: 400 clamp(56px, 8vw, 120px) / 1 var(--head);
+  font-stretch: 100%;
+  height: 1em;
+  overflow: hidden;
+  letter-spacing: -0.02em;
+}
+
+.runrobrun-wrapper .wroll {
+  transition: transform 0.55s cubic-bezier(0.7, 0, 0.2, 1);
+}
+
+.runrobrun-wrapper .wroll span {
+  display: block;
+  height: 1em;
+}
+
+.runrobrun-wrapper .wbtn {
+  align-self: flex-start;
+  border: 1px solid var(--k);
+  padding: 8px 10px;
+  color: var(--k);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 13px;
+  transition: all 0.2s;
+}
+
+.runrobrun-wrapper .wbtn:hover,
+.runrobrun-wrapper .wbtn:focus-visible {
+  background: var(--k);
+  color: var(--g);
+  outline: none;
+}
+
+.runrobrun-wrapper .wm {
+  position: relative;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.runrobrun-wrapper #wc {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.runrobrun-wrapper .wlab,
+.runrobrun-wrapper .wdesc {
+  font-size: clamp(11px, 1.05vw, 14px);
+  line-height: 1.45;
+  text-transform: uppercase;
+  transition: opacity 0.2s;
+}
+
+.runrobrun-wrapper .wlab span {
+  display: block;
+}
+
+.runrobrun-wrapper .wlab.out,
+.runrobrun-wrapper .wdesc.out {
+  opacity: 0;
+}
+
+@media (max-width: 700px) {
+  .runrobrun-wrapper .about {
+    padding: 0 16px 12vh;
+  }
+  .runrobrun-wrapper .wrow {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+  }
+  .runrobrun-wrapper .wl {
+    flex-direction: row;
+    align-items: center;
+    border-right: 0;
+    border-bottom: 1px solid var(--k);
+  }
+  .runrobrun-wrapper .wr {
+    border-left: 0;
+    border-top: 1px solid var(--k);
+    gap: 10px;
+  }
+  .runrobrun-wrapper .meta {
+    font-size: 11px;
+  }
+  .runrobrun-wrapper .frame {
+    aspect-ratio: 4 / 5;
+    height: 82%;
+  }
+}

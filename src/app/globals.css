@@ -1,0 +1,186 @@
+@import url("https://fonts.googleapis.com/css2?family=Alata&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-serif: var(--font-serif), Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-alata: "Alata", sans-serif;
+  --font-mono: "Space Mono", monospace;
+
+  /* Official Aluma Logo Triad Palette */
+  --color-aluma-emerald: #20B364;
+  --color-aluma-iris: #6875E9;
+  --color-aluma-orchid: #EA54DB;
+  --color-aluma-mint: #4ADE80;
+  --color-aluma-violet: #C084FC;
+
+  /* Obsidian Midnight Canvas */
+  --color-noir-950: #07080B;
+  --color-noir-900: #0B0D13;
+  --color-noir-850: #10131B;
+  --color-noir-800: #161924;
+  --color-noir-700: #202434;
+
+  /* Pure High-End Neutral Typography */
+  --color-pearl-50: #FFFFFF;
+  --color-pearl-100: #F8FAFC;
+  --color-pearl-200: #E2E8F0;
+  --color-pearl-300: #CBD5E1;
+  --color-pearl-400: #94A3B8;
+  --color-pearl-500: #64748B;
+}
+
+:root {
+  --bg-primary: #07080B;
+  --bg-secondary: #0B0D13;
+  --bg-card: #10131B;
+  --text-primary: #FFFFFF;
+  --text-muted: #94A3B8;
+  
+  /* Aluma Triad Accents */
+  --accent-emerald: #20B364;
+  --accent-iris: #6875E9;
+  --accent-orchid: #EA54DB;
+  --border-aluma: rgba(255, 255, 255, 0.08);
+}
+
+/* Custom Font Utilities */
+.font-alata {
+  font-family: "Alata", sans-serif;
+}
+
+.font-serif-luxury {
+  font-family: var(--font-serif), Georgia, serif;
+}
+
+.font-mono-code {
+  font-family: "Space Mono", monospace;
+}
+
+/* Smooth Lenis styles */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* Luminous Logo Gradients */
+.bg-aluma-triad {
+  background: linear-gradient(135deg, #20B364 0%, #6875E9 50%, #EA54DB 100%);
+}
+
+.text-gradient-triad {
+  background: linear-gradient(135deg, #20B364 0%, #6875E9 50%, #EA54DB 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.border-gradient-triad {
+  border-image: linear-gradient(135deg, #20B364, #6875E9, #EA54DB) 1;
+}
+
+/* Authentic Holographic Metallic Text Shine (Logo Colors) */
+.aluma-text-shine {
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(
+    90deg,
+    #6875E9 0%,
+    #EA54DB 25%,
+    #FFFFFF 50%,
+    #20B364 75%,
+    #6875E9 100%
+  );
+  background-position: -100% 0;
+  background-size: 200% 100%;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+  animation: alumaShine 2.4s cubic-bezier(0.83, 0, 0.17, 1) infinite;
+}
+
+@keyframes alumaShine {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+/* Glow Effects */
+.aluma-glow-card {
+  box-shadow: 0 12px 35px -10px rgba(0, 0, 0, 0.8), 0 0 1px 1px rgba(104, 117, 233, 0.25);
+}
+
+.aluma-glow-emerald {
+  box-shadow: 0 0 30px -5px rgba(32, 179, 100, 0.35);
+}
+
+.aluma-glow-iris {
+  box-shadow: 0 0 30px -5px rgba(104, 117, 233, 0.35);
+}
+
+.aluma-glow-orchid {
+  box-shadow: 0 0 30px -5px rgba(234, 84, 219, 0.35);
+}
+
+/* Numbered Eyebrow */
+.eyebrow-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: "Space Mono", monospace;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #6875E9;
+}
+
+/* Infinite Marquee */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #07080B;
+}
+::-webkit-scrollbar-thumb {
+  background: #1A1F2E;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #6875E9;
+}

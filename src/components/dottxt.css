@@ -1,0 +1,21 @@
+/* =========================================================================
+   dottxt.ai Products Section Styles
+   ========================================================================= */
+
+.dottxt-products-scope {
+  --dottxt-font-mono: "Space Mono", ui-monospace, Menlo, Consolas, monospace;
+  --dottxt-font-serif: var(--font-serif), Georgia, serif;
+}
+
+.dottxt-products-scope .use-cases__title h2 {
+  font-family: var(--dottxt-font-serif);
+  letter-spacing: -0.02em;
+}
+
+.dottxt-products-scope .UseCasesSection_useCases__navButton__1_LEX:active {
+  transform: scale(0.95);
+}
+
+.dottxt-products-scope .btn.use-cases__btn:hover {
+  transform: translateY(-2px);
+}
