@@ -11,7 +11,6 @@ export default function TrailerSection() {
           height="100%"
           playsInline
           autoPlay
-          controls
           muted
           loop
           poster="/images/6879fe6dec427cb553651a55_asset_24__1_.webp"

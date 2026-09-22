@@ -47,19 +47,16 @@ export default function HeroSection() {
           <div className="section-hero__content">
             {/* Background SVG vector */}
             <div className="section-hero__heading-vector w-embed">
-              <svg width="100%" height="100%" viewBox="0 0 335 189" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M258.062 1.85355V187.143H279.137V73.4215L277.979 20.3821H278.676L296.047 187.143H334.494V1.85355H313.647V113.029L315.037 168.614H314.34L296.969 1.85355H258.058H258.062ZM212.665 160.971V28.025C212.665 24.55 215.212 22.0036 219.383 22.0036C223.554 22.0036 226.101 24.55 226.101 28.025V160.971C226.101 164.446 223.554 166.993 219.383 166.993C215.212 166.993 212.665 164.446 212.665 160.971ZM186.261 27.1V161.9C186.261 181.818 203.633 189 219.383 189C235.133 189 252.504 181.821 252.504 161.9V27.1C252.504 7.18208 235.133 0 219.383 0C203.633 0 186.261 7.17862 186.261 27.1ZM154.529 1.85355V187.143H180.933V1.85355H154.529ZM72.3079 1.85355V187.143H93.3829V73.4215L92.2258 20.3821H92.9221L110.294 187.143H148.74V1.85355H127.894V113.029L129.283 168.614H128.587L111.215 1.85355H72.3044H72.3079ZM0.507812 1.85355V161.897C0.507812 181.814 17.8792 188.997 33.6292 188.997C49.3792 188.997 66.7507 181.818 66.7507 161.897V1.85355H40.3471V160.971C40.3471 164.446 37.8006 166.993 33.6292 166.993C29.4579 166.993 26.9114 164.446 26.9114 160.971V1.85355H0.507812Z"
-                  fill="currentColor"
-                />
+              <svg width="100%" height="100%" viewBox="0 0 335 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <text x="50%" y="75%" dominantBaseline="middle" textAnchor="middle" fontFamily="'Coolvetica Crammed Rg', Arial, sans-serif" fontSize="110" fontWeight="900" fill="currentColor" letterSpacing="4">ABOUT</text>
               </svg>
             </div>
 
-            {/* Title: UNI - [Video in O] - N */}
+            {/* Title: AB - [Video in O] - UT */}
             <div className="section-hero__heading-wrapper">
               <div>
                 <h1 data-animation-video="title" className="heading heading--xxl">
-                  <span>UNI</span>
+                  <span>AB</span>
                 </h1>
               </div>
 
@@ -70,7 +67,6 @@ export default function HeroSection() {
                       width="100%"
                       height="100%"
                       playsInline
-                      controls
                       autoPlay
                       muted
                       loop
@@ -91,7 +87,7 @@ export default function HeroSection() {
 
               <div>
                 <h1 data-animation-video="title" className="heading heading--xxl">
-                  <span>N</span>
+                  <span>UT</span>
                 </h1>
               </div>
             </div>

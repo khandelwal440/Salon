@@ -10,10 +10,10 @@ export default function AboutSection() {
           <div className="section__header">
             <div className="section__content-wrapper">
               <div className="sub-heading__wrapper">
-                <div className="sub-heading">&#123; <span>The New York Times</span> &#125;</div>
+                <div className="sub-heading">&#123; <span>About Aluma</span> &#125;</div>
               </div>
               <div className="section__heading_wrapper section__heading_wrapper--astounding">
-                <h2 className="heading heading--xl">Astounding, rebellious and brilliant</h2>
+                <h2 className="heading heading--xl">Beauty, Reimagined Around You</h2>
                 <div className="section__svg-wrapper section__svg-wrapper--astounding">
                   <div className="section__svg w-embed">
                     <svg width="100%" height="100%" viewBox="0 0 1021 835" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -35,9 +35,11 @@ export default function AboutSection() {
                 <div className="blockquote__wrapper">
                   <div className="blockquote">
                     <p className="blockquote__paragraph">
-                      The Amazon Labor Union (ALU) — a group of current and former Amazon workers in New York City’s
-                      Staten Island — takes on one of the world’s largest and most powerful companies in the fight to
-                      unionize.
+                      At Aluma, we believe beauty is not simply about how you look — it is about how you feel. We bring
+                      together professional expertise, personalized care, premium experiences, and modern convenience
+                      to create a grooming experience that feels effortless and truly yours. Whether you choose to
+                      visit our salon or enjoy our services from the comfort of your home, every detail is thoughtfully
+                      designed around your needs, your style, and your time.
                     </p>
                   </div>
                 </div>
@@ -47,30 +49,50 @@ export default function AboutSection() {
                 <div className="section__paragrph-box">
                   <div>
                     <p className="paragraph paragraph--l">
-                      On April 1, 2022 a group of ordinary warehouse workers made history when they did what everyone
-                      thought was impossible: win their election and become the first, and only unionized Amazon
-                      workplace in America.
+                      Aluma is built on the belief that self-care should feel special, not complicated. From the moment
+                      you book your appointment to the moment you leave feeling refreshed and confident, we focus on
+                      creating an experience that goes beyond the ordinary. Our trained professionals, quality products,
+                      attention to hygiene, and commitment to detail come together to give you the care you deserve.
                     </p>
                   </div>
 
                   <div>
                     <p className="paragraph paragraph--l">
-                      <span className="text-indent__helping">helping </span>
-                      This feat would be extraordinary for any union, let alone the Amazon Labor Union (ALU) who did it
-                      with no prior organizing experience, no institutional backing, and a total budget of $120,000
-                      raised on GoFundMe. Heralded as the most important win for labor since the 1930s, the documentary
-                      captures the ALU’s historic grassroots effort from day one of their campaign.
+                      We understand that everyone has a different definition of beauty. Your style is personal, your
+                      preferences are unique, and your lifestyle is different. That is why we don't believe in a
+                      one-size-fits-all approach. Instead, we listen, understand, and personalize every experience to
+                      help you feel comfortable and confident in your own way.
                     </p>
                   </div>
 
                   <div>
                     <p className="paragraph paragraph--l">
-                      <span className="text-indent__helping">helping </span>
-                      Described by their founder Christian Smalls as the “N.W.A. of the organizing world,” the ALU
-                      boldly charts an independent path to unionization through a series of creative (and at times,
-                      provocative) tactics. A core emotional arc arises when worker-turned-organizers encounter
-                      retaliation, surveillance, burnout, and interpersonal tensions that test their commitment and
-                      solidarity.
+                      For those who love the atmosphere of a premium salon, Aluma offers a calm and welcoming space
+                      where you can step away from your everyday routine. For those who value convenience, our at-home
+                      services bring professional grooming directly to your doorstep. Wherever you choose to experience
+                      Aluma, our commitment remains the same — exceptional service, professional care, and an
+                      experience centered around you.
+                    </p>
+                  </div>
+
+                  <div>
+                    <p className="paragraph paragraph--l">
+                      With the Aluma Pass, we take this experience even further by making regular grooming easier and
+                      more rewarding. We believe self-care should be a part of your lifestyle rather than something you
+                      remember only when you need it.
+                    </p>
+                  </div>
+
+                  <div>
+                    <p className="paragraph paragraph--l">
+                      At the heart of Aluma is a simple promise: to make you feel cared for, understood, and confident.
+                      Because true luxury isn't only about what you receive — it's about how the experience makes you feel.
+                    </p>
+                  </div>
+
+                  <div>
+                    <p className="paragraph paragraph--l">
+                      This is Aluma. Beauty, grooming, and self-care, reimagined around you.
                     </p>
                   </div>
                 </div>
