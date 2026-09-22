@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About | UNION Film",
-  description: "About the documentary UNION — Directed by Brett Story & Stephen Maing.",
+  title: "About",
+  description:
+    "About the documentary UNION — Directed by Brett Story & Stephen Maing.",
   openGraph: {
-    title: "About | UNION Film",
-    description: "About the documentary UNION — Directed by Brett Story & Stephen Maing.",
+    title: "About",
+    description:
+      "About the documentary UNION — Directed by Brett Story & Stephen Maing.",
     images: ["/union/images/6878ac08c8ccb2977b3a39c9_Union-Still-6.webp"],
   },
 };
@@ -35,7 +37,7 @@ export default function AboutPage() {
           margin: 0,
           padding: 0,
         }}
-        title="UNION Documentary"
+        title="About"
         allow="autoplay; fullscreen"
       />
     </div>

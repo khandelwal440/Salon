@@ -59,7 +59,7 @@ export default function HeroSection() {
             <div className="section-hero__heading-wrapper">
               <div>
                 <h1 data-animation-video="title" className="heading heading--xxl">
-                  <span>UNI</span>
+                  <span>AB</span>
                 </h1>
               </div>
 
@@ -87,9 +87,10 @@ export default function HeroSection() {
 
               <div>
                 <h1 data-animation-video="title" className="heading heading--xxl">
-                  <span>N</span>
+                  <span>UT</span>
                 </h1>
               </div>
+              
             </div>
 
             {/* Film Credits */}
