@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Plus_Jakarta_Sans, Space_Mono } from "next/font/google";
+import {
+  Cormorant_Garamond,
+  Plus_Jakarta_Sans,
+  Space_Mono,
+} from "next/font/google";
 import "./globals.css";
+import "../styles/about.css";
 
 const serifFont = Cormorant_Garamond({
   variable: "--font-serif",
@@ -25,25 +30,27 @@ const monoFont = Space_Mono({
 
 export const metadata: Metadata = {
   title: "ALUMA | Luxury Salon & Aesthetic Sanctuary Bangalore",
-  description: "Architecture of hair, French balayage alchemy, molecular keratin glass, and Japanese micro-mist head spa in Whitefield, HSR Layout & Sarjapur Bangalore.",
+  description:
+    "Architecture of hair, French balayage alchemy, molecular keratin glass, and Japanese micro-mist head spa in Whitefield, HSR Layout & Sarjapur Bangalore.",
   keywords: [
     "luxury hair salon Bangalore",
     "Aluma Salon Whitefield",
     "Aluma HSR Layout",
     "French balayage Bangalore",
     "Japanese head spa Bangalore",
-    "bridal hair architecture"
+    "bridal hair architecture",
   ],
   openGraph: {
     title: "ALUMA | Architecture of Hair & Aesthetic Sanctuary",
-    description: "Your look, our promise. Architectural precision cuts, bespoke colour chemistry, and sensory rituals.",
+    description:
+      "Your look, our promise. Architectural precision cuts, bespoke colour chemistry, and sensory rituals.",
     url: "https://aluma.salon",
     siteName: "Aluma Salon",
     type: "website",
   },
   icons: {
     icon: "/aluma-assets/logo.svg",
-  }
+  },
 };
 
 export default function RootLayout({
