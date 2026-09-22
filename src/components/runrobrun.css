@@ -4,10 +4,10 @@
    ========================================================================= */
 
 .runrobrun-wrapper {
-  --o: #20B364; /* Aluma Emerald signature accent, vibrant & high fashion */
-  --o-alt: #6875E9; /* Iris secondary */
-  --k: #07080B;
-  --k-sub: #10131B;
+  --o: #1DE9B6; /* Tropical Green signature accent */
+  --o-alt: #FF6E40; /* Sunset Orange secondary */
+  --k: #4A2C7B; /* Deep Lavender background */
+  --k-sub: #3D2267; /* Dark Lavender */
   --g: #F1F1F1;
   --mono: "Space Mono", ui-monospace, Menlo, Consolas, monospace;
   --head: "Archivo", "Alata", "Arial Black", Impact, sans-serif;

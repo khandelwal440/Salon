@@ -21,7 +21,7 @@ export default function Home() {
       {/* Sticky Luxury Header with Gliding Logo */}
       <Header onOpenBooking={() => setIsModalOpen(true)} />
 
-      <main className="relative min-h-screen bg-[#07080B] text-[#F8FAFC]">
+      <main className="relative min-h-screen bg-[#4A2C7B] text-[#F8FAFC]">
         {/* 01: Hero Section */}
         <Hero onOpenBooking={() => setIsModalOpen(true)} />
 

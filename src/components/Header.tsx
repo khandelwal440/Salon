@@ -94,7 +94,7 @@ export default function Header({ onOpenBooking }: HeaderProps) {
         title="Aluma — Haute Coiffure"
       >
         {/* Official Triad Circles Logo Mark */}
-        <div className="w-14 h-14 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-2 border-white/30 p-2 bg-white flex items-center justify-center shrink-0 shadow-[0_0_35px_rgba(104,117,233,0.4)] hover:border-[#6875E9] transition-all">
+        <div className="w-14 h-14 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-2 border-white/30 p-2 bg-white flex items-center justify-center shrink-0 shadow-[0_0_35px_rgba(255,110,64,0.4)] hover:border-[#FF6E40] transition-all">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={salonData.brand.logoSvg}
@@ -104,7 +104,7 @@ export default function Header({ onOpenBooking }: HeaderProps) {
         </div>
 
         {/* Hero Name / Monumental Wordmark styled with Alata */}
-        <span className="font-alata text-6xl sm:text-7xl md:text-[11vw] lg:text-[13vw] tracking-[0.04em] font-normal text-[#FFFFFF] leading-none drop-shadow-[0_15px_30px_rgba(0,0,0,0.7)] hover:text-[#6875E9] transition-colors">
+        <span className="font-alata text-6xl sm:text-7xl md:text-[11vw] lg:text-[13vw] tracking-[0.04em] font-normal text-[#FFFFFF] leading-none drop-shadow-[0_15px_30px_rgba(0,0,0,0.7)] hover:text-[#FF6E40] transition-colors">
           {salonData.brand.name}
         </span>
       </div>
@@ -113,7 +113,7 @@ export default function Header({ onOpenBooking }: HeaderProps) {
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
           progress > 0.15
-            ? "bg-[#0E0E0E]/90 backdrop-blur-md py-4 shadow-2xl"
+            ? "bg-[#3D2267]/90 backdrop-blur-md py-4 shadow-2xl"
             : "bg-transparent py-5 md:py-6"
         }`}
       >
@@ -148,7 +148,7 @@ export default function Header({ onOpenBooking }: HeaderProps) {
           <div className="flex items-center gap-4">
             <button
               onClick={onOpenBooking}
-              className="px-6 py-2.5 rounded-full text-xs font-mono tracking-[0.18em] uppercase text-[#0B0D13] bg-[#FFFFFF] hover:bg-[#6875E9] hover:text-[#FFFFFF] transition-all duration-300 font-semibold shadow-md active:scale-95 hover:shadow-[0_0_20px_rgba(104,117,233,0.5)]"
+              className="px-6 py-2.5 rounded-full text-xs font-mono tracking-[0.18em] uppercase text-[#3D2267] bg-[#FFFFFF] hover:bg-[#FF6E40] hover:text-[#FFFFFF] transition-all duration-300 font-semibold shadow-md active:scale-95 hover:shadow-[0_0_20px_rgba(255,110,64,0.5)]"
             >
               Book A Visit
             </button>
@@ -156,7 +156,7 @@ export default function Header({ onOpenBooking }: HeaderProps) {
             {/* Mobile menu trigger */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 text-[#FFFFFF] hover:text-[#6875E9] focus:outline-none"
+              className="lg:hidden p-2 text-[#FFFFFF] hover:text-[#FF6E40] focus:outline-none"
               aria-label="Toggle Navigation Menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -175,12 +175,12 @@ export default function Header({ onOpenBooking }: HeaderProps) {
 
       {/* Mobile Drawer Menu */}
       <div
-        className={`fixed inset-0 z-40 bg-[#0E0E0E]/98 backdrop-blur-xl transition-all duration-500 lg:hidden flex flex-col justify-between p-8 pt-28 ${
+        className={`fixed inset-0 z-40 bg-[#3D2267]/98 backdrop-blur-xl transition-all duration-500 lg:hidden flex flex-col justify-between p-8 pt-28 ${
           mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
         <div className="flex flex-col space-y-6">
-          <span className="font-mono text-xs tracking-[0.25em] text-[#6875E9] uppercase">
+          <span className="font-mono text-xs tracking-[0.25em] text-[#FF6E40] uppercase">
             Menu
           </span>
           {salonData.navLinks.map((link, idx) => (
@@ -188,7 +188,7 @@ export default function Header({ onOpenBooking }: HeaderProps) {
               key={link.name}
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="flex items-baseline justify-between py-2 border-b border-white/10 font-serif-luxury text-3xl text-[#F4F0EA] hover:text-[#6875E9] transition-colors"
+              className="flex items-baseline justify-between py-2 border-b border-white/10 font-serif-luxury text-3xl text-[#F4F0EA] hover:text-[#FF6E40] transition-colors"
             >
               <span>{link.name}</span>
               <span className="font-mono text-xs text-[#9E9587]">0{idx + 1}</span>
@@ -206,7 +206,7 @@ export default function Header({ onOpenBooking }: HeaderProps) {
               setMobileMenuOpen(false);
               onOpenBooking();
             }}
-            className="w-full py-4 rounded-full bg-[#FFFFFF] text-[#0E0E0E] font-mono text-xs uppercase tracking-[0.2em] font-semibold text-center hover:bg-[#D4AF37] transition-colors"
+            className="w-full py-4 rounded-full bg-[#FFFFFF] text-[#3D2267] font-mono text-xs uppercase tracking-[0.2em] font-semibold text-center hover:bg-[#FF6E40] hover:text-[#FFFFFF] transition-colors"
           >
             Book A Visit
           </button>

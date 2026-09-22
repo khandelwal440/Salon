@@ -20,7 +20,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
           loop
           playsInline
           className="w-full h-full object-cover scale-105"
-          src="/aluma-assets/ALUMA.036187e7de1663d09d1a.mp4"
+          src={salonData.brand.heroVideo}
         />
 
         {/* Cinematic Dusk Gradients for perfect text readability (Elyse Residence Style) */}

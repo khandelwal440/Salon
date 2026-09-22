@@ -7,41 +7,41 @@
   --font-alata: "Alata", sans-serif;
   --font-mono: "Space Mono", monospace;
 
-  /* Official Aluma Logo Triad Palette */
-  --color-aluma-emerald: #20B364;
-  --color-aluma-iris: #6875E9;
-  --color-aluma-orchid: #EA54DB;
-  --color-aluma-mint: #4ADE80;
-  --color-aluma-violet: #C084FC;
+  /* Official Aluma Color Schema */
+  --color-aluma-emerald: #1DE9B6; /* Tropical Green */
+  --color-aluma-iris: #FF6E40;    /* Sunset Orange */
+  --color-aluma-orchid: #EC407A;  /* Radical Rose */
+  --color-aluma-mint: #1DE9B6;
+  --color-aluma-violet: #FF6E40;
 
-  /* Obsidian Midnight Canvas */
-  --color-noir-950: #07080B;
-  --color-noir-900: #0B0D13;
-  --color-noir-850: #10131B;
-  --color-noir-800: #161924;
-  --color-noir-700: #202434;
+  /* Deep Lavender Primary Canvas & Tonal Steps */
+  --color-noir-950: #4A2C7B; /* Deep Lavender */
+  --color-noir-900: #3D2267; /* Deep Lavender Dark */
+  --color-noir-850: #331A59; /* Deep Plum */
+  --color-noir-800: #583592; /* Rich Violet */
+  --color-noir-700: #683FA6; /* Luminous Lavender */
 
   /* Pure High-End Neutral Typography */
   --color-pearl-50: #FFFFFF;
   --color-pearl-100: #F8FAFC;
   --color-pearl-200: #E2E8F0;
   --color-pearl-300: #CBD5E1;
-  --color-pearl-400: #94A3B8;
-  --color-pearl-500: #64748B;
+  --color-pearl-400: #D8CCE8;
+  --color-pearl-500: #B4A0CD;
 }
 
 :root {
-  --bg-primary: #07080B;
-  --bg-secondary: #0B0D13;
-  --bg-card: #10131B;
+  --bg-primary: #4A2C7B;   /* Deep Lavender */
+  --bg-secondary: #3D2267; /* Darker Lavender */
+  --bg-card: #56338E;      /* Rich Lavender Card */
   --text-primary: #FFFFFF;
-  --text-muted: #94A3B8;
+  --text-muted: #D8CCE8;
   
-  /* Aluma Triad Accents */
-  --accent-emerald: #20B364;
-  --accent-iris: #6875E9;
-  --accent-orchid: #EA54DB;
-  --border-aluma: rgba(255, 255, 255, 0.08);
+  /* Triad Domain Accents */
+  --accent-emerald: #1DE9B6; /* Tropical Green */
+  --accent-iris: #FF6E40;    /* Sunset Orange */
+  --accent-orchid: #EC407A;  /* Radical Rose */
+  --border-aluma: rgba(255, 255, 255, 0.12);
 }
 
 /* Custom Font Utilities */
@@ -80,30 +80,30 @@ html.lenis, html.lenis body {
 
 /* Luminous Logo Gradients */
 .bg-aluma-triad {
-  background: linear-gradient(135deg, #20B364 0%, #6875E9 50%, #EA54DB 100%);
+  background: linear-gradient(135deg, #1DE9B6 0%, #FF6E40 50%, #EC407A 100%);
 }
 
 .text-gradient-triad {
-  background: linear-gradient(135deg, #20B364 0%, #6875E9 50%, #EA54DB 100%);
+  background: linear-gradient(135deg, #1DE9B6 0%, #FF6E40 50%, #EC407A 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .border-gradient-triad {
-  border-image: linear-gradient(135deg, #20B364, #6875E9, #EA54DB) 1;
+  border-image: linear-gradient(135deg, #1DE9B6, #FF6E40, #EC407A) 1;
 }
 
-/* Authentic Holographic Metallic Text Shine (Logo Colors) */
+/* Authentic Holographic Metallic Text Shine */
 .aluma-text-shine {
   background-clip: text;
   -webkit-background-clip: text;
   background-image: linear-gradient(
     90deg,
-    #6875E9 0%,
-    #EA54DB 25%,
+    #FF6E40 0%,
+    #EC407A 25%,
     #FFFFFF 50%,
-    #20B364 75%,
-    #6875E9 100%
+    #1DE9B6 75%,
+    #FF6E40 100%
   );
   background-position: -100% 0;
   background-size: 200% 100%;
@@ -123,19 +123,19 @@ html.lenis, html.lenis body {
 
 /* Glow Effects */
 .aluma-glow-card {
-  box-shadow: 0 12px 35px -10px rgba(0, 0, 0, 0.8), 0 0 1px 1px rgba(104, 117, 233, 0.25);
+  box-shadow: 0 12px 35px -10px rgba(0, 0, 0, 0.7), 0 0 1px 1px rgba(255, 110, 64, 0.3);
 }
 
 .aluma-glow-emerald {
-  box-shadow: 0 0 30px -5px rgba(32, 179, 100, 0.35);
+  box-shadow: 0 0 30px -5px rgba(29, 233, 182, 0.45);
 }
 
 .aluma-glow-iris {
-  box-shadow: 0 0 30px -5px rgba(104, 117, 233, 0.35);
+  box-shadow: 0 0 30px -5px rgba(255, 110, 64, 0.45);
 }
 
 .aluma-glow-orchid {
-  box-shadow: 0 0 30px -5px rgba(234, 84, 219, 0.35);
+  box-shadow: 0 0 30px -5px rgba(236, 64, 122, 0.45);
 }
 
 /* Numbered Eyebrow */
@@ -147,7 +147,7 @@ html.lenis, html.lenis body {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  color: #6875E9;
+  color: #FF6E40;
 }
 
 /* Infinite Marquee */
@@ -175,12 +175,12 @@ html.lenis, html.lenis body {
   width: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: #07080B;
+  background: #4A2C7B;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1A1F2E;
+  background: #331A59;
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #6875E9;
+  background: #FF6E40;
 }

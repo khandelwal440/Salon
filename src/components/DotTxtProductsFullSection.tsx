@@ -60,7 +60,7 @@ export default function DotTxtProductsFullSection() {
   const current = PRODUCTS[activeStep];
 
   return (
-    <div className="dottxt-products-scope relative bg-[#07080B] text-[#07080B] font-mono select-none" data-background-squares="true">
+    <div className="dottxt-products-scope relative bg-[#4A2C7B] text-[#FFFFFF] font-mono select-none" data-background-squares="true">
       <section id="products" className="section section--use-cases UseCasesSection_useCases__D9NK5 py-16 sm:py-24 px-4 sm:px-10">
         <div className="section__container max-w-7xl mx-auto">
           {/* Main List Container */}
@@ -84,7 +84,7 @@ export default function DotTxtProductsFullSection() {
 
                     <div className="UseCasesSection_useCases__index__nSH8S font-mono text-xl font-bold">
                       <span className="UseCasesSection_useCases__indexPrimary__SsC8P">04.</span>
-                      <span className="use-cases__index-secondary UseCasesSection_useCases__indexSecondary__2gXho text-[#20B364]">
+                      <span className="use-cases__index-secondary UseCasesSection_useCases__indexSecondary__2gXho text-[#1DE9B6]">
                         <span>{current.indexStr}</span>
                       </span>
                     </div>
@@ -102,7 +102,7 @@ export default function DotTxtProductsFullSection() {
                         href={current.buttonHref}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="btn use-cases__btn inline-flex items-center gap-3 px-8 py-4 rounded-full bg-black text-white hover:bg-[#6875E9] transition-all duration-300 font-mono text-xs uppercase tracking-wider font-semibold shadow-xl"
+                        className="btn use-cases__btn inline-flex items-center gap-3 px-8 py-4 rounded-full bg-black text-white hover:bg-[#FF6E40] transition-all duration-300 font-mono text-xs uppercase tracking-wider font-semibold shadow-xl"
                       >
                         <span className="label hover-effect">{current.buttonText}</span>
                         <span className="key w-5 h-5 rounded-full bg-white text-black text-[10px] flex items-center justify-center font-bold">

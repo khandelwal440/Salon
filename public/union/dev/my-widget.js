@@ -1,0 +1,1 @@
+import{l as e}from"./lib/CBBztoZA.js";import"./lib/DfFN1ZGS.js";import"./lib/XLquPqC1.js";const n=({widget:t})=>{const o=t.textContent;return e("content",o),t},c='[data-widget="my-widget"]',r=document.querySelectorAll(c);r.forEach(t=>{n({widget:t})});

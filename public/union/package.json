@@ -1,0 +1,24 @@
+{
+  "name": "union-awards-about-page",
+  "version": "1.0.0",
+  "description": "UNION documentary awards & about page converted to Next.js with modular React components",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "^14.2.15",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "keywords": [
+    "nextjs",
+    "react",
+    "union-documentary",
+    "about-page"
+  ],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,1 @@
+import{C as o}from"./qTbT0Fxt.js";const s=()=>{const t=document.documentElement,c=window.innerWidth-document.documentElement.clientWidth;t.style.setProperty("--js-scrollbar-width",`${c}px`)},e=()=>document.body.classList.contains(o.LOCKED),l=()=>{e()||(s(),document.body.classList.add(o.LOCKED))},d=()=>{document.body.classList.remove(o.LOCKED)};export{l,d as u};

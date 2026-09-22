@@ -283,16 +283,16 @@ export default function ChapterThreeSection() {
               <img className="img" src="/images/image_176.webp" alt="Ambient" data-v-61e9ac12="" />
               <div className="chapter-title" data-v-61e9ac12="" data-v-8c7a0c4d="">
                 <div className="decor flex items-center gap-1 bg-transparent w-auto h-auto" data-v-8c7a0c4d="">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#20B364]" />
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#6875E9]" />
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#EA54DB]" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#1DE9B6]" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#FF6E40]" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#EC407A]" />
                 </div>
                 <div className="title-text l1-thin" data-v-8c7a0c4d="">
-                  OBJECTS OF <strong className="text-transparent bg-clip-text bg-gradient-to-r from-[#20B364] via-[#6875E9] to-[#EA54DB]">DESIRE</strong>
+                  OBJECTS OF <strong className="text-transparent bg-clip-text bg-gradient-to-r from-[#1DE9B6] via-[#FF6E40] to-[#EC407A]">DESIRE</strong>
                 </div>
               </div>
               <div className="chapter-count l1-thin" data-v-61e9ac12="" data-v-25e4460d="">
-                <span className="text-[#6875E9]">chapter</span> III
+                <span className="text-[#FF6E40]">chapter</span> III
               </div>
             </div>
           </section>
@@ -721,10 +721,24 @@ export default function ChapterThreeSection() {
           pointer-events: none;
           z-index: 5;
         }
-        .chapter-3 .items,
+        .chapter-3 .items {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          width: min(560px, 85vw);
+          height: min(640px, 72vh);
+          border-radius: 1.5rem;
+          overflow: hidden;
+          background: #08090C;
+          box-shadow: 0 25px 70px -10px rgba(0, 0, 0, 0.95), 0 0 0 1px rgba(255, 255, 255, 0.12), 0 0 40px -10px rgba(104, 117, 233, 0.2);
+          z-index: 10;
+        }
         .chapter-3 .item {
           position: absolute;
           inset: 0;
+          border-radius: inherit;
+          overflow: hidden;
         }
         .chapter-3 .item-photo {
           position: absolute;
@@ -736,25 +750,25 @@ export default function ChapterThreeSection() {
           content: "";
           position: absolute;
           inset: 0;
-          background: radial-gradient(circle at center, transparent 35%, rgba(8, 9, 12, 0.75) 100%);
+          background: linear-gradient(180deg, rgba(8, 9, 12, 0.1) 0%, transparent 40%, rgba(8, 9, 12, 0.85) 100%);
           pointer-events: none;
         }
         .chapter-3 .photo-badge {
           position: absolute;
-          top: 2.5rem;
-          left: 2.5rem;
+          top: 1.5rem;
+          left: 1.5rem;
           z-index: 30;
           font-family: monospace;
           font-size: 0.75rem;
           text-transform: uppercase;
           letter-spacing: 0.2em;
-          padding: 0.4rem 1.1rem;
+          padding: 0.4rem 1rem;
           border-radius: 9999px;
-          background: rgba(11, 13, 19, 0.88);
-          border: 1px solid rgba(104, 117, 233, 0.25);
+          background: rgba(11, 13, 19, 0.85);
+          border: 1px solid rgba(104, 117, 233, 0.3);
           color: #F8FAFC;
           backdrop-filter: blur(14px);
-          box-shadow: 0 4px 25px rgba(0, 0, 0, 0.6), 0 0 15px -3px rgba(32, 179, 100, 0.25);
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), 0 0 15px -3px rgba(32, 179, 100, 0.25);
         }
         .chapter-3 .inner-img {
           height: 100%;
@@ -769,21 +783,18 @@ export default function ChapterThreeSection() {
           position: absolute;
           z-index: 30;
           pointer-events: none;
-          text-shadow: 0 4px 25px rgba(0, 0, 0, 0.9);
+          text-shadow: 0 4px 25px rgba(0, 0, 0, 0.95);
+          bottom: 2rem;
+          left: 2rem;
+          right: 2rem;
         }
         .chapter-3 .item:nth-child(2) .item-text {
-          right: 12.625rem;
-          top: 14.375rem;
           text-align: right;
         }
         .chapter-3 .item:nth-child(4) .item-text {
-          left: 13.9375rem;
-          top: 27.5rem;
           text-align: left;
         }
         .chapter-3 .item:nth-child(5) .item-text {
-          left: 39.3125rem;
-          top: 15.75rem;
           text-align: left;
         }
         .chapter-3 .triggers-for-text {
@@ -1022,31 +1033,31 @@ export default function ChapterThreeSection() {
         }
         .h2-thin {
           font-family: var(--font-alata), var(--font-sans), sans-serif;
-          font-size: 3.75rem;
-          letter-spacing: -.2rem;
-          line-height: 92%;
+          font-size: 2.85rem;
+          letter-spacing: -.12rem;
+          line-height: 95%;
           text-transform: uppercase;
           font-weight: 300;
           color: #F8FAFC;
         }
         @media (max-width: 1023px) {
           .h2-thin {
-            font-size: 2.25rem;
-            letter-spacing: -.12rem;
+            font-size: 2rem;
+            letter-spacing: -.08rem;
           }
         }
         .h2-book {
           font-family: var(--font-alata), var(--font-sans), sans-serif;
-          font-size: 3.75rem;
-          letter-spacing: -.22rem;
-          line-height: 92%;
+          font-size: 2.85rem;
+          letter-spacing: -.12rem;
+          line-height: 95%;
           text-transform: uppercase;
           font-weight: 700;
         }
         @media (max-width: 1023px) {
           .h2-book {
-            font-size: 2.25rem;
-            letter-spacing: -.15rem;
+            font-size: 2rem;
+            letter-spacing: -.08rem;
           }
         }
         .l1-thin {
@@ -1089,17 +1100,17 @@ export default function ChapterThreeSection() {
           will-change: transform, opacity;
         }
 
-        /* 6. Text Shine Effect (Using Authentic Aluma Triad: Iris #6875E9, Orchid #EA54DB, Emerald #20B364) */
+        /* 6. Text Shine Effect (Using Authentic Aluma Triad: Sunset Orange #FF6E40, Radical Rose #EC407A, Tropical Green #1DE9B6) */
         .text-shine {
           background-clip: text;
           -webkit-background-clip: text;
           background-image: linear-gradient(
             90deg,
-            #6875E9 0%,
-            #EA54DB 25%,
+            #FF6E40 0%,
+            #EC407A 25%,
             #FFFFFF 50%,
-            #20B364 75%,
-            #6875E9 100%
+            #1DE9B6 75%,
+            #FF6E40 100%
           );
           background-position: -100% 0;
           background-size: 200% 100%;
