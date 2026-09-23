@@ -1,8 +1,75 @@
 /* ==========================================================================
-   MOBILE & TABLET RESPONSIVE ENHANCEMENTS FOR ABOUT PAGE
-   Applies exclusively to mobile & tablet viewports (<= 991px).
-   Leaves desktop (>= 992px) 100% pixel-perfect and unmodified.
+   DESKTOP & MOBILE RESPONSIVE ENHANCEMENTS FOR ABOUT PAGE
    ========================================================================== */
+
+/* 0. Desktop Gallery Showcase (>= 992px) */
+@media (min-width: 992px) {
+  .gallery {
+    z-index: 1 !important;
+    width: 100% !important;
+    max-width: 1040px !important;
+    height: clamp(480px, 60vh, 640px) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    position: relative !important;
+    overflow: visible !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .gallery__image-wrapper {
+    border-radius: 16px !important;
+    width: 100% !important;
+    max-width: clamp(520px, 65vw, 840px) !important;
+    height: clamp(340px, 52vh, 560px) !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    overflow: hidden !important;
+    box-shadow: 0 24px 50px -12px rgba(0, 0, 0, 0.25), 0 4px 16px rgba(0, 0, 0, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    background-color: #141414 !important;
+  }
+
+  .gallery__image-wrapper.gallery__image-wrapper--first {
+    z-index: 6 !important;
+    transform: translate(-50%, -50%) rotate(0deg) !important;
+  }
+
+  .gallery__image-wrapper.gallery__image-wrapper--second {
+    z-index: 5 !important;
+    transform: translate(-50%, -50%) rotate(-2deg) scale(0.98) !important;
+  }
+
+  .gallery__image-wrapper.gallery__image-wrapper--thrd {
+    z-index: 4 !important;
+    transform: translate(-50%, -50%) rotate(2.5deg) scale(0.96) !important;
+  }
+
+  .gallery__image-wrapper.gallery__image-wrapper--fourth {
+    z-index: 3 !important;
+    transform: translate(-50%, -50%) rotate(-3deg) scale(0.94) !important;
+  }
+
+  .gallery__image-wrapper.gallery__image-wrapper--fifth {
+    z-index: 2 !important;
+    transform: translate(-50%, -50%) rotate(2deg) scale(0.92) !important;
+  }
+
+  .gallery__image-wrapper.gallery__image-wrapper--sixth {
+    z-index: 1 !important;
+    transform: translate(-50%, -50%) rotate(-1.5deg) scale(0.90) !important;
+  }
+
+  .gallery__image {
+    object-fit: cover !important;
+    object-position: center 25% !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
 
 /* 1. Global Viewport Safety for Mobile */
 @media (max-width: 991px) {
