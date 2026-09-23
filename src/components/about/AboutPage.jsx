@@ -9,7 +9,6 @@ import GallerySection from './GallerySection';
 import TeamSection from './TeamSection';
 import FundersMarqueeSection from './FundersMarqueeSection';
 import StatementsSection from './StatementsSection';
-import PressSection from './PressSection';
 import WatchSection from './WatchSection';
 import Footer from './Footer';
 
@@ -42,9 +41,6 @@ export default function AboutPage() {
 
             {/* 7. Film team & Director Statements (Dark mode) */}
             <StatementsSection />
-
-            {/* 8. Press Quotes Slider */}
-            <PressSection />
 
             {/* 9. Watch / Screenings (Interactive Upcoming/Past Toggle) */}
             <WatchSection />

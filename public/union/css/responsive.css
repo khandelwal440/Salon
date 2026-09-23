@@ -1,28 +1,32 @@
 /* ==========================================================================
-   UNION MOVIE AWARDS & ABOUT PAGE - MOBILE RESPONSIVENESS ENHANCEMENTS
-   Ensures flawless rendering across small phones (320px-390px), tablets (768px-991px),
-   and desktops, eliminating horizontal overflow and enhancing touch interactions.
+   MOBILE & TABLET RESPONSIVE ENHANCEMENTS FOR ABOUT PAGE
+   Applies exclusively to mobile & tablet viewports (<= 991px).
+   Leaves desktop (>= 992px) 100% pixel-perfect and unmodified.
    ========================================================================== */
 
-/* 1. Global Viewport & Reset */
-html, body {
-  width: 100% !important;
-  max-width: 100vw !important;
-  overflow-x: hidden !important;
-  -webkit-text-size-adjust: 100%;
+/* 1. Global Viewport Safety for Mobile */
+@media (max-width: 991px) {
+  html, body {
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+    -webkit-text-size-adjust: 100%;
+    background-color: #f4f3ed !important;
+  }
+
+  #smooth-wrapper, #smooth-content, .main {
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+    background-color: #f4f3ed !important;
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
 }
 
-#smooth-wrapper, #smooth-content, .main {
-  max-width: 100vw !important;
-  overflow-x: hidden !important;
-}
-
-/* Ensure no child can cause horizontal overflow */
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
-/* Container safety on mobile */
+/* 2. Container & Header (<= 991px) */
 @media (max-width: 991px) {
   .container {
     width: 100% !important;
@@ -30,12 +34,7 @@ html, body {
     padding-left: clamp(1rem, 4vw, 2rem) !important;
     padding-right: clamp(1rem, 4vw, 2rem) !important;
   }
-}
 
-/* ==========================================================================
-   2. Header & Mobile Navigation
-   ========================================================================== */
-@media (max-width: 991px) {
   .header-wrapper {
     padding-top: 1rem !important;
     padding-left: 1rem !important;
@@ -50,15 +49,11 @@ html, body {
     touch-action: manipulation;
   }
 
-  .burger__inner {
-    width: 1.5rem !important;
-  }
-
   .header__links-wrapper {
-    background-color: #f3f3f0 !important;
+    background-color: #f4f3ed !important;
     min-height: 100dvh !important;
     max-height: 100dvh !important;
-    padding: 7rem 1.5rem 3rem !important;
+    padding: 6rem 1.5rem 3rem !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: flex-start !important;
@@ -67,44 +62,46 @@ html, body {
     z-index: 100 !important;
   }
 
-  .header__links.header__links--main {
-    gap: 1.25rem !important;
-  }
-
   .header__link {
-    font-size: clamp(2.5rem, 8vw, 4.25rem) !important;
+    font-size: clamp(2.2rem, 7.5vw, 3.8rem) !important;
     line-height: 1 !important;
     text-align: center !important;
   }
 }
 
-/* ==========================================================================
-   3. Hero Section (UNION Title & Video)
-   ========================================================================== */
+/* 3. Hero Section (<= 991px) - Big Impact UNION with circular video in 'O' & Fullscreen Scroll Expansion */
 @media (max-width: 991px) {
   .section.section--hero {
-    padding-top: 5rem !important;
+    padding-top: clamp(2.5rem, 6vw, 4.5rem) !important;
     padding-bottom: 2rem !important;
+    position: relative !important;
+    z-index: 1 !important;
+    background-color: #f4f3ed !important;
   }
 
   .section-hero__inner {
-    padding-top: 1.5rem !important;
+    position: relative !important;
+    z-index: 2 !important;
   }
 
-  /* Festival Laurels */
+  .section-hero__content {
+    position: relative !important;
+  }
+
   .section-hero__logo-wrapper {
-    width: 100% !important;
-    max-width: 100% !important;
     display: flex !important;
     flex-wrap: wrap !important;
     justify-content: center !important;
     align-items: center !important;
-    gap: 0.75rem 1.25rem !important;
-    margin-bottom: 1.5rem !important;
+    gap: 0.6rem 1rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto 1.5rem !important;
+    padding: 0 0.5rem !important;
   }
 
   .section-hero__logo {
-    height: 2.2rem !important;
+    height: clamp(1.6rem, 4.5vw, 2.3rem) !important;
     max-width: 42% !important;
     display: flex !important;
     align-items: center !important;
@@ -117,37 +114,110 @@ html, body {
     object-fit: contain !important;
   }
 
-  /* Hero UNION Vector on Mobile */
+  /* Hide static vector on mobile so interactive UNION with Video in 'O' is shown */
   .section-hero__heading-vector {
-    display: block !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    height: auto !important;
-    margin: 1rem auto 1.5rem !important;
-  }
-
-  .section-hero__heading-vector svg {
-    width: 100% !important;
-    height: auto !important;
-    display: block !important;
-  }
-
-  .section-hero__heading-wrapper {
     display: none !important;
   }
 
-  /* Credits List */
+  .section-hero__heading-wrapper {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 1rem auto 2rem !important;
+    overflow: visible !important;
+    position: relative !important;
+  }
+
+  /* Extra Large, Bold, Grand UNION typography on mobile */
+  .heading.heading--xxl {
+    font-size: clamp(8.5rem, 36vw, 20rem) !important;
+    line-height: 0.8 !important;
+    letter-spacing: -0.02em !important;
+    text-transform: uppercase !important;
+    font-family: Newtitle, Arial, sans-serif !important;
+    font-weight: 700 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .heading.heading--xxl.heading--xxl--ninna {
+    font-size: clamp(8.5rem, 36vw, 20rem) !important;
+    font-family: Ninna Trial, Arial, sans-serif !important;
+    font-weight: 400 !important;
+    z-index: 2 !important;
+    pointer-events: none !important;
+    position: relative !important;
+    margin: 0 !important;
+  }
+
+  .section-hero__video-wrapper {
+    position: relative !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-top: -2% !important;
+    margin-left: -2% !important;
+    overflow: visible !important;
+  }
+
+  /* Note: NO !important on border-radius so GSAP can animate to 0px fullscreen rectangle */
+  .section-hero__video {
+    border-radius: 100vh;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 88% !important;
+    height: 92% !important;
+    display: flex !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    right: auto !important;
+    bottom: auto !important;
+    overflow: hidden !important;
+    transform: translate(-50%, -50%) !important;
+    z-index: 1 !important;
+  }
+
+  .section-hero__video-embed {
+    width: 100% !important;
+    height: 100% !important;
+    position: absolute !important;
+    inset: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .section-hero__video-embed video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  .section-hero__video-text {
+    font-size: clamp(0.9rem, 3.2vw, 1.5rem) !important;
+    z-index: 2 !important;
+    color: #fff !important;
+    font-family: Newtitle, Arial, sans-serif !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+  }
+
   .list-edited-by {
     width: 100% !important;
     max-width: 100% !important;
-    margin-top: 1.5rem !important;
+    margin-top: 1.75rem !important;
+    padding: 0 0.5rem !important;
   }
 
   .list-edited-by__line {
     display: flex !important;
     flex-direction: column !important;
-    gap: 1rem !important;
-    margin-bottom: 1.25rem !important;
+    gap: 0.75rem !important;
+    margin-bottom: 1rem !important;
   }
 
   .list-edited-by__item {
@@ -156,8 +226,9 @@ html, body {
     justify-content: space-between !important;
     align-items: baseline !important;
     width: 100% !important;
-    border-bottom: 1px dashed rgba(137, 137, 137, 0.4) !important;
-    padding-bottom: 0.5rem !important;
+    border-bottom: 1px dashed rgba(137, 137, 137, 0.35) !important;
+    padding-bottom: 0.4rem !important;
+    gap: 0.5rem !important;
   }
 
   .list-edited-by__item-by {
@@ -165,59 +236,28 @@ html, body {
     line-height: 1.2 !important;
     text-transform: uppercase !important;
     letter-spacing: 0.04em !important;
-    color: #666 !important;
-    min-width: 110px !important;
+    color: #777 !important;
+    min-width: 100px !important;
+    text-align: left !important;
   }
 
   .list-edited-by__item-name,
   .list-edited-by__item-name_wrapper {
-    font-size: clamp(1.05rem, 4vw, 1.35rem) !important;
+    font-size: clamp(0.95rem, 3.8vw, 1.25rem) !important;
     font-weight: 700 !important;
     letter-spacing: -0.02em !important;
     text-align: right !important;
   }
 }
 
-/* ==========================================================================
-   4. Trailer Section
-   ========================================================================== */
-@media (max-width: 991px) {
-  #trailer.section.section--trailer {
-    display: block !important;
-    height: auto !important;
-    min-height: auto !important;
-    width: 100% !important;
-    padding: 1rem 0 2rem !important;
-    margin: 0 !important;
-  }
-
-  .section__trailer-video {
-    width: 100% !important;
-    height: auto !important;
-    aspect-ratio: 16 / 9 !important;
-    border-radius: 8px !important;
-    overflow: hidden !important;
-    background: #000 !important;
-  }
-
-  .section__trailer-video video {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-  }
-}
-
-/* ==========================================================================
-   5. About Section
-   ========================================================================== */
+/* 4. About & Story Section (<= 991px) - Solid background to prevent video overlap */
 @media (max-width: 991px) {
   #about.section {
-    padding-top: clamp(3rem, 6vw, 5rem) !important;
-    padding-bottom: 2rem !important;
-  }
-
-  .sub-heading__wrapper {
-    margin-bottom: 1rem !important;
+    padding-top: clamp(3.5rem, 8vw, 5.5rem) !important;
+    padding-bottom: 2.5rem !important;
+    background-color: #f4f3ed !important;
+    position: relative !important;
+    z-index: 10 !important;
   }
 
   .sub-heading {
@@ -225,58 +265,33 @@ html, body {
     letter-spacing: 0.04em !important;
   }
 
-  .section__heading_wrapper--astounding {
-    width: 100% !important;
-    max-width: 100% !important;
-    position: relative !important;
-  }
-
   .heading--xl {
-    font-size: clamp(2.25rem, 7.5vw, 3.85rem) !important;
-    line-height: 1 !important;
+    font-size: clamp(2rem, 7vw, 4rem) !important;
+    line-height: 1.05 !important;
     letter-spacing: -0.03em !important;
   }
 
   .section__svg-wrapper--astounding {
     width: 100% !important;
     max-width: 100% !important;
-    height: auto !important;
-    opacity: 0.5 !important;
+    opacity: 0.4 !important;
     pointer-events: none !important;
   }
 
   .astounding__content {
+    display: flex !important;
     flex-direction: column !important;
-    gap: 2rem !important;
-  }
-
-  .section__box {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-
-  .blockquote__wrapper {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 1.5rem 0 !important;
+    gap: 1.75rem !important;
   }
 
   .blockquote__paragraph {
-    font-size: clamp(1.2rem, 4.5vw, 1.6rem) !important;
-    line-height: 1.35 !important;
+    font-size: clamp(1.15rem, 4.2vw, 1.55rem) !important;
+    line-height: 1.4 !important;
     text-align: left !important;
   }
 
-  .section__paragrph-box {
-    width: 100% !important;
-    max-width: 100% !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 1.25rem !important;
-  }
-
   .paragraph--l {
-    font-size: clamp(0.95rem, 3.8vw, 1.15rem) !important;
+    font-size: clamp(0.95rem, 3.6vw, 1.15rem) !important;
     line-height: 1.55 !important;
   }
 
@@ -285,95 +300,75 @@ html, body {
   }
 }
 
-/* Text animation line wrapping protection on mobile */
-@media (max-width: 767px) {
-  [data-widget='text-animation'][data-animation-type='blur'] .line {
-    white-space: normal !important;
-    display: inline !important;
+/* 5. Gallery Section with Interactive Card-Stacking Scroll (<= 991px) */
+@media (max-width: 991px) {
+  .section--padding-top-m {
+    background-color: #f4f3ed !important;
+    position: relative !important;
+    z-index: 10 !important;
   }
 
-  [data-widget='text-animation'][data-animation-type='blur'] .word {
-    white-space: normal !important;
-  }
-
-  /* Prevent text from disappearing on short mobile viewports */
-  [data-scroll-animation-role="scroll-top-opacity"] {
-    opacity: 1 !important;
-  }
-
-  [data-base-animation-role="fade-up"],
-  [data-base-animation-role="fade"] {
-    opacity: 1 !important;
-    transform: none !important;
-    filter: none !important;
-  }
-
-  [data-widget='text-animation'] .word.js--visible,
-  [data-widget='text-animation'].js--initialized .word {
-    opacity: 1 !important;
-    filter: none !important;
-  }
-}
-
-/* ==========================================================================
-   6. Gallery Grid on Mobile
-   ========================================================================== */
-@media (max-width: 767px) {
   .gallery__wrapper {
+    width: 100% !important;
     overflow: visible !important;
-    padding: 1.5rem 0 !important;
+    padding: 2rem 0 !important;
   }
 
   .gallery__outer {
     width: 100% !important;
+    position: relative !important;
   }
 
   .gallery {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 0.75rem !important;
+    display: block !important;
+    position: relative !important;
     width: 100% !important;
     max-width: 100% !important;
-    height: auto !important;
-    position: static !important;
+    height: clamp(300px, 60vh, 520px) !important;
+    margin: 0 auto !important;
     overflow: visible !important;
   }
 
   .gallery__image-wrapper {
-    position: static !important;
-    width: 100% !important;
-    height: auto !important;
-    aspect-ratio: 4 / 3 !important;
-    border-radius: 6px !important;
+    display: block !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 4% !important;
+    right: 4% !important;
+    bottom: auto !important;
+    width: 92% !important;
+    max-width: 520px !important;
+    margin: 0 auto !important;
+    height: clamp(260px, 54vh, 440px) !important;
+    border-radius: 12px !important;
     overflow: hidden !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25) !important;
   }
 
-  /* First photo acts as lead still spanning full width */
-  .gallery__image-wrapper.gallery__image-wrapper--first {
-    grid-column: 1 / -1 !important;
-    aspect-ratio: 16 / 9 !important;
-  }
+  .gallery__image-wrapper.gallery__image-wrapper--first { z-index: 6 !important; }
+  .gallery__image-wrapper.gallery__image-wrapper--second { z-index: 5 !important; }
+  .gallery__image-wrapper.gallery__image-wrapper--thrd { z-index: 4 !important; }
+  .gallery__image-wrapper.gallery__image-wrapper--fourth { z-index: 3 !important; }
+  .gallery__image-wrapper.gallery__image-wrapper--fifth { z-index: 2 !important; }
+  .gallery__image-wrapper.gallery__image-wrapper--sixth { z-index: 1 !important; }
 
   .gallery__image {
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
-    border-radius: 6px !important;
+    border-radius: 12px !important;
+    display: block !important;
   }
 }
 
-/* ==========================================================================
-   7. Creative Team Section & Cards
-   ========================================================================== */
+/* 6. Creative Team Section & Popup Modal (<= 991px) */
 @media (max-width: 991px) {
   #team.section {
     padding-top: 3.5rem !important;
     padding-bottom: 2rem !important;
-  }
-
-  .section__svg-wrapper--creative {
-    width: 100% !important;
-    max-width: 100% !important;
+    background-color: #f4f3ed !important;
+    position: relative !important;
+    z-index: 10 !important;
   }
 
   .team__content {
@@ -383,242 +378,86 @@ html, body {
   .team__slider-wrapper.swiper {
     overflow: hidden !important;
     width: 100% !important;
-    padding-bottom: 1.5rem !important;
+    padding: 1rem 0 2rem !important;
   }
 
-  .team__slider.swiper-wrapper {
-    display: flex !important;
-    gap: 1rem !important;
-    padding: 0 0.5rem !important;
-    width: max-content !important;
-  }
-
-  .team__card {
-    width: 78vw !important;
-    min-width: 260px !important;
-    max-width: 320px !important;
-    height: auto !important;
-    min-height: 400px !important;
-    padding: 1.75rem 1.25rem !important;
-    border-radius: 8px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: space-between !important;
-    border: 1px dashed #898989 !important;
-  }
-
-  .team__card-info {
-    width: 100% !important;
-    min-width: unset !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    text-align: center !important;
-  }
-
-  .team__card-info_top {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 1rem !important;
-    width: 100% !important;
-  }
-
-  .team__card_image-wrapper {
-    width: 140px !important;
-    height: 170px !important;
-    min-width: 140px !important;
-    max-width: 140px !important;
-    border-radius: 70px !important;
-    margin: 0 auto !important;
-    overflow: hidden !important;
-  }
-
-  .team__card_image {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-  }
-
-  .team__card-info_job {
-    font-size: 0.95rem !important;
-    line-height: 1.3 !important;
-    color: #666 !important;
-    text-align: center !important;
-    width: 100% !important;
-  }
-
-  .heading.heading--l.heading--transform-90deg {
-    writing-mode: horizontal-tb !important;
-    transform: none !important;
-    font-size: clamp(1.85rem, 6vw, 2.5rem) !important;
-    line-height: 1 !important;
-    text-align: center !important;
-    margin-top: 1rem !important;
-  }
-
-  /* Team Mobile Bio Modal Popup */
   .team-popup {
-    padding: 2rem 1rem !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    padding: 1rem !important;
+    z-index: 9999 !important;
     backdrop-filter: blur(12px) !important;
     -webkit-backdrop-filter: blur(12px) !important;
-    z-index: 1000 !important;
+    background: rgba(0, 0, 0, 0.75) !important;
+    display: none;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .team-popup.js--open {
+    display: flex !important;
   }
 
   .team-popup__inner {
-    width: 100% !important;
-    max-width: 26rem !important;
-    max-height: 85vh !important;
-    padding: 2rem 1.5rem !important;
-    border-radius: 12px !important;
-    background: #1c1c1c !important;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.5) !important;
-  }
-
-  .team-popup__content {
-    gap: 1.5rem !important;
-  }
-
-  /* Additional crew list */
-  .additional-crew__heading-wrapper {
-    width: 100% !important;
-    margin-top: 2.5rem !important;
-  }
-
-  .additional-crew__list {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 1.5rem !important;
-    width: 100% !important;
-  }
-
-  .additional-crew__list-item {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 0.5rem !important;
-    width: 100% !important;
+    width: 94vw !important;
+    max-width: 440px !important;
+    max-height: 88vh !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding: 2rem 1.25rem !important;
+    border-radius: 14px !important;
+    background: #181818 !important;
+    color: #f4f3ed !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6) !important;
   }
 }
 
-/* ==========================================================================
-   8. Partners & Statements Section
-   ========================================================================== */
-@media (max-width: 767px) {
-  #partners.section {
-    padding-top: 3rem !important;
+/* 7. Partners, Statements, Watch, Press & Footer (<= 768px) */
+@media (max-width: 768px) {
+  #partners.section,
+  .section--statement,
+  .section--watch-film,
+  .section--press {
+    padding-top: 2.5rem !important;
     padding-bottom: 2rem !important;
+    background-color: #f4f3ed !important;
+    position: relative !important;
+    z-index: 10 !important;
   }
 
   .partner_box {
-    width: 130px !important;
-    min-width: 130px !important;
-    padding: 0 0.5rem !important;
+    width: 120px !important;
+    min-width: 120px !important;
   }
 
-  .partner_box-image_wrapper {
-    width: 90px !important;
-    height: 45px !important;
-  }
-
-  /* Statements */
   .statement-list__item,
   .statement-list__item.statement-list__item--revers {
     flex-direction: column-reverse !important;
     gap: 1.5rem !important;
-    padding: 2rem 0 !important;
+    padding: 1.75rem 0 !important;
   }
 
-  .statement-list__item-text_wrapper {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-
-  .statement-list__item-box_image-wrapper {
-    width: 100% !important;
-    height: auto !important;
-    aspect-ratio: 16 / 10 !important;
-    border-radius: 6px !important;
-    overflow: hidden !important;
-  }
-
-  .statement__image {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-  }
-
-  .statement-list__item-paragraph {
-    font-size: 1.05rem !important;
-    line-height: 1.5 !important;
-  }
-}
-
-/* ==========================================================================
-   9. Screenings, Merch, Press & Footer
-   ========================================================================== */
-@media (max-width: 767px) {
-  /* Screenings */
   .watch-film__list-item_inner {
-    width: 100% !important;
-    max-width: 100% !important;
     flex-direction: column !important;
     align-items: flex-start !important;
-    padding: 1.25rem 0 !important;
     gap: 0.5rem !important;
+    padding: 1.25rem 0 !important;
   }
 
-  .watch-film__list-item_paragraph {
-    font-size: 1.25rem !important;
-    line-height: 1.2 !important;
-  }
-
-  /* Merch */
-  .merch-card__image-wrapper {
-    width: 100% !important;
-    max-width: 100% !important;
-    aspect-ratio: 1 / 1 !important;
-  }
-
-  /* Press */
-  .press__paragraph {
-    font-size: 1.25rem !important;
-    line-height: 1.35 !important;
-    -webkit-line-clamp: 6 !important;
-    line-clamp: 6 !important;
-  }
-
-  /* Footer */
   .footer {
-    overflow: hidden !important;
+    padding: 3rem 1rem 2rem !important;
+    overflow-x: hidden !important;
     max-width: 100vw !important;
-    padding-top: 3rem !important;
-    padding-bottom: 2rem !important;
+    background-color: #141414 !important;
+    position: relative !important;
+    z-index: 10 !important;
   }
 
   .footer__email {
-    font-size: clamp(1.75rem, 6.5vw, 2.75rem) !important;
+    font-size: clamp(1.6rem, 6.5vw, 2.5rem) !important;
     word-break: break-all !important;
-    line-height: 1.1 !important;
-  }
-
-  .form__wrapper {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-
-  .footer__bg-union {
-    width: 100% !important;
-    min-width: 100% !important;
-    max-width: 100vw !important;
-    height: auto !important;
-    position: relative !important;
-    top: 0 !important;
-    object-fit: contain !important;
-  }
-
-  .footer__copyrights {
-    flex-direction: column !important;
-    gap: 1rem !important;
-    align-items: flex-start !important;
   }
 }

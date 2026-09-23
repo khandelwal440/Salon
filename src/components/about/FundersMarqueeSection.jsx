@@ -64,7 +64,7 @@ export default function FundersMarqueeSection() {
           <div className="section__header">
             <div className="section__content-wrapper">
               <div className="section__heading_wrapper section__heading_wrapper--film">
-                <h2 className="heading heading--xl">Film funders &amp; partners</h2>
+                <h2 className="heading heading--xl">Our partners</h2>
                 <div className="section__svg-wrapper section__svg-wrapper--film">
                   <div className="section__svg hidden-mobile w-embed">
                     <svg width="100%" height="100%" viewBox="0 0 1010 838" fill="none" xmlns="http://www.w3.org/2000/svg">
