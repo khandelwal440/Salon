@@ -95,19 +95,18 @@ export default function TeamSection() {
             </div>
           </div>
 
-          {/* 
-            Horizontal Staff Directory Grid:
-            - 4 columns on desktop (≥1024px)
-            - 2 columns on tablet (≥640px)
-            - 1 column on mobile (<640px)
-            - Dashed vertical dividers between columns
-          */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-t border-l border-dashed border-black/20 bg-transparent">
-            {teamMembers.map((member, idx) => (
+        {/* 
+          Single Continuous Auto-Running Marquee Line:
+          - Automatically scrolls horizontally in an infinite continuous track
+          - Pauses smoothly on hover so user can click and view bio
+        */}
+        <div className="w-full overflow-hidden relative group/marquee py-4">
+          <div className="flex w-max team-marquee-track hover:[animation-play-state:paused]">
+            {[...teamMembers, ...teamMembers].map((member, idx) => (
               <div
-                key={member.id}
+                key={`${member.id}-${idx}`}
                 onClick={() => setModalMember(member)}
-                className="group relative bg-[#F1EFEA] border-r border-b border-dashed border-black/20 p-6 sm:p-8 flex flex-col items-center justify-between min-h-[460px] cursor-pointer transition-colors duration-400 ease-out hover:bg-[#0D0D0D]"
+                className="group relative bg-[#F1EFEA] border border-dashed border-black/20 mx-3 p-6 sm:p-8 flex flex-col items-center justify-between w-[280px] sm:w-[320px] md:w-[340px] min-h-[460px] flex-shrink-0 cursor-pointer transition-all duration-400 ease-out hover:bg-[#0D0D0D] hover:scale-[1.02] shadow-sm hover:shadow-xl rounded-sm"
               >
                 {/* 1. Egg-Shaped Oval / Ellipse Portrait (taller than wide: 50% / 60%) */}
                 <div className="relative w-36 h-48 sm:w-40 sm:h-52 overflow-hidden bg-neutral-900 mx-auto transition-transform duration-500 group-hover:scale-105 shadow-md">
@@ -151,13 +150,14 @@ export default function TeamSection() {
 
                 {/* 4. Subtitle / Read Bio trigger */}
                 <div className="pt-2 text-center">
-                  <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-transparent group-hover:text-[#D9F16B] border-b border-transparent group-hover:border-[#D9F16B] pb-0.5 transition-all duration-300">
+                  <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#7A7873] group-hover:text-[#D9F16B] border-b border-transparent group-hover:border-[#D9F16B] pb-0.5 transition-all duration-300">
                     View bio →
                   </span>
                 </div>
               </div>
             ))}
           </div>
+        </div>
 
           {/* Additional Crew & Executive Producers Section */}
           <div className="mt-24 pt-16 border-t border-black/15">

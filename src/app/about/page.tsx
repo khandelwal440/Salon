@@ -1,16 +1,16 @@
-import type { Metadata } from "next";
-import AboutPageContent from "@/components/about/AboutPage";
+'use client';
 
-export const metadata: Metadata = {
-  title: "About",
-  description: "About the documentary — Directed by Brett Story & Stephen Maing.",
-  openGraph: {
-    title: "About",
-    description: "About the documentary — Directed by Brett Story & Stephen Maing.",
-    images: ["/union/images/6878ac08c8ccb2977b3a39c9_Union-Still-6.webp"],
-  },
-};
+import React from 'react';
 
 export default function AboutPage() {
-  return <AboutPageContent />;
+  return (
+    <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', margin: 0, padding: 0, border: 'none', overflow: 'hidden', zIndex: 9999 }}>
+      <iframe
+        src="/union/index.html"
+        style={{ width: '100%', height: '100%', border: 'none', display: 'block' }}
+        title="Union Awards"
+      />
+    </div>
+  );
 }
+

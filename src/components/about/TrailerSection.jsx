@@ -4,17 +4,18 @@ import React from 'react';
 
 export default function TrailerSection() {
   return (
-    <section id="trailer" className="section section--trailer">
-      <div className="section__trailer-video w-embed">
+    <section id="trailer" className="section section--trailer w-full min-h-screen h-screen relative overflow-hidden bg-black" style={{ width: '100vw', height: '100vh', minHeight: '100vh', display: 'block' }}>
+      <div className="section__trailer-video w-embed" style={{ width: '100%', height: '100%', minHeight: '100vh' }}>
         <video
           width="100%"
           height="100%"
           playsInline
           autoPlay
+          controls
           muted
           loop
           poster="/images/6879fe6dec427cb553651a55_asset_24__1_.webp"
-          style={{ objectFit: 'cover' }}
+          style={{ objectFit: 'cover', width: '100%', height: '100%', minHeight: '100vh', display: 'block' }}
         >
           <source src="/videos/union-of-trailer.mp4" type="video/mp4" />
         </video>
@@ -22,3 +23,4 @@ export default function TrailerSection() {
     </section>
   );
 }
+

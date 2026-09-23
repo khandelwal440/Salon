@@ -4817,3 +4817,38 @@ a {
     padding-left: .5rem;
   }
 }
+
+/* Full-screen trailer video override */
+#trailer.section.section--trailer,
+.section.section--trailer {
+  display: block !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  min-height: 100vh !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  position: relative !important;
+  overflow: hidden !important;
+  background: #000 !important;
+}
+
+.section__trailer-video {
+  width: 100vw !important;
+  height: 100vh !important;
+  min-height: 100vh !important;
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #000 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.section__trailer-video video {
+  width: 100vw !important;
+  height: 100vh !important;
+  min-height: 100vh !important;
+  object-fit: cover !important;
+  display: block !important;
+}

@@ -28,142 +28,104 @@ export default function useUnionGsap() {
       if (trigger && videoElement) {
         const mm = gsap.matchMedia();
 
-        mm.add('(min-width: 768px)', () => {
-          // Collapse and fade side letters "UNI" and "N"
-          titles.forEach((title) => {
-            gsap.to(title, {
-              duration: 1,
-              ease: 'power2.inOut',
-              width: '0px',
-              scrollTrigger: {
-                trigger: trigger,
-                start: 'top -30%',
-                end: '+=280%',
-                scrub: 1,
-              },
-            });
-
-            gsap.to(title, {
-              duration: 1,
-              ease: 'power2.inOut',
-              opacity: 0,
-              scrollTrigger: {
-                trigger: trigger,
-                start: 'top top',
-                end: '+=8%',
-                scrub: 1,
-              },
-            });
-          });
-
-          // Zoom video inside embed
-          if (videoEmbed) {
-            gsap.to(videoEmbed, {
-              duration: 1,
-              ease: 'power2.inOut',
-              transform: 'scale(1)',
-              scrollTrigger: {
-                trigger: trigger,
-                start: 'top top',
-                end: '+=260%',
-                scrub: 1,
-              },
-            });
-          }
-
-          // Fade out scroll indicator and credits
-          if (scrollText) {
-            gsap.to(scrollText, {
-              duration: 1,
-              ease: 'power2.inOut',
-              opacity: 0,
-              scrollTrigger: {
-                trigger: trigger,
-                start: 'top top',
-                end: '+=160%',
-                scrub: 1,
-              },
-            });
-          }
-
-          if (credits) {
-            gsap.to(credits, {
-              duration: 1,
-              ease: 'power2.inOut',
-              opacity: 0,
-              scrollTrigger: {
-                trigger: trigger,
-                start: 'top -5%',
-                end: '+=10%',
-                scrub: 1,
-              },
-            });
-          }
-
-          if (oLetter) {
-            gsap.to(oLetter, {
-              duration: 0.01,
-              ease: 'power2.inOut',
-              opacity: 0,
-              zIndex: -1,
-              scrollTrigger: {
-                trigger: trigger,
-                start: 'top 5%',
-                end: '+=15%',
-                scrub: 1,
-              },
-            });
-          }
-
-          // Expand circular video to full viewport pinned
-          gsap.to(videoElement, {
-            duration: 2,
-            ease: 'power2.inOut',
-            minWidth: '101vw',
-            width: '101vw',
-            minHeight: '101vh',
-            height: '101vh',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            borderRadius: '0px',
+        mm.add('(min-width: 0px)', () => {
+          const heroTl = gsap.timeline({
             scrollTrigger: {
               trigger: trigger,
               start: 'top top',
-              end: '+=320%',
+              end: '+=240%',
               scrub: 1,
               pin: true,
               anticipatePin: 1,
             },
           });
 
-          if (headingWrapper) {
-            const offsetH = Math.max(0, window.innerHeight / 2 - headingWrapper.offsetHeight / 2 - 80);
-            gsap.to(headingWrapper, {
-              duration: 1,
+          // 1. Fade & shrink side letters & text indicators
+          heroTl.to(titles, {
+            duration: 0.6,
+            ease: 'power2.inOut',
+            opacity: 0,
+            scale: 0.85,
+            width: '0px',
+          }, 0);
+
+          if (oLetter) {
+            heroTl.to(oLetter, {
+              duration: 0.4,
               ease: 'power2.inOut',
-              y: offsetH,
-              scrollTrigger: {
-                trigger: trigger,
-                start: 'top top',
-                end: '+=280%',
-                scrub: 1,
-              },
-            });
+              opacity: 0,
+              scale: 0.85,
+            }, 0);
           }
 
+          if (scrollText) {
+            heroTl.to(scrollText, {
+              duration: 0.3,
+              ease: 'power2.inOut',
+              opacity: 0,
+            }, 0);
+          }
+
+          if (credits) {
+            heroTl.to(credits, {
+              duration: 0.4,
+              ease: 'power2.inOut',
+              opacity: 0,
+              y: 20,
+            }, 0);
+          }
+
+          // 2. Expand video container to full screen center without any horizontal offset
           if (videoContainer) {
-            gsap.to(videoContainer, {
-              duration: 1,
+            heroTl.to(videoContainer, {
+              duration: 1.2,
               ease: 'power2.inOut',
               marginTop: 0,
-              scrollTrigger: {
-                trigger: trigger,
-                start: 'top top',
-                end: '+=280%',
-                scrub: 1,
-              },
-            });
+              marginLeft: 0,
+            }, 0);
+          }
+
+          if (headingWrapper) {
+            heroTl.to(headingWrapper, {
+              duration: 1.2,
+              ease: 'power2.inOut',
+              width: '100vw',
+              maxWidth: '100vw',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }, 0);
+          }
+
+          // 3. Expand the video to exact 100vw x 100vh full-screen (covers every pixel, no white gap)
+          heroTl.to(videoElement, {
+            duration: 1.6,
+            ease: 'power2.inOut',
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            width: '100vw',
+            height: '100vh',
+            minWidth: '100vw',
+            minHeight: '100vh',
+            maxWidth: '100vw',
+            maxHeight: '100vh',
+            inset: 0,
+            margin: 0,
+            transform: 'none',
+            borderRadius: '0px',
+            zIndex: 100,
+          }, 0);
+
+          if (videoEmbed) {
+            heroTl.to(videoEmbed, {
+              duration: 1.6,
+              ease: 'power2.inOut',
+              width: '100%',
+              height: '100%',
+              transform: 'none',
+            }, 0);
           }
         });
       }

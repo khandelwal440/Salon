@@ -4,7 +4,6 @@ import React from 'react';
 import useUnionGsap from './useUnionGsap';
 import Header from './Header';
 import HeroSection from './HeroSection';
-import TrailerSection from './TrailerSection';
 import AboutSection from './AboutSection';
 import GallerySection from './GallerySection';
 import TeamSection from './TeamSection';
@@ -28,13 +27,10 @@ export default function AboutPage() {
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <main className="main">
-            {/* 1. Hero with festival laurels, UNION typographic title & inline teaser */}
+            {/* 1. Hero with festival laurels, typographic title & full-screen expanding scroll trailer */}
             <HeroSection />
 
-            {/* 2. Full Trailer video */}
-            <TrailerSection />
-
-            {/* 3. About & Synopsis */}
+            {/* 2. About & Synopsis */}
             <AboutSection />
 
             {/* 4. Film photo gallery */}
