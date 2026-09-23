@@ -11,7 +11,6 @@ import FundersMarqueeSection from './FundersMarqueeSection';
 import StatementsSection from './StatementsSection';
 import PressSection from './PressSection';
 import WatchSection from './WatchSection';
-import LaborSection from './LaborSection';
 import MerchSection from './MerchSection';
 import Footer from './Footer';
 
@@ -50,9 +49,6 @@ export default function AboutPage() {
 
             {/* 9. Watch / Screenings (Interactive Upcoming/Past Toggle) */}
             <WatchSection />
-
-            {/* 10. Fight for Fair Labor editorial */}
-            <LaborSection />
 
             {/* 11. Exclusive Merchandise Catalog */}
             <MerchSection />
