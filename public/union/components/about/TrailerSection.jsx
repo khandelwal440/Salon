@@ -16,7 +16,7 @@ export default function TrailerSection() {
           poster="/images/6879fe6dec427cb553651a55_asset_24__1_.webp"
           style={{ objectFit: 'cover' }}
         >
-          <source src="/videos/union-of-trailer.mp4" type="video/mp4" />
+          <source src="/videos/C3815.MP4" type="video/mp4" />
         </video>
       </div>
     </section>

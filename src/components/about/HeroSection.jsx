@@ -73,7 +73,7 @@ export default function HeroSection() {
                       poster="/images/6879fe6dec427cb553651a55_asset_24__1_.webp"
                       style={{ objectFit: 'cover', width: '100%', height: '100%' }}
                     >
-                      <source src="/videos/union-of-trailer.mp4" type="video/mp4" />
+                      <source src="/videos/C3815.MP4" type="video/mp4" />
                     </video>
                   </div>
                 </div>
