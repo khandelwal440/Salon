@@ -11,7 +11,6 @@ import FundersMarqueeSection from './FundersMarqueeSection';
 import StatementsSection from './StatementsSection';
 import PressSection from './PressSection';
 import WatchSection from './WatchSection';
-import MerchSection from './MerchSection';
 import Footer from './Footer';
 
 export default function AboutPage() {
@@ -49,9 +48,6 @@ export default function AboutPage() {
 
             {/* 9. Watch / Screenings (Interactive Upcoming/Past Toggle) */}
             <WatchSection />
-
-            {/* 11. Exclusive Merchandise Catalog */}
-            <MerchSection />
           </main>
 
           {/* 12. Footer with press kit download, socials & newsletter */}
