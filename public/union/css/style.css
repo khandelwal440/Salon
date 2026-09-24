@@ -2823,8 +2823,6 @@ a {
   inset: 51% 0 0 54%;
   overflow: hidden;
   transform: translate(-51.3%, -50%);
-  border: 1.5px solid #8B9FF8;
-  box-shadow: 0 0 0 1px rgba(139, 159, 248, 0.25);
 }
 
 .section-hero__video-embed {
@@ -2837,7 +2835,7 @@ a {
 
 .section-hero__video-text {
   z-index: 1;
-  color: #22c55e;
+  color: var(--untitled-ui--white);
   text-transform: uppercase;
   font-family: Newtitle, Arial, sans-serif;
   font-size: 2rem;

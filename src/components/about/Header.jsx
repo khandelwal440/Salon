@@ -55,16 +55,8 @@ export default function Header() {
                     <a href="#trailer" onClick={closeMenu} className="header__link dec w-inline-block text-[#141414]">
                       <div data-role="header-link-hover">TRAILER</div>
                     </a>
-                    {/* Active Page Indicator: Primary Green Accent */}
-                    <a
-                      href="#about"
-                      onClick={closeMenu}
-                      className="header__link header__link--active w-inline-block !text-[#22C55E]"
-                      style={{ color: '#22C55E' }}
-                    >
-                      <div data-role="header-link-hover" className="font-bold text-[#22C55E]" style={{ color: '#22C55E' }}>
-                        ABOUT
-                      </div>
+                    <a href="#about" onClick={closeMenu} className="header__link w-inline-block text-[#141414]">
+                      <div data-role="header-link-hover">ABOUT</div>
                     </a>
                     <a href="#team" onClick={closeMenu} className="header__link w-inline-block text-[#141414]">
                       <div data-role="header-link-hover">TEAM</div>
