@@ -4,32 +4,32 @@ import React from 'react';
 
 const laurels = [
   {
-    src: '/images/686bbad33727ea88cc0b33bb_asset_28.webp',
-    alt: 'Logo of the Visions du Réel festival, featuring laurel leaves and the text "Official Selection 2024."',
+    src: '/images/awards/award_luxury_salon.svg',
+    alt: 'Best Luxury Salon Awards 2024 Winner badge with laurel wreath',
   },
   {
-    src: '/images/686bbb6110d360f05a6c19e2_asset_25.webp',
-    alt: 'Logo featuring the word "SPFX" encircled by a decorative laurel wreath, with "A Company" and "Fachtiged 1984" above and below.',
+    src: '/images/awards/award_vogue_beauty.svg',
+    alt: 'Vogue Beauty Awards 2024 Official Choice badge with laurel wreath',
   },
   {
-    src: '/images/686bbb9ed0c79e562364f643_asset_24.webp',
-    alt: 'Laurel wreath symbol with the text "Official Selection True/False Film Fest" in teal, representing film festival recognition.',
+    src: '/images/awards/award_elle_wellness.svg',
+    alt: 'Elle Spa & Care Selection Top Wellness badge with laurel wreath',
   },
   {
-    src: '/images/686bbbe17fb6fdadca57dba7_asset_29.webp',
-    alt: 'Logo for the DOXA Documentary Film Festival 2024, featuring laurel leaves and the text "Official Selection."',
+    src: '/images/awards/award_gq_grooming.svg',
+    alt: 'GQ Grooming Excellence 2024 Awards badge with laurel wreath',
   },
   {
-    src: '/images/686bbc119c49b9f6e19da8f5_asset_26.webp',
-    alt: 'Logo featuring "Official Selection" and "Hot Docs 2024" with a laurel design, highlighting a film festival recognition.',
+    src: '/images/awards/award_bazaar_styling.svg',
+    alt: "Harper's Bazaar Best Styling Studio 2024 badge with laurel wreath",
   },
   {
-    src: '/images/686bbc4e7ed61a42566807ad_asset_30.webp',
-    alt: 'Logo for Sheffield DocFest 2024 featuring laurel wreaths and the text "Official Selection."',
+    src: '/images/awards/award_cosmo_beauty.svg',
+    alt: 'Cosmopolitan Beauty Gold Winner 2024 badge with laurel wreath',
   },
   {
-    src: '/images/686bbd330c8d9aac9111d6f5_asset_27.webp',
-    alt: 'Official selection badge for the 2024 Full Frame Documentary Film Festival featuring a laurel wreath design.',
+    src: '/images/awards/award_hygiene_certified.svg',
+    alt: 'Gold Standard Hygiene Certified Care Aluma Protocol badge with laurel wreath',
   },
 ];
 
