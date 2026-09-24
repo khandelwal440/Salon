@@ -57,6 +57,11 @@
   font-family: "Space Mono", monospace;
 }
 
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
 /* Smooth Lenis styles */
 html.lenis, html.lenis body {
   height: auto;
@@ -184,3 +189,10 @@ html.lenis, html.lenis body {
 ::-webkit-scrollbar-thumb:hover {
   background: #FF6E40;
 }
+
+/* Hide credits list and laurels in About pages */
+.list-edited-by,
+.section-hero__logo-wrapper {
+  display: none !important;
+}
+

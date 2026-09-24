@@ -75,7 +75,7 @@ export const salonData = {
     logoSvg: "/aluma-assets/logo.svg",
     heroYouTubeId: "-FnrCZJw6TE",
     heroYouTubeUrl: "https://youtu.be/-FnrCZJw6TE?si=c5fhdUcZxtjQq9_l",
-    heroVideo: "/aluma-assets/gallery-vid.04e7549cd8de058adea6.mp4",
+    heroVideo: "/videos/g.mp4",
     galleryVideo: "/aluma-assets/ALUMA.036187e7de1663d09d1a.mp4",
     heroImage: "/aluma-assets/aluma-white-hero.4e1788185e4dce97f3b3.jpeg",
     receptionImage: "/aluma-assets/aluma-reception.73904b87bb650e2ccb78.jpeg",

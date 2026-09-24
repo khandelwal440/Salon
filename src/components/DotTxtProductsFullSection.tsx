@@ -69,8 +69,8 @@ export default function DotTxtProductsFullSection() {
               <div className="UseCasesSection_useCases__content__pKzEt grid grid-cols-1 lg:grid-cols-12">
                 
                 {/* 1. Title & Header Box */}
-                <div className="UseCasesSection_useCases__box__CpS__ UseCasesSection_useCases__boxTitle__9PJwh bg-white p-8 sm:p-12 lg:col-span-6 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-black/10">
-                  <div className="UseCasesSection_useCases__header__wtR9w flex items-center justify-between mb-8">
+                <div className="UseCasesSection_useCases__box__CpS__ UseCasesSection_useCases__boxTitle__9PJwh bg-white p-6 sm:p-8 lg:p-12 lg:col-span-6 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-black/10">
+                  <div className="UseCasesSection_useCases__header__wtR9w flex items-center justify-between mb-6 sm:mb-8">
                     <div className="UseCasesSection_useCases__label__l4teN">
                       <div className="SectionLabel_sectionLabel__p19ZQ flex items-center gap-3">
                         <span className="SectionLabel_sectionLabel__index__lvtR0 font-mono text-sm font-bold text-black">
@@ -90,19 +90,19 @@ export default function DotTxtProductsFullSection() {
                     </div>
                   </div>
 
-                  <div className="UseCasesSection_useCases__titleWrapper__QyT35 my-auto py-8">
+                  <div className="UseCasesSection_useCases__titleWrapper__QyT35 my-auto py-4 sm:py-8">
                     <div className="UseCasesSection_useCases__title__h878h use-cases__title">
-                      <h2 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-normal text-black tracking-tight leading-tight">
+                      <h2 className="text-2xl sm:text-4xl lg:text-6xl font-serif font-normal text-black tracking-tight leading-tight">
                         {current.title}
                       </h2>
                     </div>
 
-                    <div className="use-cases__button UseCasesSection_useCases__button__iBKnK pointer-events-auto mt-8">
+                    <div className="use-cases__button UseCasesSection_useCases__button__iBKnK pointer-events-auto mt-6 sm:mt-8">
                       <a
                         href={current.buttonHref}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="btn use-cases__btn inline-flex items-center gap-3 px-8 py-4 rounded-full bg-black text-white hover:bg-[#FF6E40] transition-all duration-300 font-mono text-xs uppercase tracking-wider font-semibold shadow-xl"
+                        className="btn use-cases__btn inline-flex items-center gap-3 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-black text-white hover:bg-[#FF6E40] transition-all duration-300 font-mono text-xs uppercase tracking-wider font-semibold shadow-xl"
                       >
                         <span className="label hover-effect">{current.buttonText}</span>
                         <span className="key w-5 h-5 rounded-full bg-white text-black text-[10px] flex items-center justify-center font-bold">
@@ -114,7 +114,7 @@ export default function DotTxtProductsFullSection() {
                 </div>
 
                 {/* 2. Controls & Step Indicators */}
-                <div className="UseCasesSection_useCases__box__CpS__ UseCasesSection_useCases__boxIndex__4kG9y bg-white p-8 sm:p-12 lg:col-span-6 flex flex-col justify-between">
+                <div className="UseCasesSection_useCases__box__CpS__ UseCasesSection_useCases__boxIndex__4kG9y bg-white p-6 sm:p-8 lg:p-12 lg:col-span-6 flex flex-col justify-between">
                   {/* Top Arrow Navigation */}
                   <div className="UseCasesSection_useCases__navButtons__UZzcw flex items-center justify-between gap-4 mb-8">
                     <div className="flex items-center gap-3">

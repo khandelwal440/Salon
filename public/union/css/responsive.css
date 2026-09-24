@@ -72,111 +72,101 @@
 /* 3. Hero Section (<= 991px) - Big Impact UNION with circular video in 'O' & Fullscreen Scroll Expansion */
 @media (max-width: 991px) {
   .section.section--hero {
-    padding-top: clamp(2.5rem, 6vw, 4.5rem) !important;
+    min-height: 85svh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding-top: max(6rem, 14vh) !important;
     padding-bottom: 2rem !important;
     position: relative !important;
     z-index: 1 !important;
     background-color: #f4f3ed !important;
+    box-sizing: border-box !important;
   }
 
   .section-hero__inner {
     position: relative !important;
     z-index: 2 !important;
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
   }
 
   .section-hero__content {
     position: relative !important;
-  }
-
-  .section-hero__logo-wrapper {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    align-items: center !important;
-    gap: 0.6rem 1rem !important;
     width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 auto 1.5rem !important;
-    padding: 0 0.5rem !important;
-  }
-
-  .section-hero__logo {
-    height: clamp(1.6rem, 4.5vw, 2.3rem) !important;
-    max-width: 42% !important;
     display: flex !important;
-    align-items: center !important;
     justify-content: center !important;
+    align-items: center !important;
   }
 
-  .section-hero__logo-image {
-    max-height: 100% !important;
-    width: auto !important;
-    object-fit: contain !important;
-  }
-
-  /* Hide static vector on mobile so interactive UNION with Video in 'O' is shown */
+  /* Hide static vector on mobile so interactive ABOUT with Video in 'O' is shown */
   .section-hero__heading-vector {
     display: none !important;
   }
 
+  /* Perfectly Shaped ABOUT wordmark on Mobile */
   .section-hero__heading-wrapper {
     display: flex !important;
+    flex-direction: row !important;
     align-items: center !important;
     justify-content: center !important;
     width: 100% !important;
     max-width: 100% !important;
-    margin: 1rem auto 2rem !important;
+    margin: 0 auto !important;
+    gap: clamp(0.25rem, 1.5vw, 0.6rem) !important;
     overflow: visible !important;
     position: relative !important;
+    text-align: center !important;
+    white-space: nowrap !important;
   }
 
-  /* Extra Large, Bold, Grand UNION typography on mobile */
   .heading.heading--xxl {
-    font-size: clamp(8.5rem, 36vw, 20rem) !important;
-    line-height: 0.8 !important;
-    letter-spacing: -0.02em !important;
+    font-size: clamp(3.6rem, 16vw, 6.5rem) !important;
+    line-height: 1 !important;
+    letter-spacing: -0.01em !important;
     text-transform: uppercase !important;
-    font-family: Newtitle, Arial, sans-serif !important;
+    font-family: Newtitle, 'Coolvetica Crammed Rg', Anton, sans-serif !important;
     font-weight: 700 !important;
+    color: var(--about-ink, #1c1c1c) !important;
     margin: 0 !important;
     padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
   }
 
   .heading.heading--xxl.heading--xxl--ninna {
-    font-size: clamp(8.5rem, 36vw, 20rem) !important;
-    font-family: Ninna Trial, Arial, sans-serif !important;
-    font-weight: 400 !important;
-    z-index: 2 !important;
-    pointer-events: none !important;
-    position: relative !important;
-    margin: 0 !important;
+    display: none !important;
   }
 
+  /* The circular video shaped as the 'O' */
   .section-hero__video-wrapper {
     position: relative !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    margin-top: -2% !important;
-    margin-left: -2% !important;
-    overflow: visible !important;
+    width: clamp(3.6rem, 16vw, 6.5rem) !important;
+    height: clamp(3.6rem, 16vw, 6.5rem) !important;
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+    border-radius: 50% !important;
   }
 
-  /* Note: NO !important on border-radius so GSAP can animate to 0px fullscreen rectangle */
   .section-hero__video {
-    border-radius: 100vh;
-    justify-content: center !important;
-    align-items: center !important;
-    width: 88% !important;
-    height: 92% !important;
-    display: flex !important;
-    position: absolute !important;
-    top: 50% !important;
-    left: 50% !important;
-    right: auto !important;
-    bottom: auto !important;
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 50% !important;
+    position: relative !important;
+    inset: auto !important;
+    transform: none !important;
     overflow: hidden !important;
-    transform: translate(-50%, -50%) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+    border: clamp(2.5px, 0.8vw, 4.5px) solid #1c1c1c !important;
     z-index: 1 !important;
   }
 
@@ -190,20 +180,24 @@
     justify-content: center !important;
   }
 
-  .section-hero__video-embed video {
+  .section-hero__video video {
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
+    border-radius: 50% !important;
   }
 
   .section-hero__video-text {
-    font-size: clamp(0.9rem, 3.2vw, 1.5rem) !important;
-    z-index: 2 !important;
-    color: #fff !important;
-    font-family: Newtitle, Arial, sans-serif !important;
+    position: absolute !important;
+    font-size: clamp(0.55rem, 2.2vw, 0.8rem) !important;
+    z-index: 3 !important;
+    color: #ffffff !important;
+    font-family: Newtitle, 'Coolvetica Crammed Rg', sans-serif !important;
     font-weight: 700 !important;
     text-transform: uppercase !important;
-    letter-spacing: 0.05em !important;
+    letter-spacing: 0.12em !important;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8) !important;
+    pointer-events: none !important;
   }
 
   .list-edited-by {
@@ -311,7 +305,8 @@
   .gallery__wrapper {
     width: 100% !important;
     overflow: visible !important;
-    padding: 2rem 0 !important;
+    padding: 1rem 0 !important;
+    margin: 0 !important;
   }
 
   .gallery__outer {
@@ -324,7 +319,7 @@
     position: relative !important;
     width: 100% !important;
     max-width: 100% !important;
-    height: clamp(300px, 60vh, 520px) !important;
+    height: clamp(280px, 52vh, 440px) !important;
     margin: 0 auto !important;
     overflow: visible !important;
   }
@@ -333,16 +328,16 @@
     display: block !important;
     position: absolute !important;
     top: 0 !important;
-    left: 4% !important;
-    right: 4% !important;
+    left: 3% !important;
+    right: 3% !important;
     bottom: auto !important;
-    width: 92% !important;
-    max-width: 520px !important;
+    width: 94% !important;
+    max-width: 480px !important;
     margin: 0 auto !important;
-    height: clamp(260px, 54vh, 440px) !important;
+    height: clamp(260px, 50vh, 420px) !important;
     border-radius: 12px !important;
     overflow: hidden !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2) !important;
   }
 
   .gallery__image-wrapper.gallery__image-wrapper--first { z-index: 6 !important; }
@@ -364,15 +359,15 @@
 /* 6. Creative Team Section & Popup Modal (<= 991px) */
 @media (max-width: 991px) {
   #team.section {
-    padding-top: 3.5rem !important;
-    padding-bottom: 2rem !important;
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
     background-color: #f4f3ed !important;
     position: relative !important;
     z-index: 10 !important;
   }
 
   .team__content {
-    margin-top: 1.5rem !important;
+    margin-top: 1rem !important;
   }
 
   .team__slider-wrapper.swiper {
@@ -461,3 +456,10 @@
     word-break: break-all !important;
   }
 }
+
+.list-edited-by,
+.section-hero__logo-wrapper,
+.section-hero__logo {
+  display: none !important;
+}
+

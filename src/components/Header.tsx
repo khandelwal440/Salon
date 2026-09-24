@@ -104,7 +104,7 @@ export default function Header({ onOpenBooking }: HeaderProps) {
         </div>
 
         {/* Hero Name / Monumental Wordmark styled with Alata */}
-        <span className="font-alata text-6xl sm:text-7xl md:text-[11vw] lg:text-[13vw] tracking-[0.04em] font-normal text-[#FFFFFF] leading-none drop-shadow-[0_15px_30px_rgba(0,0,0,0.7)] hover:text-[#FF6E40] transition-colors">
+        <span className="font-alata text-4xl sm:text-6xl md:text-[11vw] lg:text-[13vw] tracking-[0.04em] font-normal text-[#FFFFFF] leading-none drop-shadow-[0_15px_30px_rgba(0,0,0,0.7)] hover:text-[#FF6E40] transition-colors">
           {salonData.brand.name}
         </span>
       </div>
@@ -114,13 +114,13 @@ export default function Header({ onOpenBooking }: HeaderProps) {
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
           progress > 0.15
             ? "bg-[#3D2267]/90 backdrop-blur-md py-4 shadow-2xl"
-            : "bg-transparent py-5 md:py-6"
+            : "bg-transparent py-4 sm:py-5 md:py-6"
         }`}
       >
-        <div className="max-w-[1720px] mx-auto px-6 md:px-12 flex items-center justify-between">
+        <div className="max-w-[1720px] mx-auto px-4 sm:px-6 md:px-12 flex items-center justify-between">
           {/* Invisible Spacer reserving the exact left dock for the gliding logo */}
           <div
-            className="w-[140px] sm:w-[180px] md:w-[220px] h-10 opacity-0 pointer-events-none shrink-0"
+            className="w-[100px] sm:w-[180px] md:w-[220px] h-10 opacity-0 pointer-events-none shrink-0"
             aria-hidden="true"
           />
 
@@ -145,10 +145,10 @@ export default function Header({ onOpenBooking }: HeaderProps) {
           </nav>
 
           {/* Right Action: Pill Button (Elyse "BOOK A VISIT" Style) */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 sm:gap-4">
             <button
               onClick={onOpenBooking}
-              className="px-6 py-2.5 rounded-full text-xs font-mono tracking-[0.18em] uppercase text-[#3D2267] bg-[#FFFFFF] hover:bg-[#FF6E40] hover:text-[#FFFFFF] transition-all duration-300 font-semibold shadow-md active:scale-95 hover:shadow-[0_0_20px_rgba(255,110,64,0.5)]"
+              className="px-3.5 sm:px-6 py-2 sm:py-2.5 rounded-full text-[10px] sm:text-xs font-mono tracking-[0.14em] sm:tracking-[0.18em] uppercase text-[#3D2267] bg-[#FFFFFF] hover:bg-[#FF6E40] hover:text-[#FFFFFF] transition-all duration-300 font-semibold shadow-md active:scale-95 hover:shadow-[0_0_20px_rgba(255,110,64,0.5)] whitespace-nowrap"
             >
               Book A Visit
             </button>

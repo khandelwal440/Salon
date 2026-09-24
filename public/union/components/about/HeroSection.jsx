@@ -2,46 +2,10 @@
 
 import React from 'react';
 
-const laurels = [
-  {
-    src: '/images/awards/award_luxury_salon.svg',
-    alt: 'Best Luxury Salon Awards 2024 Winner badge with laurel wreath',
-  },
-  {
-    src: '/images/awards/award_vogue_beauty.svg',
-    alt: 'Vogue Beauty Awards 2024 Official Choice badge with laurel wreath',
-  },
-  {
-    src: '/images/awards/award_elle_wellness.svg',
-    alt: 'Elle Spa & Care Selection Top Wellness badge with laurel wreath',
-  },
-  {
-    src: '/images/awards/award_gq_grooming.svg',
-    alt: 'GQ Grooming Excellence 2024 Awards badge with laurel wreath',
-  },
-  {
-    src: '/images/awards/award_bazaar_styling.svg',
-    alt: "Harper's Bazaar Best Styling Studio 2024 badge with laurel wreath",
-  },
-  {
-    src: '/images/awards/award_cosmo_beauty.svg',
-    alt: 'Cosmopolitan Beauty Gold Winner 2024 badge with laurel wreath',
-  },
-  {
-    src: '/images/awards/award_hygiene_certified.svg',
-    alt: 'Gold Standard Hygiene Certified Care Aluma Protocol badge with laurel wreath',
-  },
-];
-
 export default function HeroSection() {
   return (
     <section target-section-trailer="" className="section section--hero">
       <div className="container">
-        {/* Festival Laurels */}
-        <div data-sped="1" className="section-hero__logo-wrapper">
-          {laurelItems(laurels)}
-        </div>
-
         {/* Hero Title & Inline Teaser Video */}
         <div data-animation-video="video-trigger" className="section-hero__inner">
           <div className="section-hero__content">
@@ -73,7 +37,7 @@ export default function HeroSection() {
                       poster="/images/6879fe6dec427cb553651a55_asset_24__1_.webp"
                       style={{ objectFit: 'cover' }}
                     >
-                      <source src="/videos/union-of-trailer.mp4" type="video/mp4" />
+                      <source src="/videos/C3815.MP4" type="video/mp4" />
                     </video>
                   </div>
                   <div data-animation-video="scroll" className="section-hero__video-text">
@@ -91,73 +55,10 @@ export default function HeroSection() {
                 </h1>
               </div>
             </div>
-
-            {/* Film Credits */}
-            <div data-animation-video="opacity" className="list-edited-by">
-              <div className="list-edited-by__line">
-                <div className="list-edited-by__item">
-                  <div className="list-edited-by__item-by">
-                    edited
-                    <br />
-                    by
-                  </div>
-                  <div className="list-edited-by__item-name">ALUMA TEAM</div>
-                </div>
-                <div className="list-edited-by__item">
-                  <div className="list-edited-by__item-by">
-                    cinematography
-                    <br />
-                    by
-                  </div>
-                  <div className="list-edited-by__item-name">ALUMA CREATIVE</div>
-                </div>
-                <div className="list-edited-by__item">
-                  <div className="list-edited-by__item-by">
-                    original music
-                    <br />
-                    by
-                  </div>
-                  <div className="list-edited-by__item-name">ALUMA SOUNDS</div>
-                </div>
-              </div>
-
-              <div className="list-edited-by__line">
-                <div className="list-edited-by__item">
-                  <div className="list-edited-by__item-by">
-                    produced
-                    <br />
-                    by
-                  </div>
-                  <div className="list-edited-by__item-name_wrapper">
-                    <div className="list-edited-by__item-name">ALUMA SALON</div>
-                    <div className="list-edited-by__item-name">LUXURY CARE</div>
-                  </div>
-                </div>
-                <div className="list-edited-by__item">
-                  <div className="list-edited-by__item-by">
-                    directed
-                    <br />
-                    by
-                  </div>
-                  <div className="list-edited-by__item-name_wrapper">
-                    <div className="list-edited-by__item-name">ALUMA SALON</div>
-                    <div className="list-edited-by__item-name">EXPERIENCE</div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
       <div id="trailer-botom" className="botom-scrol"></div>
     </section>
   );
-}
-
-function laurelItems(items) {
-  return items.map((item, idx) => (
-    <div key={idx} className="section-hero__logo">
-      <img src={item.src} loading="lazy" alt={item.alt} className="section-hero__logo-image" />
-    </div>
-  ));
 }

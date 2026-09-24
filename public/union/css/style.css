@@ -5318,40 +5318,74 @@ body, html, #smooth-wrapper, #smooth-content, .main {
   }
 
   /* 2. SHOW the interactive ABOUT hero with Video in 'O' */
+  .section.section--hero {
+    min-height: 80svh !important;
+    min-height: 80vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding-top: max(8rem, 25vh) !important;
+    padding-bottom: 2rem !important;
+    position: relative !important;
+    z-index: 1 !important;
+    background-color: #f4f3ed !important;
+    box-sizing: border-box !important;
+  }
+
+  .section-hero__inner {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 0 auto !important;
+  }
+
+  .section-hero__content {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    position: relative !important;
+  }
+
+  .section-hero__heading-vector {
+    display: none !important;
+  }
+
+  /* Perfectly Shaped ABOUT wordmark on Mobile */
   .section-hero__heading-wrapper {
     display: flex !important;
+    flex-direction: row !important;
     align-items: center !important;
     justify-content: center !important;
     width: 100% !important;
     max-width: 100% !important;
-    margin: 1rem auto 1.5rem !important;
+    margin: 0 auto !important;
+    gap: clamp(0.25rem, 1.5vw, 0.6rem) !important;
     overflow: visible !important;
     position: relative !important;
+    text-align: center !important;
     white-space: nowrap !important;
   }
 
   /* Responsive Font Size for ABOUT on Mobile */
   .heading.heading--xxl {
-    font-size: clamp(4.2rem, 18vw, 8rem) !important;
-    line-height: 0.85 !important;
-    letter-spacing: -0.03em !important;
+    font-size: clamp(3.6rem, 16vw, 6.5rem) !important;
+    line-height: 1 !important;
+    letter-spacing: -0.01em !important;
     text-transform: uppercase !important;
-    font-family: 'Playfair Display', 'Cormorant Garamond', 'Newtitle', Georgia, serif !important;
+    font-family: Newtitle, 'Coolvetica Crammed Rg', Anton, sans-serif !important;
     font-weight: 700 !important;
-    color: var(--about-ink) !important;
+    color: var(--about-ink, #1c1c1c) !important;
     margin: 0 !important;
     padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
   }
 
   .heading.heading--xxl.heading--xxl--ninna {
-    font-size: clamp(4.2rem, 18vw, 8rem) !important;
-    font-family: 'Playfair Display', 'Cormorant Garamond', 'Ninna Trial', Georgia, serif !important;
-    font-weight: 400 !important;
-    z-index: 2 !important;
-    pointer-events: none !important;
-    position: relative !important;
-    margin: 0 !important;
-    color: var(--about-ink) !important;
+    display: none !important;
   }
 
   /* Video wrapper in 'O' on Mobile */
@@ -5360,116 +5394,66 @@ body, html, #smooth-wrapper, #smooth-content, .main {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    margin-top: -1% !important;
-    margin-left: -1% !important;
-    overflow: visible !important;
-    width: clamp(4rem, 17vw, 7.5rem) !important;
-    height: clamp(4rem, 17vw, 7.5rem) !important;
+    width: clamp(3.6rem, 16vw, 6.5rem) !important;
+    height: clamp(3.6rem, 16vw, 6.5rem) !important;
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+    border-radius: 50% !important;
   }
 
   .section-hero__video {
-    border-radius: 100vh !important;
-    justify-content: center !important;
-    align-items: center !important;
-    width: 88% !important;
-    height: 92% !important;
-    display: flex !important;
-    position: absolute !important;
-    top: 50% !important;
-    left: 50% !important;
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 50% !important;
+    position: relative !important;
+    inset: auto !important;
+    transform: none !important;
     overflow: hidden !important;
-    transform: translate(-50%, -50%) !important;
-    border: 1.5px solid var(--about-green) !important;
-    outline: 1px solid var(--about-periwinkle) !important;
-    outline-offset: 2px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+    border: clamp(2.5px, 0.8vw, 4.5px) solid #1c1c1c !important;
     z-index: 1 !important;
+  }
+
+  .section-hero__video-embed {
+    width: 100% !important;
+    height: 100% !important;
+    position: absolute !important;
+    inset: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
 
   .section-hero__video video {
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
+    border-radius: 50% !important;
   }
 
   .section-hero__video-text {
-    font-size: clamp(0.55rem, 2.2vw, 0.85rem) !important;
-    z-index: 2 !important;
-    color: var(--about-green) !important;
+    position: absolute !important;
+    font-size: clamp(0.55rem, 2.2vw, 0.8rem) !important;
+    z-index: 3 !important;
+    color: #ffffff !important;
+    font-family: Newtitle, 'Coolvetica Crammed Rg', sans-serif !important;
     font-weight: 700 !important;
     text-transform: uppercase !important;
-    letter-spacing: 0.1em !important;
+    letter-spacing: 0.12em !important;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8) !important;
+    pointer-events: none !important;
   }
 
-  /* 3. Award Laurels Banner — Clean Single Horizontal Scroll Strip */
-  .section-hero__logo-wrapper {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    overflow-x: auto !important;
-    scrollbar-width: none !important;
-    -ms-overflow-style: none !important;
-    justify-content: flex-start !important;
-    align-items: center !important;
-    gap: clamp(1.2rem, 4vw, 2.2rem) !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 0.5rem 1rem !important;
-    margin: 0 auto 1.5rem !important;
-  }
-  .section-hero__logo-wrapper::-webkit-scrollbar {
+  /* 3. Hide Unwanted Items on Mobile */
+  .section-hero__logo-wrapper,
+  .list-edited-by {
     display: none !important;
   }
 
-  .section-hero__logo {
-    flex: 0 0 auto !important;
-    height: clamp(1.8rem, 5vw, 2.5rem) !important;
-    max-width: none !important;
-  }
-
-  /* 4. Editorial Credits on Mobile — Desktop Layout Clone */
-  .list-edited-by {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    margin-top: 1.5rem !important;
-    gap: 0.85rem !important;
-    padding: 0 0.5rem !important;
-  }
-
-  .list-edited-by__line {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    align-items: center !important;
-    gap: clamp(0.6rem, 2vw, 1.25rem) !important;
-    width: 100% !important;
-  }
-
-  .list-edited-by__item {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: baseline !important;
-    gap: 0.35rem !important;
-    font-size: clamp(0.65rem, 2vw, 0.85rem) !important;
-    text-transform: uppercase !important;
-  }
-
-  .list-edited-by__item-by {
-    font-size: clamp(0.55rem, 1.7vw, 0.75rem) !important;
-    line-height: 1.1 !important;
-    color: var(--about-muted-text) !important;
-  }
-
-  .list-edited-by__item-name {
-    font-size: clamp(0.7rem, 2.2vw, 0.9rem) !important;
-    font-weight: 700 !important;
-    color: var(--about-ink) !important;
-  }
-
-  /* 5. Eliminate blank / empty gaps across all mobile sections */
+  /* 4. Eliminate blank / empty gaps across all mobile sections */
   .botom-scrol,
   #trailer-botom {
     display: none !important;
@@ -5480,15 +5464,7 @@ body, html, #smooth-wrapper, #smooth-content, .main {
   }
 
   .main {
-    padding-top: clamp(1rem, 4vw, 2.5rem) !important;
-  }
-
-  .section.section--hero {
-    padding-top: clamp(1.5rem, 5vw, 3rem) !important;
-    padding-bottom: clamp(1rem, 3vw, 2rem) !important;
-    min-height: auto !important;
-    height: auto !important;
-    margin-bottom: 0 !important;
+    padding-top: 0 !important;
   }
 
   #about.section,
@@ -5516,7 +5492,7 @@ body, html, #smooth-wrapper, #smooth-content, .main {
     gap: 1.25rem !important;
   }
 
-  /* 6. Remove empty / dashed border box on Mobile */
+  /* 5. Remove empty / dashed border box on Mobile */
   .blockquote {
     border: none !important;
     padding: 0 !important;

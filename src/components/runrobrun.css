@@ -270,8 +270,8 @@
   font-weight: 900;
   text-transform: uppercase;
   text-align: center;
-  font-size: clamp(56px, 11vw, 180px);
-  line-height: 0.82;
+  font-size: clamp(36px, 10vw, 180px);
+  line-height: 0.85;
   letter-spacing: -0.02em;
   padding-top: 2.2vh;
   color: var(--k);
@@ -476,7 +476,7 @@
 }
 
 .runrobrun-wrapper .work h2 {
-  font-size: clamp(48px, 8.5vw, 140px);
+  font-size: clamp(32px, 8.5vw, 140px);
   padding: 2vh 0 1.4vh;
   color: var(--k);
 }

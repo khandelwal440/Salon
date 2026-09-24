@@ -92,7 +92,7 @@ export default function ChapterThreeSection() {
           id: "stChapterThree",
         },
       });
-      s1Tl.set(".chapter-3", { pointerEvents: "auto" });
+      s1Tl.set(root, { pointerEvents: "auto" });
       s1Tl.set(".chapter-3 .sect-1-wrap", { opacity: 1 });
       s1Tl.fromTo(".chapter-3 .sect-1", { "--mx": "20%" }, { "--mx": "100%" });
 
@@ -826,28 +826,28 @@ export default function ChapterThreeSection() {
         @media (max-width: 1023px) {
           .chapter-3 .sect-2-wrap-mob {
             display: block;
-            padding: 10vh 1rem 5.3125rem;
+            padding: 4rem 1rem 3.5rem;
           }
         }
         .chapter-3 .main-title {
-          margin-bottom: 4.5rem;
+          margin-bottom: clamp(2rem, 8vw, 4.5rem);
         }
         .chapter-3 .sect-2-wrap-mob .item:first-child .item-photo {
-          height: 18rem;
+          height: clamp(14rem, 40vh, 18rem);
         }
         .chapter-3 .sect-2-wrap-mob .item:not(:last-child) {
-          margin-bottom: 3rem;
+          margin-bottom: 2.5rem;
         }
         .chapter-3 .sect-2-wrap-mob .item-photo {
-          height: 24rem;
+          height: clamp(16rem, 50vh, 24rem);
           position: relative;
-          border-radius: 1.5rem;
+          border-radius: 1.25rem;
           overflow: hidden;
           border: 1px solid rgba(255, 255, 255, 0.1);
         }
         .chapter-3 .sect-2-wrap-mob .item-text {
-          margin-top: -2.5rem;
-          padding-bottom: 2.5rem;
+          margin-top: -2rem;
+          padding-bottom: 2rem;
           position: relative;
           z-index: 20;
         }
@@ -882,7 +882,7 @@ export default function ChapterThreeSection() {
         }
         @media (max-width: 1023px) {
           .chapter-3 .sect-3 {
-            padding: 1rem;
+            padding: 0.5rem;
           }
         }
         .chapter-3 .sect-3-wrap {
@@ -894,6 +894,11 @@ export default function ChapterThreeSection() {
           z-index: 100;
           border-radius: 1.5rem;
         }
+        @media (max-width: 640px) {
+          .chapter-3 .sect-3-wrap {
+            border-radius: 1rem;
+          }
+        }
         .chapter-3 .sect-3-descr {
           left: 4.6875rem;
           padding-top: 18.3125rem;
@@ -903,7 +908,7 @@ export default function ChapterThreeSection() {
         @media (max-width: 1023px) {
           .chapter-3 .sect-3-descr {
             left: 0;
-            padding-top: 25rem;
+            padding-top: clamp(16rem, 36vh, 25rem);
             text-align: center;
             width: 100%;
           }
@@ -952,8 +957,8 @@ export default function ChapterThreeSection() {
         }
         @media (max-width: 1023px) {
           .chapter-3 .sect-3-photos {
-            gap: 1.25rem;
-            padding: 0 15vw 0 20vw;
+            gap: 1rem;
+            padding: 0 10vw 0 15vw;
           }
         }
         .chapter-3 .sect-3-img {
@@ -969,8 +974,8 @@ export default function ChapterThreeSection() {
         }
         @media (max-width: 1023px) {
           .chapter-3 .sect-3-img {
-            height: 16rem;
-            width: 12.5rem;
+            height: clamp(12rem, 30vh, 16rem);
+            width: clamp(9.5rem, 24vw, 12.5rem);
           }
         }
         .chapter-3 .sect-3-desc2 {
@@ -1013,8 +1018,8 @@ export default function ChapterThreeSection() {
         }
         @media (max-width: 1023px) {
           .h1-thin {
-            font-size: 4rem;
-            letter-spacing: -.25rem;
+            font-size: clamp(2.4rem, 11vw, 4rem);
+            letter-spacing: -.15rem;
           }
         }
         .h1-book {
@@ -1027,8 +1032,8 @@ export default function ChapterThreeSection() {
         }
         @media (max-width: 1023px) {
           .h1-book {
-            font-size: 4rem;
-            letter-spacing: -.3rem;
+            font-size: clamp(2.4rem, 11vw, 4rem);
+            letter-spacing: -.18rem;
           }
         }
         .h2-thin {
@@ -1042,8 +1047,8 @@ export default function ChapterThreeSection() {
         }
         @media (max-width: 1023px) {
           .h2-thin {
-            font-size: 2rem;
-            letter-spacing: -.08rem;
+            font-size: clamp(1.4rem, 6.5vw, 2rem);
+            letter-spacing: -.05rem;
           }
         }
         .h2-book {
@@ -1056,8 +1061,8 @@ export default function ChapterThreeSection() {
         }
         @media (max-width: 1023px) {
           .h2-book {
-            font-size: 2rem;
-            letter-spacing: -.08rem;
+            font-size: clamp(1.4rem, 6.5vw, 2rem);
+            letter-spacing: -.05rem;
           }
         }
         .l1-thin {
