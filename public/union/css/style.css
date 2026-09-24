@@ -5075,9 +5075,12 @@ body, html, #smooth-wrapper, #smooth-content, .main {
   opacity: 0.85;
 }
 
-/* Heading & Paragraph hierarchy */
-.heading--xl {
-  color: var(--about-ink);
+/* Light Section Headings & Paragraphs */
+#about .heading--xl,
+#team .heading--xl,
+#partners .heading--xl,
+.section:not(.section--bg-darck):not([data-role-section="dark"]) .heading--xl {
+  color: var(--about-ink) !important;
 }
 
 .paragraph--l,
@@ -5086,19 +5089,72 @@ body, html, #smooth-wrapper, #smooth-content, .main {
   line-height: 1.65 !important;
 }
 
-/* Subtle phrase highlights */
-.highlight-green {
-  color: var(--about-green) !important;
-  display: inline;
+/* --------------------------------------------------------------------------
+   6. DARK SECTIONS: STATEMENTS & "OUR STORY" (#watch)
+   -------------------------------------------------------------------------- */
+.section--bg-darck,
+[data-role-section="dark"],
+#watch,
+.section.section--bg-darck {
+  background-color: #0B0E14 !important;
+  color: #F5F1E6 !important;
 }
 
-.highlight-pink {
+/* "Our story" Main Heading */
+#watch .heading--xl,
+#watch h2.heading--xl,
+[data-role-section="dark"] .heading--xl,
+.section--bg-darck .heading--xl {
+  color: #F5F1E6 !important;
+  opacity: 1 !important;
+  display: block !important;
+}
+
+#watch .section__heading_wrapper {
+  color: #F5F1E6 !important;
+}
+
+/* Dark section statement items */
+.statement-list__item .heading--l {
+  color: #E1EDBA !important;
+}
+
+.statement-list__item-paragraph {
+  color: #F5F1E6 !important;
+  line-height: 1.6;
+}
+
+/* Screenings / Watch list in Our Story */
+.watch-film__change_text {
+  color: #E1EDBA !important;
+}
+
+[data-role-watch-film="upcoming-text"] {
+  color: #E1EDBA !important;
+}
+
+[data-role-watch-film="past-text"] {
+  color: #898989 !important;
+}
+
+.watch-film__list-item .heading--l {
+  color: #F5F1E6 !important;
+}
+
+.watch-film__list-item_paragraph {
+  color: rgba(245, 241, 230, 0.7) !important;
+}
+
+.watch-film__list-item_link {
+  color: var(--about-green) !important;
+}
+
+.watch-film__list-item:hover .watch-film__list-item_link {
   color: var(--about-pink) !important;
-  display: inline;
 }
 
 /* --------------------------------------------------------------------------
-   6. SALON EXPERIENCE GALLERY
+   7. SALON EXPERIENCE GALLERY
    -------------------------------------------------------------------------- */
 .gallery__image-wrapper {
   border-radius: 6px;
@@ -5138,7 +5194,7 @@ body, html, #smooth-wrapper, #smooth-content, .main {
 }
 
 /* --------------------------------------------------------------------------
-   7. CREATIVE TEAM SECTION (#team)
+   8. CREATIVE TEAM SECTION (#team)
    -------------------------------------------------------------------------- */
 #team {
   background-color: var(--about-cream) !important;
@@ -5208,7 +5264,7 @@ body, html, #smooth-wrapper, #smooth-content, .main {
 }
 
 /* --------------------------------------------------------------------------
-   8. PARTNER MARQUEE (#partners)
+   9. PARTNER MARQUEE (#partners)
    -------------------------------------------------------------------------- */
 #partners {
   background-color: var(--about-cream) !important;
@@ -5249,4 +5305,239 @@ body, html, #smooth-wrapper, #smooth-content, .main {
 .button.button--accent-1:hover {
   background-color: var(--about-pink) !important;
   color: #FFFFFF !important;
+}
+
+/* ==========================================================================
+   MOBILE & TABLET VIEW CLONE OF DESKTOP EXPERIENCE (<= 991px & <= 767px)
+   ========================================================================== */
+
+@media screen and (max-width: 991px) {
+  /* 1. HIDE static SVG vector completely on mobile */
+  .section-hero__heading-vector {
+    display: none !important;
+  }
+
+  /* 2. SHOW the interactive ABOUT hero with Video in 'O' */
+  .section-hero__heading-wrapper {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 1rem auto 1.5rem !important;
+    overflow: visible !important;
+    position: relative !important;
+    white-space: nowrap !important;
+  }
+
+  /* Responsive Font Size for ABOUT on Mobile */
+  .heading.heading--xxl {
+    font-size: clamp(4.2rem, 18vw, 8rem) !important;
+    line-height: 0.85 !important;
+    letter-spacing: -0.03em !important;
+    text-transform: uppercase !important;
+    font-family: 'Playfair Display', 'Cormorant Garamond', 'Newtitle', Georgia, serif !important;
+    font-weight: 700 !important;
+    color: var(--about-ink) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .heading.heading--xxl.heading--xxl--ninna {
+    font-size: clamp(4.2rem, 18vw, 8rem) !important;
+    font-family: 'Playfair Display', 'Cormorant Garamond', 'Ninna Trial', Georgia, serif !important;
+    font-weight: 400 !important;
+    z-index: 2 !important;
+    pointer-events: none !important;
+    position: relative !important;
+    margin: 0 !important;
+    color: var(--about-ink) !important;
+  }
+
+  /* Video wrapper in 'O' on Mobile */
+  .section-hero__video-wrapper {
+    position: relative !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-top: -1% !important;
+    margin-left: -1% !important;
+    overflow: visible !important;
+    width: clamp(4rem, 17vw, 7.5rem) !important;
+    height: clamp(4rem, 17vw, 7.5rem) !important;
+  }
+
+  .section-hero__video {
+    border-radius: 100vh !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 88% !important;
+    height: 92% !important;
+    display: flex !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    overflow: hidden !important;
+    transform: translate(-50%, -50%) !important;
+    border: 1.5px solid var(--about-green) !important;
+    outline: 1px solid var(--about-periwinkle) !important;
+    outline-offset: 2px !important;
+    z-index: 1 !important;
+  }
+
+  .section-hero__video video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  .section-hero__video-text {
+    font-size: clamp(0.55rem, 2.2vw, 0.85rem) !important;
+    z-index: 2 !important;
+    color: var(--about-green) !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.1em !important;
+  }
+
+  /* 3. Award Laurels Banner — Clean Single Horizontal Scroll Strip */
+  .section-hero__logo-wrapper {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    gap: clamp(1.2rem, 4vw, 2.2rem) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0.5rem 1rem !important;
+    margin: 0 auto 1.5rem !important;
+  }
+  .section-hero__logo-wrapper::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .section-hero__logo {
+    flex: 0 0 auto !important;
+    height: clamp(1.8rem, 5vw, 2.5rem) !important;
+    max-width: none !important;
+  }
+
+  /* 4. Editorial Credits on Mobile — Desktop Layout Clone */
+  .list-edited-by {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-top: 1.5rem !important;
+    gap: 0.85rem !important;
+    padding: 0 0.5rem !important;
+  }
+
+  .list-edited-by__line {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: clamp(0.6rem, 2vw, 1.25rem) !important;
+    width: 100% !important;
+  }
+
+  .list-edited-by__item {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: baseline !important;
+    gap: 0.35rem !important;
+    font-size: clamp(0.65rem, 2vw, 0.85rem) !important;
+    text-transform: uppercase !important;
+  }
+
+  .list-edited-by__item-by {
+    font-size: clamp(0.55rem, 1.7vw, 0.75rem) !important;
+    line-height: 1.1 !important;
+    color: var(--about-muted-text) !important;
+  }
+
+  .list-edited-by__item-name {
+    font-size: clamp(0.7rem, 2.2vw, 0.9rem) !important;
+    font-weight: 700 !important;
+    color: var(--about-ink) !important;
+  }
+
+  /* 5. Eliminate blank / empty gaps across all mobile sections */
+  .botom-scrol,
+  #trailer-botom {
+    display: none !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .main {
+    padding-top: clamp(1rem, 4vw, 2.5rem) !important;
+  }
+
+  .section.section--hero {
+    padding-top: clamp(1.5rem, 5vw, 3rem) !important;
+    padding-bottom: clamp(1rem, 3vw, 2rem) !important;
+    min-height: auto !important;
+    height: auto !important;
+    margin-bottom: 0 !important;
+  }
+
+  #about.section,
+  section#about,
+  .section.section--padding-top-l {
+    padding-top: clamp(2rem, 6vw, 3.5rem) !important;
+  }
+
+  .section.section--padding-bottom-l {
+    padding-bottom: clamp(2rem, 6vw, 3.5rem) !important;
+  }
+
+  .section.section--padding-top-m {
+    padding-top: clamp(1.5rem, 5vw, 2.5rem) !important;
+  }
+
+  .gallery__wrapper {
+    margin-top: 0 !important;
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+  }
+
+  .astounding__content {
+    margin-top: 1rem !important;
+    gap: 1.25rem !important;
+  }
+
+  /* 6. Remove empty / dashed border box on Mobile */
+  .blockquote {
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    text-align: left !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+  }
+
+  .blockquote__wrapper {
+    margin-top: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .section__box:empty {
+    display: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 0 !important;
+  }
 }
