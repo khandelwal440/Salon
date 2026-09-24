@@ -4857,56 +4857,396 @@ a {
 }
 
 /* ==========================================================================
-   THEME OVERRIDE — apply the brand color hierarchy on top of the
-   existing UNION stylesheet.
+   ALUMA SALON — EDITORIAL ABOUT PAGE THEME SYSTEM
+   Scoped exclusively to the About Page experience.
    ========================================================================== */
 
-:root {
-  /* neutrals — same role as before, tuned to your exact brand hex values */
-  --basic-palette--tone-125: #F5F1E6; /* cream */
-  --basic-palette--tone-600: #0B0E14; /* ink */
+:root, body, .about-page {
+  --about-cream: #F5F1E6;
+  --about-background: #F5F1E6;
+  --about-ink: #0B0E14;
+  --about-text: #0B0E14;
+  --about-muted-text: #565A61;
+  --about-green: #3FAE63;
+  --about-primary-action: #3FAE63;
+  --about-periwinkle: #6C7AE0;
+  --about-secondary-accent: #6C7AE0;
+  --about-pink: #E84FA9;
+  --about-hover-accent: #E84FA9;
+  --about-pistachio: #E1EDBA;
+  --about-editorial-stroke: #E1EDBA;
+  --about-card-light: #FFFDF7;
+  --about-card-dark: #0B0E14;
 
-  /* accents — remapped to the brand hierarchy */
-  --accent-palette--accent-1: #3FAE63; /* green — primary accent */
-  --accent-palette--accent-2: #6C7AE0; /* periwinkle — rare accent */
-  --accent-palette--accent-3: #E84FA9; /* pink — secondary accent */
+  /* Standard Webflow/Union token remapping */
+  --basic-palette--tone-125: var(--about-cream);
+  --basic-palette--tone-600: var(--about-ink);
+  --accent-palette--accent-1: var(--about-green);
+  --accent-palette--accent-2: var(--about-periwinkle);
+  --accent-palette--accent-3: var(--about-pink);
 }
 
-/* Mobile breakpoints redeclare all custom properties inside their own
-   @media blocks, so the remap has to be repeated there too or it gets
-   silently overridden back to the old orange/blue on small screens. */
+/* Mobile & Tablet breakpoint consistency */
 @media screen and (max-width: 991px) {
-  body {
+  body, .about-page {
     --basic-palette--tone-125: #F5F1E6;
     --basic-palette--tone-600: #0B0E14;
     --accent-palette--accent-1: #3FAE63;
     --accent-palette--accent-2: #6C7AE0;
     --accent-palette--accent-3: #E84FA9;
+    --about-cream: #F5F1E6;
+    --about-ink: #0B0E14;
+    --about-green: #3FAE63;
+    --about-periwinkle: #6C7AE0;
+    --about-pink: #E84FA9;
+    --about-pistachio: #E1EDBA;
   }
 }
 
 @media screen and (max-width: 767px) {
-  body {
+  body, .about-page {
     --basic-palette--tone-125: #F5F1E6;
     --basic-palette--tone-600: #0B0E14;
     --accent-palette--accent-1: #3FAE63;
     --accent-palette--accent-2: #6C7AE0;
     --accent-palette--accent-3: #E84FA9;
+    --about-cream: #F5F1E6;
+    --about-ink: #0B0E14;
+    --about-green: #3FAE63;
+    --about-periwinkle: #6C7AE0;
+    --about-pink: #E84FA9;
+    --about-pistachio: #E1EDBA;
   }
 }
 
-/* ---------------------------------------------------------------
-   Hardcoded colors that were never routed through a variable.
-   These need a direct override since remapping :root alone
-   won't touch them.
-   --------------------------------------------------------------- */
+/* Global Canvas Foundation */
+body, html, #smooth-wrapper, #smooth-content, .main {
+  background-color: var(--about-cream) !important;
+  color: var(--about-ink);
+}
 
-/* "Current page" state in the dropdown + top nav was hardcoded to a
-   bright blue (#0082f3) instead of using a variable. Route it to the
-   same primary-green "you are here" signal used everywhere else. */
-.w-dropdown-link.w--current,
-.w-nav-link.w--current,
+/* --------------------------------------------------------------------------
+   1. NAVIGATION & ACTIVE STATES
+   -------------------------------------------------------------------------- */
+.header__link, .w-nav-link {
+  color: var(--about-ink);
+  transition: color 0.3s ease;
+}
+
+.header__link:hover, .w-nav-link:hover, .w-dropdown-link:hover {
+  color: var(--about-pink) !important;
+}
+
 .header__link.w--current,
+.w-nav-link.w--current,
+.w-dropdown-link.w--current,
 .header__link--active {
-  color: var(--accent-palette--accent-1) !important;
+  color: var(--about-green) !important;
+}
+
+/* --------------------------------------------------------------------------
+   2. HERO SECTION & INTERACTIVE 'O' VIDEO MASK
+   -------------------------------------------------------------------------- */
+.section--hero {
+  background-color: var(--about-cream) !important;
+}
+
+/* ABOUT Title — Keep AB and UT in pure Ink Black vector style */
+.section-hero__heading-vector svg path,
+.heading.heading--xxl,
+.heading.heading--xxl span {
+  color: var(--about-ink) !important;
+  fill: var(--about-ink) !important;
+}
+
+/* Circular Video Mask */
+.section-hero__video {
+  border-radius: 100vh !important;
+  border: 1.5px solid var(--about-green) !important;
+  outline: 1px solid var(--about-periwinkle) !important;
+  outline-offset: 3px;
+  box-shadow: 0 0 25px rgba(63, 174, 99, 0.15);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  overflow: hidden !important;
+}
+
+.section-hero__video video {
+  filter: grayscale(0.2) contrast(1.05);
+  transition: filter 0.4s ease;
+}
+
+/* Interactive Hover state on Video Mask -> Pink highlight */
+.section-hero__video-wrapper:hover .section-hero__video,
+.section-hero__video:hover {
+  border-color: var(--about-pink) !important;
+  outline-color: rgba(232, 79, 169, 0.5) !important;
+  box-shadow: 0 0 35px rgba(232, 79, 169, 0.28) !important;
+}
+
+.section-hero__video-wrapper:hover .section-hero__video video,
+.section-hero__video:hover video {
+  filter: grayscale(0) contrast(1.08);
+}
+
+/* Scroll Cue inside Video */
+.section-hero__video-text {
+  color: var(--about-green) !important;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.section-hero__video-wrapper:hover .section-hero__video-text,
+.section-hero__video:hover .section-hero__video-text {
+  color: var(--about-pink) !important;
+}
+
+/* --------------------------------------------------------------------------
+   3. AWARD LAURELS BANNER
+   -------------------------------------------------------------------------- */
+.section-hero__logo {
+  opacity: 0.45;
+  filter: grayscale(1) brightness(0.25);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+/* Quiet rhythmic accents */
+.section-hero__logo-wrapper .section-hero__logo:nth-child(3) {
+  opacity: 0.85;
+  filter: grayscale(0) drop-shadow(0 0 4px rgba(63, 174, 99, 0.4));
+}
+
+.section-hero__logo-wrapper .section-hero__logo:nth-child(6) {
+  opacity: 0.85;
+  filter: grayscale(0) drop-shadow(0 0 4px rgba(108, 122, 224, 0.4));
+}
+
+/* Hover on Laurel -> Pink Focus */
+.section-hero__logo:hover {
+  opacity: 1 !important;
+  filter: drop-shadow(0 4px 12px rgba(232, 79, 169, 0.5)) grayscale(0) brightness(1) !important;
+  transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   4. EDITORIAL CREDITS
+   -------------------------------------------------------------------------- */
+.list-edited-by__item {
+  color: var(--about-ink);
+}
+
+.list-edited-by__item-by {
+  color: var(--about-muted-text);
+  letter-spacing: 0.08em;
+}
+
+.list-edited-by__item-name {
+  color: var(--about-ink);
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.list-edited-by__item:hover .list-edited-by__item-name {
+  color: var(--about-pink) !important;
+}
+
+/* --------------------------------------------------------------------------
+   5. STORY & PHILOSOPHY SECTION (#about)
+   -------------------------------------------------------------------------- */
+#about {
+  background-color: var(--about-cream) !important;
+}
+
+.sub-heading {
+  color: var(--about-ink);
+  letter-spacing: 0.08em;
+}
+
+.sub-heading span {
+  color: var(--about-green);
+}
+
+/* Editorial SVG background strokes -> Pistachio */
+.section__svg path,
+[data-base-animation-role="svg"] {
+  stroke: var(--about-pistachio) !important;
+  opacity: 0.85;
+}
+
+/* Heading & Paragraph hierarchy */
+.heading--xl {
+  color: var(--about-ink);
+}
+
+.paragraph--l,
+.blockquote__paragraph {
+  color: var(--about-ink);
+  line-height: 1.65 !important;
+}
+
+/* Subtle phrase highlights */
+.highlight-green {
+  color: var(--about-green) !important;
+  display: inline;
+}
+
+.highlight-pink {
+  color: var(--about-pink) !important;
+  display: inline;
+}
+
+/* --------------------------------------------------------------------------
+   6. SALON EXPERIENCE GALLERY
+   -------------------------------------------------------------------------- */
+.gallery__image-wrapper {
+  border-radius: 6px;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid transparent;
+}
+
+.gallery__image {
+  filter: grayscale(0.2) contrast(0.98);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 5px;
+}
+
+.gallery__image-wrapper:hover .gallery__image {
+  filter: grayscale(0) contrast(1.05);
+  transform: scale(1.03);
+}
+
+/* Gallery color rhythm */
+.gallery__image-wrapper--first:hover,
+.gallery__image-wrapper--second:hover {
+  border-color: var(--about-green) !important;
+  box-shadow: 0 12px 35px rgba(63, 174, 99, 0.2);
+}
+
+.gallery__image-wrapper--thrd:hover,
+.gallery__image-wrapper--fourth:hover {
+  border-color: var(--about-pink) !important;
+  box-shadow: 0 12px 35px rgba(232, 79, 169, 0.2);
+}
+
+.gallery__image-wrapper--fifth:hover,
+.gallery__image-wrapper--sixth:hover {
+  border-color: var(--about-periwinkle) !important;
+  box-shadow: 0 12px 35px rgba(108, 122, 224, 0.2);
+}
+
+/* --------------------------------------------------------------------------
+   7. CREATIVE TEAM SECTION (#team)
+   -------------------------------------------------------------------------- */
+#team {
+  background-color: var(--about-cream) !important;
+}
+
+.team__card {
+  background-color: var(--about-card-light) !important;
+  border: 1px solid rgba(11, 14, 20, 0.08);
+  border-radius: 8px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.team__card_image {
+  filter: grayscale(0.6) contrast(1.02);
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.team__card:hover .team__card_image {
+  filter: grayscale(0) contrast(1.05);
+  transform: scale(1.02);
+}
+
+/* Vertical Team Names */
+[data-team-card="name"] {
+  color: var(--about-ink);
+  transition: color 0.3s ease;
+}
+
+.team__card:hover [data-team-card="name"] {
+  color: var(--about-green) !important;
+}
+
+.team__card-info_job {
+  color: var(--about-muted-text);
+  transition: color 0.3s ease;
+}
+
+.team__card:hover .team__card-info_job {
+  color: var(--about-pink) !important;
+}
+
+/* Role-based card hover border accents */
+.embla-slide:nth-child(4n+1) .team__card:hover {
+  border-color: var(--about-green) !important;
+  box-shadow: 0 10px 30px rgba(63, 174, 99, 0.15);
+}
+
+.embla-slide:nth-child(4n+2) .team__card:hover {
+  border-color: var(--about-pink) !important;
+  box-shadow: 0 10px 30px rgba(232, 79, 169, 0.15);
+}
+
+.embla-slide:nth-child(4n+3) .team__card:hover {
+  border-color: var(--about-periwinkle) !important;
+  box-shadow: 0 10px 30px rgba(108, 122, 224, 0.15);
+}
+
+.embla-slide:nth-child(4n+4) .team__card:hover {
+  border-color: var(--about-pistachio) !important;
+  box-shadow: 0 10px 30px rgba(225, 237, 186, 0.3);
+}
+
+/* Bio Modal */
+.team__card-description {
+  background-color: var(--about-card-light);
+  color: var(--about-ink);
+}
+
+/* --------------------------------------------------------------------------
+   8. PARTNER MARQUEE (#partners)
+   -------------------------------------------------------------------------- */
+#partners {
+  background-color: var(--about-cream) !important;
+}
+
+.partner_box {
+  background-color: rgba(245, 241, 230, 0.5) !important;
+  border: 1px dashed rgba(11, 14, 20, 0.18) !important;
+  border-radius: 6px;
+  transition: all 0.35s ease;
+}
+
+.partner_box .image-contain {
+  opacity: 0.4;
+  filter: grayscale(1) brightness(0.2);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.partner_box:hover {
+  border-color: var(--about-green) !important;
+  background-color: #FFFFFF !important;
+  box-shadow: 0 8px 24px rgba(63, 174, 99, 0.12);
+  transform: translateY(-2px);
+}
+
+.partner_box:hover .image-contain {
+  opacity: 1 !important;
+  filter: grayscale(0) brightness(1) !important;
+}
+
+/* Buttons and Primary CTAs */
+.button.button--accent-1 {
+  background-color: var(--about-green) !important;
+  color: #FFFFFF !important;
+  transition: all 0.3s ease;
+}
+
+.button.button--accent-1:hover {
+  background-color: var(--about-pink) !important;
+  color: #FFFFFF !important;
 }
