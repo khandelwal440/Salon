@@ -181,58 +181,26 @@ export default function ChapterThreeSection() {
       // SECTION 3: Horizontal Drifting Press Spread
       // ==========================================
       const sect3Container = document.querySelector<HTMLElement>(".chapter-3 .sect-3-container");
-      const sect3Images = document.querySelectorAll<HTMLElement>(".chapter-3 .sect-3-img");
       const sect3Photos = document.querySelector<HTMLElement>(".chapter-3 .sect-3-photos");
 
       if (sect3Container && sect3Photos && typeof window !== "undefined" && window.innerWidth >= 1024) {
-        const distance = sect3Photos.scrollWidth - window.innerWidth;
-        const horizTl = gsap.to(sect3Photos, {
-          x: -distance,
+        const getDistance = () => {
+          const containerWidth = sect3Photos.parentElement?.clientWidth || window.innerWidth * 0.6;
+          return Math.max(0, sect3Photos.scrollWidth - containerWidth + 60);
+        };
+
+        gsap.to(sect3Photos, {
+          x: () => -getDistance(),
           ease: "none",
           scrollTrigger: {
             trigger: sect3Container,
-            scrub: true,
+            pin: false,
             start: "top top",
-            end: "bottom center",
+            end: "bottom bottom",
+            scrub: 1,
+            invalidateOnRefresh: true,
           },
         });
-
-        sect3Images.forEach((imgEl) => {
-          const randX = (Math.random() * 20 + 30) * (Math.random() < 0.5 ? 1 : -1);
-          const randY = Math.random() * 40 + 50;
-          const randRot = (Math.random() * 10 + 10) * (Math.random() < 0.5 ? 1 : -1);
-
-          gsap.fromTo(
-            imgEl,
-            { rotation: randRot, xPercent: randX, yPercent: randY },
-            {
-              rotation: -randRot,
-              xPercent: -randX,
-              yPercent: -randY,
-              ease: "none",
-              scrollTrigger: {
-                trigger: imgEl,
-                containerAnimation: horizTl,
-                start: "left 120%",
-                end: "right -20%",
-                scrub: true,
-              },
-            }
-          );
-        });
-
-        const vertTl = gsap.timeline({
-          defaults: { ease: "none" },
-          scrollTrigger: {
-            trigger: sect3Container,
-            start: "top top",
-            end: "bottom top",
-            scrub: true,
-          },
-        });
-        vertTl.to(".chapter-3 .sect-3-title, .chapter-3 .sect-3-descr", { yPercent: -105, duration: 2 });
-        vertTl.fromTo(".chapter-3 .sect-3-desc2", { yPercent: 105 }, { yPercent: -100, duration: 2 });
-        vertTl.from(".chapter-3 .sect-3-decor2", { scaleY: 0, duration: 2 }, "<");
       }
     }, rootRef);
 
@@ -410,70 +378,93 @@ export default function ChapterThreeSection() {
         <div className="sect-3-sticky" data-v-2b312de3="">
           <section className="sect-3" data-v-2b312de3="">
             <div className="sect-3-wrap" data-v-2b312de3="">
-              <div className="sect-3-decor2" data-v-2b312de3="" style={{ transform: "scale(1, 0)" }}></div>
-              <div className="sect-3-text" data-v-2b312de3="">
-                <div className="sect-3-descr l1-thin" data-v-2b312de3="">
-                  <div className="sect-3-descr-wrap text-anim" data-v-2b312de3="" aria-label="Where bold ideas find their audience.">
-                    <div className="split-line" aria-hidden="true">
-                      Where <span className="l1-bold" data-v-2b312de3="">bold ideas</span> find their audience.
-                    </div>
-                  </div>
+              
+              {/* Left Editorial Panel (Crisp, perfectly positioned, never clipped) */}
+              <div className="sect-3-editorial-panel" data-v-2b312de3="">
+                {/* Accent Tag */}
+                <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 w-fit mb-5 shadow-sm">
+                  <span className="w-2 h-2 rounded-full bg-[#20B364] animate-pulse" />
+                  <span className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.22em] text-[#20B364] font-semibold">
+                    Global Press &amp; Acclaim
+                  </span>
                 </div>
-                <div className="sect-3-title" data-v-2b312de3="">
-                  <div className="sect-3-decor" data-v-2b312de3=""></div>
-                  <div className="title-anim" data-v-2b312de3="">
-                    <div className="h1-thin title-thin" data-v-2b312de3="" aria-label="Featured In the World’s">
-                      <div className="text-line" aria-hidden="true">
-                        <div className="text-word" aria-hidden="true">
-                          <div>F</div><div>e</div><div>a</div><div>t</div><div>u</div><div>r</div><div>e</div><div>d</div>
-                        </div>
-                      </div>
-                      <div className="text-line" aria-hidden="true">
-                        <div className="text-word" aria-hidden="true">
-                          <div>I</div><div>n</div>
-                        </div>
-                        <div className="text-word" aria-hidden="true">
-                          <div>t</div><div>h</div><div>e</div>
-                        </div>
-                      </div>
-                      <div className="text-line" aria-hidden="true">
-                        <div className="text-word" aria-hidden="true">
-                          <div>W</div><div>o</div><div>r</div><div>l</div><div>d</div><div>’</div><div>s</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="text-shine h1-book title-book" data-v-2b312de3="" data-v-0235e11e="">
-                      Leading
-                    </div>
-                    <div className="text-shine h1-book title-book" data-v-2b312de3="" data-v-0235e11e="">
-                      Voices
-                    </div>
-                  </div>
+
+                {/* Subtitle */}
+                <div className="font-mono text-xs sm:text-sm tracking-[0.16em] uppercase text-white/60 mb-2">
+                  Where <span className="text-white font-semibold">bold ideas</span> find their audience.
+                </div>
+
+                {/* Grand Headline (Unclipped, properly padded) */}
+                <h2 className="font-alata text-4xl sm:text-5xl lg:text-5xl xl:text-6xl uppercase leading-[0.94] tracking-[-0.03em] text-white my-3">
+                  Featured In <br />
+                  The World’s <br />
+                  <span className="text-shine bg-gradient-to-r from-white via-[#EA54DB] to-[#20B364] bg-clip-text text-transparent font-normal">
+                    Leading Voices
+                  </span>
+                </h2>
+
+                {/* Description */}
+                <p className="text-xs sm:text-sm text-neutral-300/80 leading-relaxed font-light mt-3 max-w-md">
+                  Aluma&apos;s architectural artistry is recognized by premier luxury publications like{" "}
+                  <strong className="text-white font-medium">
+                    Architectural Digest, ELLE, VOGUE, and Harper&apos;s BAZAAR
+                  </strong>
+                  , highlighting a relentless vision of refined originality.
+                </p>
+
+                {/* Publication Pills Bar */}
+                <div className="flex flex-wrap items-center gap-2 mt-6">
+                  {MAGAZINE_COVERS.map((cov) => (
+                    <span
+                      key={cov.id}
+                      className="px-2.5 py-1 rounded-md text-[10px] font-mono tracking-wider text-white/70 bg-white/5 border border-white/10"
+                    >
+                      {cov.mag}
+                    </span>
+                  ))}
                 </div>
               </div>
-              <div className="sect-3-desc2 b1-light" data-v-2b312de3="" style={{ transform: "translate(0%, 105%)" }}>
-                Aluma&apos;s architectural artistry is recognized by premier luxury publications like{" "}
-                <span className="b1-bold" data-v-2b312de3="">
-                  Architectural Digest, ELLE, VOGUE, and Harper&apos;s BAZAAR
-                </span>
-                , highlighting a vision of refined originality.
-              </div>
+
+              {/* Right Horizontal Drifting Magazine Showcase Track */}
               <div className="sect-3-images" data-v-2b312de3="">
                 <div className="sect-3-photos" data-v-2b312de3="">
-                  {/* Two identical sets of covers for infinite seamless marquee auto-scroll on mobile */}
                   {[...MAGAZINE_COVERS, ...MAGAZINE_COVERS].map((cover, idx) => (
-                    <div key={`${cover.id}-${idx}`} className="sect-3-img relative group" data-v-2b312de3="">
+                    <div
+                      key={`${cover.id}-${idx}`}
+                      className="sect-3-img relative group"
+                      data-v-2b312de3=""
+                    >
                       {/* Top Magazine Label Badge */}
-                      <div className="absolute top-3 left-3 bg-black/70 backdrop-blur-md border border-white/20 px-2.5 py-1 rounded-full text-[10px] font-mono text-white flex items-center gap-1.5 z-10 shadow-md">
+                      <div className="absolute top-3.5 left-3.5 bg-black/80 backdrop-blur-md border border-white/20 px-3 py-1 rounded-full text-[11px] font-mono font-medium text-white flex items-center gap-2 z-10 shadow-lg">
                         <span className="w-1.5 h-1.5 rounded-full bg-[#20B364]" />
                         <span>{cover.mag}</span>
                       </div>
+
                       {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={cover.src} className="inner-img" alt={cover.alt} data-v-2b312de3="" />
+                      <img
+                        src={cover.src}
+                        className="inner-img"
+                        alt={cover.alt}
+                        data-v-2b312de3=""
+                      />
+
+                      {/* Bottom Quote & Acclaim Overlay */}
+                      <div className="cover-quote-overlay">
+                        <span className="text-[10px] font-mono tracking-widest text-[#20B364] uppercase font-bold mb-1">
+                          Cover Feature
+                        </span>
+                        <p className="text-[11px] sm:text-xs text-white/90 font-light leading-snug line-clamp-3">
+                          {cover.id === "vogue" && "“Aluma has rewritten the luxury salon lexicon. The attention to bone geometry and botanical chemistry is transcendent.”"}
+                          {cover.id === "harpers" && "“A quiet sanctuary away from city chaos where hair is treated as living sculpture. Worth a pilgrimage.”"}
+                          {cover.id === "elle" && "“The Balayage Haute Alchemy is the gold standard of natural, undetectable light placement.”"}
+                          {cover.id === "ad" && "“Bangalore’s most discreet luxury oasis. Where architectural design meets meticulous craft.”"}
+                        </p>
+                      </div>
                     </div>
                   ))}
                 </div>
               </div>
+
             </div>
           </section>
         </div>
@@ -794,9 +785,8 @@ export default function ChapterThreeSection() {
         }
 
         /* 4. Sect 3 (Featured In Leading Voices) */
-        /* 4. Sect 3 (Featured In Leading Voices) */
         .chapter-3 .sect-3-container {
-          height: 400vh;
+          height: 300vh;
           position: relative;
         }
         @media (max-width: 1023px) {
@@ -848,6 +838,9 @@ export default function ChapterThreeSection() {
           position: relative;
           z-index: 100;
           border-radius: 1.5rem;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
         }
         @media (max-width: 1023px) {
           .chapter-3 .sect-3-wrap {
@@ -857,7 +850,7 @@ export default function ChapterThreeSection() {
             overflow: hidden !important;
             display: flex !important;
             flex-direction: column !important;
-            gap: 1.5rem !important;
+            gap: 2rem !important;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85) !important;
           }
         }
@@ -866,89 +859,39 @@ export default function ChapterThreeSection() {
             border-radius: 1.25rem;
           }
         }
-        .chapter-3 .sect-3-descr {
-          left: 4.6875rem;
-          padding-top: 18.3125rem;
-          position: absolute;
-          top: 0;
+        .chapter-3 .sect-3-editorial-panel {
+          flex: 0 0 38%;
+          max-width: 38%;
+          padding: 2.5rem 3rem 2.5rem 4rem;
+          position: relative;
+          z-index: 20;
+          background: linear-gradient(to right, #0B0C10 85%, rgba(11, 12, 16, 0.9) 95%, transparent 100%);
+        }
+        @media (max-width: 1280px) {
+          .chapter-3 .sect-3-editorial-panel {
+            flex: 0 0 42%;
+            max-width: 42%;
+            padding: 2rem 2rem 2rem 3rem;
+          }
         }
         @media (max-width: 1023px) {
-          .chapter-3 .sect-3-descr {
-            position: relative !important;
-            left: auto !important;
-            top: auto !important;
-            padding: 0 !important;
-            text-align: left !important;
+          .chapter-3 .sect-3-editorial-panel {
+            flex: none !important;
+            max-width: 100% !important;
             width: 100% !important;
-            color: #20B364 !important;
-            font-size: 11px !important;
-            letter-spacing: 0.22em !important;
-            text-transform: uppercase !important;
-            font-weight: 700 !important;
-            font-family: var(--font-mono) !important;
-          }
-        }
-        .chapter-3 .sect-3-title {
-          left: 26.625rem;
-          padding-top: 1.25rem;
-          position: absolute;
-          top: 0;
-        }
-        @media (max-width: 1023px) {
-          .chapter-3 .sect-3-title {
-            position: relative !important;
-            left: auto !important;
-            top: auto !important;
             padding: 0 !important;
-            width: 100% !important;
-          }
-          .chapter-3 .sect-3-title .h1-thin,
-          .chapter-3 .sect-3-title .h1-book {
-            font-size: clamp(2.2rem, 9.5vw, 3.4rem) !important;
-            line-height: 92% !important;
-            letter-spacing: -0.04rem !important;
-          }
-          .chapter-3 .sect-3-title .text-word > div {
-            transform: none !important;
-            opacity: 1 !important;
-            visibility: visible !important;
-          }
-          .chapter-3 .sect-3-title .text-shine {
-            opacity: 1 !important;
-            visibility: visible !important;
-          }
-        }
-        .chapter-3 .sect-3-decor {
-          background: #0b0b0b;
-          height: 19.875rem;
-          left: -2.5rem;
-          position: absolute;
-          top: -.125rem;
-          width: 1.25rem;
-        }
-        @media (max-width: 1023px) {
-          .chapter-3 .sect-3-decor,
-          .chapter-3 .sect-3-decor2 {
-            display: none !important;
+            background: transparent !important;
           }
         }
         .chapter-3 .sect-3-images {
-          display: flex;
-          flex-direction: column;
+          flex: 1;
           height: 100%;
-          justify-content: center;
-          left: 0;
-          position: absolute;
-          top: 0;
-          width: 100%;
-        }
-        @keyframes autoGlideCovers {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(calc(-50% - 0.625rem));
-          }
+          display: flex;
+          align-items: center;
+          overflow: hidden;
+          position: relative;
+          mask-image: linear-gradient(to right, transparent 0%, #000 4%, #000 96%, transparent 100%);
+          -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 4%, #000 96%, transparent 100%);
         }
         @media (max-width: 1023px) {
           .chapter-3 .sect-3-images {
@@ -956,19 +899,23 @@ export default function ChapterThreeSection() {
             inset: auto !important;
             height: auto !important;
             width: 100% !important;
-            margin: 1.25rem 0 !important;
+            margin: 0.5rem 0 !important;
             overflow: hidden !important;
-            mask-image: linear-gradient(to right, transparent 0%, #000 6%, #000 94%, transparent 100%);
-            -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 6%, #000 94%, transparent 100%);
           }
+        }
+        .chapter-3 .sect-3-photos {
+          display: flex !important;
+          flex-direction: row !important;
+          gap: 2rem !important;
+          align-items: center !important;
+          width: max-content !important;
+          padding: 1.5rem 2rem 1.5rem 1rem !important;
+          will-change: transform !important;
+        }
+        @media (max-width: 1023px) {
           .chapter-3 .sect-3-photos {
-            display: flex !important;
-            flex-direction: row !important;
-            gap: 1.25rem !important;
-            padding: 0.5rem 0 1.25rem !important;
-            width: max-content !important;
-            animation: autoGlideCovers 20s linear infinite !important;
-            will-change: transform !important;
+            animation: autoGlideCovers 22s linear infinite !important;
+            padding: 0.5rem 0 1rem !important;
             touch-action: pan-y;
           }
           .chapter-3 .sect-3-photos:hover,
@@ -976,77 +923,55 @@ export default function ChapterThreeSection() {
             animation-play-state: paused !important;
           }
         }
-        @media (min-width: 1024px) {
-          .chapter-3 .sect-3-photos {
-            animation: none !important;
+        @keyframes autoGlideCovers {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(calc(-50% - 1rem));
           }
         }
         .chapter-3 .sect-3-img {
-          height: 23rem;
+          width: 280px;
+          height: 400px;
           position: relative;
-          width: 17.5rem;
-          z-index: 100;
-          border-radius: 1rem;
+          z-index: 10;
+          border-radius: 1.25rem;
           overflow: hidden;
-          box-shadow: 0 20px 40px rgba(0,0,0,0.25), 0 0 0 1px rgba(0,0,0,0.06);
+          border: 1px solid rgba(255, 255, 255, 0.15);
+          box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7);
           background: #000;
           flex-shrink: 0;
+          transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+        }
+        .chapter-3 .sect-3-img:hover {
+          transform: translateY(-6px) scale(1.02);
+          border-color: rgba(32, 179, 100, 0.5);
+          box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9), 0 0 30px rgba(32, 179, 100, 0.15);
         }
         @media (max-width: 1023px) {
           .chapter-3 .sect-3-img {
-            flex-shrink: 0 !important;
             width: 220px !important;
             height: 320px !important;
-            scroll-snap-align: center !important;
-            transform: none !important;
             border-radius: 1rem !important;
-            overflow: hidden !important;
-            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.15) !important;
-            background: #000 !important;
-            position: relative !important;
-          }
-          .chapter-3 .sect-3-img .inner-img {
-            width: 100% !important;
-            height: 100% !important;
-            object-fit: cover !important;
-            display: block !important;
           }
         }
-        .chapter-3 .sect-3-desc2 {
+        .chapter-3 .sect-3-img .inner-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+        }
+        .chapter-3 .cover-quote-overlay {
+          position: absolute;
+          inset-inline: 0;
           bottom: 0;
-          color: #f1f1f1;
-          left: 25.375rem;
-          mix-blend-mode: difference;
-          padding-bottom: 3.5rem;
-          position: absolute;
-          width: 14rem;
-          z-index: 1000;
-          font-size: 0.9375rem;
-          line-height: 135%;
-        }
-        @media (max-width: 1023px) {
-          .chapter-3 .sect-3-desc2 {
-            position: relative !important;
-            left: auto !important;
-            bottom: auto !important;
-            transform: none !important;
-            width: 100% !important;
-            padding-top: 1.25rem !important;
-            color: #CBD5E1 !important;
-            font-size: 13px !important;
-            line-height: 1.55 !important;
-            mix-blend-mode: normal !important;
-            border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
-          }
-        }
-        .chapter-3 .sect-3-decor2 {
-          background: #0b0b0b;
-          bottom: -.125rem;
-          height: 19.875rem;
-          position: absolute;
-          right: 24.0625rem;
-          transform-origin: bottom;
-          width: 1.25rem;
+          padding: 1.25rem;
+          background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.85) 60%, transparent 100%);
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          transition: transform 0.3s ease;
         }
 
         /* 5. Typography Classes */

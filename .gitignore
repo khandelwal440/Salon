@@ -43,4 +43,5 @@ next-env.d.ts
 .vercel
 scratch/
 PinGrab_1790061106324.mp4
-*.MP4
+!public/videos/hero-salon.mp4
+
