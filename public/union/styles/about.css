@@ -5672,3 +5672,58 @@ html {
   opacity: 1 !important;
   pointer-events: auto !important;
 }
+
+/* ==========================================================================
+   THEME OVERRIDE — apply the brand color hierarchy on top of the
+   existing UNION stylesheet.
+   ========================================================================== */
+
+:root {
+  /* neutrals — same role as before, tuned to your exact brand hex values */
+  --basic-palette--tone-125: #F5F1E6; /* cream */
+  --basic-palette--tone-600: #0B0E14; /* ink */
+
+  /* accents — remapped to the brand hierarchy */
+  --accent-palette--accent-1: #3FAE63; /* green — primary accent */
+  --accent-palette--accent-2: #6C7AE0; /* periwinkle — rare accent */
+  --accent-palette--accent-3: #E84FA9; /* pink — secondary accent */
+}
+
+/* Mobile breakpoints redeclare all custom properties inside their own
+   @media blocks, so the remap has to be repeated there too or it gets
+   silently overridden back to the old orange/blue on small screens. */
+@media screen and (max-width: 991px) {
+  body {
+    --basic-palette--tone-125: #F5F1E6;
+    --basic-palette--tone-600: #0B0E14;
+    --accent-palette--accent-1: #3FAE63;
+    --accent-palette--accent-2: #6C7AE0;
+    --accent-palette--accent-3: #E84FA9;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  body {
+    --basic-palette--tone-125: #F5F1E6;
+    --basic-palette--tone-600: #0B0E14;
+    --accent-palette--accent-1: #3FAE63;
+    --accent-palette--accent-2: #6C7AE0;
+    --accent-palette--accent-3: #E84FA9;
+  }
+}
+
+/* ---------------------------------------------------------------
+   Hardcoded colors that were never routed through a variable.
+   These need a direct override since remapping :root alone
+   won't touch them.
+   --------------------------------------------------------------- */
+
+/* "Current page" state in the dropdown + top nav was hardcoded to a
+   bright blue (#0082f3) instead of using a variable. Route it to the
+   same primary-green "you are here" signal used everywhere else. */
+.w-dropdown-link.w--current,
+.w-nav-link.w--current,
+.header__link.w--current,
+.header__link--active {
+  color: var(--accent-palette--accent-1) !important;
+}
