@@ -1,5 +1,5 @@
 /* ==========================================================================
-   MOBILE & TABLET RESPONSIVE ENHANCEMENTS FOR ABOUT PAGE
+   MOBILE & TABLET RESPONSIVE STYLES FOR ABOUT PAGE
    Applies exclusively to mobile & tablet viewports (<= 991px).
    Leaves desktop (>= 992px) 100% pixel-perfect and unmodified.
    ========================================================================== */
@@ -9,7 +9,8 @@
   html, body {
     width: 100% !important;
     max-width: 100vw !important;
-    overflow-x: hidden !important;
+    height: 100% !important;
+    overflow: hidden !important;
     -webkit-text-size-adjust: 100%;
     background-color: #f4f3ed !important;
   }
@@ -17,8 +18,12 @@
   #smooth-wrapper, #smooth-content, .main {
     width: 100% !important;
     max-width: 100vw !important;
-    overflow-x: hidden !important;
+    height: 100% !important;
+    min-height: 100% !important;
+    overflow: hidden !important;
     background-color: #f4f3ed !important;
+    padding: 0 !important;
+    margin: 0 !important;
   }
 
   *, *::before, *::after {
@@ -31,14 +36,19 @@
   .container {
     width: 100% !important;
     max-width: 100% !important;
-    padding-left: clamp(1rem, 4vw, 2rem) !important;
-    padding-right: clamp(1rem, 4vw, 2rem) !important;
+    padding-left: clamp(0.75rem, 3vw, 1.5rem) !important;
+    padding-right: clamp(0.75rem, 3vw, 1.5rem) !important;
   }
 
   .header-wrapper {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
     padding-top: 1rem !important;
     padding-left: 1rem !important;
     padding-right: 1rem !important;
+    z-index: 50 !important;
   }
 
   .burger {
@@ -69,20 +79,24 @@
   }
 }
 
-/* 3. Hero Section (<= 991px) - Big Impact UNION with circular video in 'O' & Fullscreen Scroll Expansion */
+/* 3. Hero Section (<= 991px) - Desktop-Style High Impact AB[O]UT Hero (Image 2) */
 @media (max-width: 991px) {
   .section.section--hero {
-    min-height: 85svh !important;
+    min-height: 100vh !important;
+    min-height: 100svh !important;
+    height: 100vh !important;
+    height: 100svh !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: center !important;
     align-items: center !important;
-    padding-top: max(6rem, 14vh) !important;
-    padding-bottom: 2rem !important;
+    padding: 0 0.5rem !important;
+    margin: 0 !important;
     position: relative !important;
     z-index: 1 !important;
     background-color: #f4f3ed !important;
     box-sizing: border-box !important;
+    overflow: hidden !important;
   }
 
   .section-hero__inner {
@@ -92,6 +106,7 @@
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
+    margin: 0 auto !important;
   }
 
   .section-hero__content {
@@ -100,6 +115,7 @@
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
+    margin: 0 auto !important;
   }
 
   /* Hide static vector on mobile so interactive ABOUT with Video in 'O' is shown */
@@ -107,7 +123,7 @@
     display: none !important;
   }
 
-  /* Perfectly Shaped ABOUT wordmark on Mobile */
+  /* Exact Desktop-Style AB [O] UT Flex Row on Mobile */
   .section-hero__heading-wrapper {
     display: flex !important;
     flex-direction: row !important;
@@ -116,58 +132,71 @@
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 auto !important;
-    gap: clamp(0.25rem, 1.5vw, 0.6rem) !important;
     overflow: visible !important;
     position: relative !important;
     text-align: center !important;
     white-space: nowrap !important;
   }
 
+  /* Dynamic fluid typography matching Desktop Newtitle style (Image 2) */
   .heading.heading--xxl {
-    font-size: clamp(3.6rem, 16vw, 6.5rem) !important;
-    line-height: 1 !important;
-    letter-spacing: -0.01em !important;
+    font-size: clamp(6.5rem, 32vw, 14rem) !important;
+    line-height: 82% !important;
+    letter-spacing: -0.02em !important;
     text-transform: uppercase !important;
-    font-family: Newtitle, 'Coolvetica Crammed Rg', Anton, sans-serif !important;
+    font-family: Newtitle, Arial, sans-serif !important;
     font-weight: 700 !important;
-    color: var(--about-ink, #1c1c1c) !important;
+    color: var(--about-ink, #0B0E14) !important;
     margin: 0 !important;
     padding: 0 !important;
-    display: flex !important;
-    align-items: center !important;
+    display: block !important;
   }
 
+  /* The actual 'O' letter from Ninna Trial font — EXACT MATCH TO DESKTOP */
   .heading.heading--xxl.heading--xxl--ninna {
-    display: none !important;
+    display: block !important;
+    font-size: clamp(6.5rem, 32vw, 14rem) !important;
+    font-family: Ninna Trial, Arial, sans-serif !important;
+    font-weight: 400 !important;
+    letter-spacing: -0.06em !important;
+    line-height: 82% !important;
+    z-index: 2 !important;
+    pointer-events: none !important;
+    position: relative !important;
+    color: var(--about-ink, #0B0E14) !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 
-  /* The circular video shaped as the 'O' */
+  /* Video wrapper positioned naturally around the 'O' — EXACT MATCH TO DESKTOP */
   .section-hero__video-wrapper {
     position: relative !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: clamp(3.6rem, 16vw, 6.5rem) !important;
-    height: clamp(3.6rem, 16vw, 6.5rem) !important;
-    margin: 0 !important;
-    flex-shrink: 0 !important;
-    border-radius: 50% !important;
+    margin-top: -3% !important;
+    margin-left: -3% !important;
+    overflow: visible !important;
+    display: inline-block !important;
+    width: auto !important;
+    height: auto !important;
+    border-radius: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
   }
 
+  /* Circular video fitted inside the 'O' — EXACT MATCH TO DESKTOP */
   .section-hero__video {
-    width: 100% !important;
-    height: 100% !important;
-    border-radius: 50% !important;
-    position: relative !important;
-    inset: auto !important;
-    transform: none !important;
-    overflow: hidden !important;
-    display: flex !important;
-    align-items: center !important;
+    border-radius: 100vh !important;
     justify-content: center !important;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
-    border: clamp(2.5px, 0.8vw, 4.5px) solid #1c1c1c !important;
+    align-items: center !important;
+    width: 88% !important;
+    height: 94% !important;
+    display: flex !important;
+    position: absolute !important;
+    inset: 51% 0 0 54% !important;
+    overflow: hidden !important;
+    transform: translate(-51.3%, -50%) !important;
     z-index: 1 !important;
+    border: none !important;
+    box-shadow: none !important;
   }
 
   .section-hero__video-embed {
@@ -175,6 +204,7 @@
     height: 100% !important;
     position: absolute !important;
     inset: 0 !important;
+    transform: scale(2) !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -184,282 +214,56 @@
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
-    border-radius: 50% !important;
+    border-radius: 100vh !important;
   }
 
+  /* Pink SCROLL text inside video cue as in Image 2 */
   .section-hero__video-text {
-    position: absolute !important;
-    font-size: clamp(0.55rem, 2.2vw, 0.8rem) !important;
-    z-index: 3 !important;
-    color: #ffffff !important;
-    font-family: Newtitle, 'Coolvetica Crammed Rg', sans-serif !important;
-    font-weight: 700 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.12em !important;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8) !important;
-    pointer-events: none !important;
-  }
-
-  .list-edited-by {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin-top: 1.75rem !important;
-    padding: 0 0.5rem !important;
-  }
-
-  .list-edited-by__line {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 0.75rem !important;
-    margin-bottom: 1rem !important;
-  }
-
-  .list-edited-by__item {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: space-between !important;
-    align-items: baseline !important;
-    width: 100% !important;
-    border-bottom: 1px dashed rgba(137, 137, 137, 0.35) !important;
-    padding-bottom: 0.4rem !important;
-    gap: 0.5rem !important;
-  }
-
-  .list-edited-by__item-by {
-    font-size: 0.75rem !important;
-    line-height: 1.2 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.04em !important;
-    color: #777 !important;
-    min-width: 100px !important;
-    text-align: left !important;
-  }
-
-  .list-edited-by__item-name,
-  .list-edited-by__item-name_wrapper {
-    font-size: clamp(0.95rem, 3.8vw, 1.25rem) !important;
-    font-weight: 700 !important;
-    letter-spacing: -0.02em !important;
-    text-align: right !important;
-  }
-}
-
-/* 4. About & Story Section (<= 991px) - Solid background to prevent video overlap */
-@media (max-width: 991px) {
-  #about.section {
-    padding-top: clamp(3.5rem, 8vw, 5.5rem) !important;
-    padding-bottom: 2.5rem !important;
-    background-color: #f4f3ed !important;
     position: relative !important;
-    z-index: 10 !important;
-  }
-
-  .sub-heading {
-    font-size: clamp(0.9rem, 3.5vw, 1.15rem) !important;
-    letter-spacing: 0.04em !important;
-  }
-
-  .heading--xl {
-    font-size: clamp(2rem, 7vw, 4rem) !important;
-    line-height: 1.05 !important;
-    letter-spacing: -0.03em !important;
-  }
-
-  .section__svg-wrapper--astounding {
-    width: 100% !important;
-    max-width: 100% !important;
-    opacity: 0.4 !important;
+    z-index: 2 !important;
+    color: #e84fa9 !important;
+    text-transform: uppercase !important;
+    font-family: Newtitle, Arial, sans-serif !important;
+    font-size: clamp(0.7rem, 3.2vw, 1.25rem) !important;
+    font-weight: 700 !important;
+    line-height: 89% !important;
+    letter-spacing: 0.12em !important;
     pointer-events: none !important;
+    text-shadow: none !important;
   }
 
-  .astounding__content {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 1.75rem !important;
-  }
-
-  .blockquote__paragraph {
-    font-size: clamp(1.15rem, 4.2vw, 1.55rem) !important;
-    line-height: 1.4 !important;
-    text-align: left !important;
-  }
-
-  .paragraph--l {
-    font-size: clamp(0.95rem, 3.6vw, 1.15rem) !important;
-    line-height: 1.55 !important;
-  }
-
-  .text-indent__helping {
+  .section-hero__logo-wrapper,
+  .list-edited-by,
+  .section-hero__logo {
     display: none !important;
   }
-}
 
-/* 5. Gallery Section with Interactive Card-Stacking Scroll (<= 991px) */
-@media (max-width: 991px) {
-  .section--padding-top-m {
-    background-color: #f4f3ed !important;
-    position: relative !important;
-    z-index: 10 !important;
-  }
-
-  .gallery__wrapper {
-    width: 100% !important;
-    overflow: visible !important;
-    padding: 1rem 0 !important;
+  /* FULL DELETE / HIDE OF ALL REMAINING CONTENT ON MOBILE VIEW */
+  #about,
+  section#about,
+  .section.section--padding-top-m,
+  .section.section--padding-top-l,
+  .section.section--padding-bottom-l,
+  #team,
+  section#team,
+  #partners,
+  section#partners,
+  .section.section--bg-darck,
+  #watch,
+  section#watch,
+  #contact,
+  .footer,
+  #trailer-botom,
+  .botom-scrol,
+  .guide-overlay {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    max-height: 0 !important;
+    padding: 0 !important;
     margin: 0 !important;
-  }
-
-  .gallery__outer {
-    width: 100% !important;
-    position: relative !important;
-  }
-
-  .gallery {
-    display: block !important;
-    position: relative !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    height: clamp(280px, 52vh, 440px) !important;
-    margin: 0 auto !important;
-    overflow: visible !important;
-  }
-
-  .gallery__image-wrapper {
-    display: block !important;
-    position: absolute !important;
-    top: 0 !important;
-    left: 3% !important;
-    right: 3% !important;
-    bottom: auto !important;
-    width: 94% !important;
-    max-width: 480px !important;
-    margin: 0 auto !important;
-    height: clamp(260px, 50vh, 420px) !important;
-    border-radius: 12px !important;
     overflow: hidden !important;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2) !important;
-  }
-
-  .gallery__image-wrapper.gallery__image-wrapper--first { z-index: 6 !important; }
-  .gallery__image-wrapper.gallery__image-wrapper--second { z-index: 5 !important; }
-  .gallery__image-wrapper.gallery__image-wrapper--thrd { z-index: 4 !important; }
-  .gallery__image-wrapper.gallery__image-wrapper--fourth { z-index: 3 !important; }
-  .gallery__image-wrapper.gallery__image-wrapper--fifth { z-index: 2 !important; }
-  .gallery__image-wrapper.gallery__image-wrapper--sixth { z-index: 1 !important; }
-
-  .gallery__image {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    border-radius: 12px !important;
-    display: block !important;
+    pointer-events: none !important;
   }
 }
-
-/* 6. Creative Team Section & Popup Modal (<= 991px) */
-@media (max-width: 991px) {
-  #team.section {
-    padding-top: 1.5rem !important;
-    padding-bottom: 1.5rem !important;
-    background-color: #f4f3ed !important;
-    position: relative !important;
-    z-index: 10 !important;
-  }
-
-  .team__content {
-    margin-top: 1rem !important;
-  }
-
-  .team__slider-wrapper.swiper {
-    overflow: hidden !important;
-    width: 100% !important;
-    padding: 1rem 0 2rem !important;
-  }
-
-  .team-popup {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100vw !important;
-    height: 100vh !important;
-    padding: 1rem !important;
-    z-index: 9999 !important;
-    backdrop-filter: blur(12px) !important;
-    -webkit-backdrop-filter: blur(12px) !important;
-    background: rgba(0, 0, 0, 0.75) !important;
-    display: none;
-    align-items: center !important;
-    justify-content: center !important;
-  }
-
-  .team-popup.js--open {
-    display: flex !important;
-  }
-
-  .team-popup__inner {
-    width: 94vw !important;
-    max-width: 440px !important;
-    max-height: 88vh !important;
-    overflow-y: auto !important;
-    -webkit-overflow-scrolling: touch !important;
-    padding: 2rem 1.25rem !important;
-    border-radius: 14px !important;
-    background: #181818 !important;
-    color: #f4f3ed !important;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6) !important;
-  }
-}
-
-/* 7. Partners, Statements, Watch, Press & Footer (<= 768px) */
-@media (max-width: 768px) {
-  #partners.section,
-  .section--statement,
-  .section--watch-film,
-  .section--press {
-    padding-top: 2.5rem !important;
-    padding-bottom: 2rem !important;
-    background-color: #f4f3ed !important;
-    position: relative !important;
-    z-index: 10 !important;
-  }
-
-  .partner_box {
-    width: 120px !important;
-    min-width: 120px !important;
-  }
-
-  .statement-list__item,
-  .statement-list__item.statement-list__item--revers {
-    flex-direction: column-reverse !important;
-    gap: 1.5rem !important;
-    padding: 1.75rem 0 !important;
-  }
-
-  .watch-film__list-item_inner {
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 0.5rem !important;
-    padding: 1.25rem 0 !important;
-  }
-
-  .footer {
-    padding: 3rem 1rem 2rem !important;
-    overflow-x: hidden !important;
-    max-width: 100vw !important;
-    background-color: #141414 !important;
-    position: relative !important;
-    z-index: 10 !important;
-  }
-
-  .footer__email {
-    font-size: clamp(1.6rem, 6.5vw, 2.5rem) !important;
-    word-break: break-all !important;
-  }
-}
-
-.list-edited-by,
-.section-hero__logo-wrapper,
-.section-hero__logo {
-  display: none !important;
-}
-
