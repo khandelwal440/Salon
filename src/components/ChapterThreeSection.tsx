@@ -1,74 +1,67 @@
 "use client";
 
-import { useEffect, useRef, useState, ChangeEvent } from "react";
-import Image from "next/image";
-import { Upload } from "lucide-react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-// 5 Authentic High-Resolution Salon Transformation Photos from the folder
+// 5 Authentic High-Resolution Salon Transformation Photos from the Google Drive
 const FOLDER_PHOTOS = [
   {
     id: 1,
-    src: "/aluma-assets/aluma-white-hero.4e1788185e4dce97f3b3.jpeg",
+    src: "/aluma-drive/DSC00595.JPG",
     title: "SCULPTURAL",
     sub: "FORM & SILHOUETTE",
-    tag: "PRECISION CUT",
+    tag: "EDITORIAL STYLING",
+    objectPosition: "center 22%",
   },
   {
     id: 2,
-    src: "/aluma-assets/haircolorF.6f5b1a1c602c52d43689.png",
+    src: "/aluma-drive/DSC00589.JPG",
     title: "BOLD",
     sub: "WHEN NEEDED",
-    tag: "FRENCH BALAYAGE",
+    tag: "PRECISION CUT",
     isShine: true,
+    objectPosition: "center 20%",
   },
   {
     id: 3,
-    src: "/aluma-assets/1.66e60b3584f79fa15f73.jpeg",
+    src: "/aluma-drive/DSC00577.JPG",
     title: "HARMONY",
     sub: "OF TONE & LIGHT",
-    tag: "CASHMERE MELT",
+    tag: "LAYERED FORM",
+    objectPosition: "center 20%",
   },
   {
     id: 4,
-    src: "/aluma-assets/treatmentsF.9128d5ce138c0e09ae6b.png",
+    src: "/aluma-drive/DSC00600.JPG",
     title: "QUIET",
     sub: "WHEN CALLED",
-    tag: "BOTANICAL SPA",
+    tag: "TEXTURE & TONE",
     isShine: true,
+    objectPosition: "center 20%",
   },
   {
     id: 5,
-    src: "/aluma-assets/brideF.b368b3b3ce3801b10be8.png",
+    src: "/aluma-drive/DSC00594.JPG",
     title: "RELENTLESS",
     sub: "FEARLESS, TIMELESS & BOLD",
-    tag: "COUTURE BRIDAL",
+    tag: "ALUMA SIGNATURE",
     isShine: true,
+    objectPosition: "center 28%",
   },
+];
+
+const MAGAZINE_COVERS = [
+  { id: "vogue", src: "/images/aluma_vogue_cover.jpg", alt: "Aluma in Vogue", mag: "VOGUE" },
+  { id: "elle", src: "/images/aluma_elle_cover.jpg", alt: "Aluma in Elle", mag: "ELLE" },
+  { id: "ad", src: "/images/aluma_ad_cover.jpg", alt: "Aluma in Architectural Digest", mag: "ARCHITECTURAL DIGEST" },
+  { id: "bazaar", src: "/images/aluma_bazaar_cover.jpg", alt: "Aluma in Harper's Bazaar", mag: "HARPER'S BAZAAR" },
 ];
 
 export default function ChapterThreeSection() {
   const rootRef = useRef<HTMLElement>(null);
-  const [photos, setPhotos] = useState(FOLDER_PHOTOS);
-  const [activePhotoIdx, setActivePhotoIdx] = useState(0);
-  const fileInputRef = useRef<HTMLInputElement>(null);
-
-  // Custom photo upload support
-  const handlePhotoUpload = (e: ChangeEvent<HTMLInputElement>) => {
-    const files = e.target.files;
-    if (!files || files.length === 0) return;
-
-    const fileList = Array.from(files).slice(0, 5);
-    const updated = photos.map((item, i) => {
-      if (fileList[i]) {
-        return { ...item, src: URL.createObjectURL(fileList[i]) };
-      }
-      return item;
-    });
-    setPhotos(updated);
-    e.target.value = "";
-  };
+  const photos = FOLDER_PHOTOS;
+  const [, setActivePhotoIdx] = useState(0);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -77,10 +70,9 @@ export default function ChapterThreeSection() {
     if (!root) return;
 
     const ctx = gsap.context(() => {
-      const isDesktop = window.innerWidth >= 1024;
 
       // ==========================================
-      // SECTION 1: Spotlight Radial Sweep
+      // SECTION 1: Spotlight Radial Sweep & Opacity Glide
       // ==========================================
       const s1Tl = gsap.timeline({
         defaults: { ease: "none" },
@@ -88,118 +80,102 @@ export default function ChapterThreeSection() {
           trigger: ".chapter-3 .sect-1-wrap",
           start: "top top",
           end: "bottom bottom",
-          scrub: true,
+          scrub: 0.5,
           id: "stChapterThree",
         },
       });
       s1Tl.set(root, { pointerEvents: "auto" });
       s1Tl.set(".chapter-3 .sect-1-wrap", { opacity: 1 });
-      s1Tl.fromTo(".chapter-3 .sect-1", { "--mx": "20%" }, { "--mx": "100%" });
+      s1Tl.fromTo(".chapter-3 .sect-1", { "--mx": "15%" }, { "--mx": "85%" });
 
       // ==========================================
       // SECTION 2: Pinned 5-Photo ClipPath Wipe
       // ==========================================
-      if (isDesktop) {
-        gsap.set(".chapter-3 .sect-2-wrap", { opacity: 1 });
-        gsap.set(".chapter-3 .sect-2-wrap .items", { opacity: 1 });
+      gsap.set(".chapter-3 .sect-2-wrap", { opacity: 1 });
+      gsap.set(".chapter-3 .sect-2-wrap .items", { opacity: 1 });
 
-        // Text triggers for BOLD, QUIET, RELENTLESS
-        const triggers = document.querySelectorAll<HTMLElement>(".chapter-3 .sect-2-wrap .trigger");
-        const itemTexts = document.querySelectorAll<HTMLElement>(".chapter-3 .sect-2-wrap .item-text");
+      // Text triggers for BOLD, QUIET, RELENTLESS
+      const triggers = document.querySelectorAll<HTMLElement>(".chapter-3 .sect-2-wrap .trigger");
+      const itemTexts = document.querySelectorAll<HTMLElement>(".chapter-3 .sect-2-wrap .item-text");
 
-        triggers.forEach((triggerEl, idx) => {
-          const textEl = itemTexts[idx];
-          if (!textEl) return;
+      triggers.forEach((triggerEl, idx) => {
+        const textEl = itemTexts[idx];
+        if (!textEl) return;
 
-          const h2Thin = textEl.querySelector<HTMLElement>(".h2-thin");
-          const h2Book = textEl.querySelector<HTMLElement>(".h2-book");
+        const h2Thin = textEl.querySelector<HTMLElement>(".h2-thin");
+        const h2Book = textEl.querySelector<HTMLElement>(".h2-book");
 
-          const textTl = gsap.timeline({
-            scrollTrigger: {
-              trigger: triggerEl,
-              start: "top top",
-              end: "top top",
-              toggleActions: "play none reverse none",
-            },
-          });
-
-          if (h2Thin) {
-            const letterNodes = h2Thin.querySelectorAll<HTMLElement>(".text-word > div");
-            textTl.fromTo(
-              letterNodes,
-              { rotateY: "90deg", opacity: 0, visibility: "hidden" },
-              {
-                rotateY: "0deg",
-                opacity: 1,
-                visibility: "inherit",
-                stagger: 0.04,
-                duration: 0.64,
-                ease: "power2.out",
-              }
-            );
-          }
-
-          if (h2Book) {
-            textTl.fromTo(h2Book, { opacity: 0 }, { opacity: 1, duration: 0.4 }, "<");
-            textTl.to(h2Book, { animation: "shine 1.5s ease 1" }, "<");
-          }
-        });
-
-        // Photos Scrub Timeline
-        const photoTl = gsap.timeline({
-          defaults: { ease: "none" },
+        const textTl = gsap.timeline({
           scrollTrigger: {
-            trigger: ".chapter-3 .sect-2-wrap",
+            trigger: triggerEl,
             start: "top top",
-            end: "bottom bottom",
-            scrub: true,
-            onUpdate: (self) => {
-              const currentStep = Math.min(4, Math.floor(self.progress * 5));
-              setActivePhotoIdx(currentStep);
-            },
+            end: "top top",
+            toggleActions: "play none reverse none",
           },
         });
 
-        const items = document.querySelectorAll<HTMLElement>(".chapter-3 .sect-2-wrap .item");
-        items.forEach((itemEl, idx) => {
-          const imgEl = itemEl.querySelector("img");
-          if (idx > 0) {
-            photoTl.fromTo(
-              itemEl,
-              { clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)" },
-              { clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)", duration: 1 }
-            );
-            if (imgEl) {
-              photoTl.fromTo(imgEl, { scale: 1.15 }, { scale: 1.0, duration: 1 }, "<");
+        if (h2Thin) {
+          const letterNodes = h2Thin.querySelectorAll<HTMLElement>(".text-word > div");
+          textTl.fromTo(
+            letterNodes,
+            { rotateY: "90deg", opacity: 0, visibility: "hidden" },
+            {
+              rotateY: "0deg",
+              opacity: 1,
+              visibility: "inherit",
+              stagger: 0.04,
+              duration: 0.64,
+              ease: "power2.out",
             }
-          }
-        });
+          );
+        }
 
-        // Exit Transition
-        gsap.timeline({
-          defaults: { ease: "none" },
-          scrollTrigger: {
-            trigger: ".chapter-3 .sect-2-wrap",
-            start: "bottom bottom",
-            end: "bottom top",
-            scrub: true,
+        if (h2Book) {
+          textTl.fromTo(h2Book, { opacity: 0 }, { opacity: 1, duration: 0.4 }, "<");
+          textTl.to(h2Book, { animation: "shine 1.5s ease 1" }, "<");
+        }
+      });
+
+      // Photos Scrub Timeline
+      const photoTl = gsap.timeline({
+        defaults: { ease: "none" },
+        scrollTrigger: {
+          trigger: ".chapter-3 .sect-2-wrap",
+          start: "top top",
+          end: "bottom bottom",
+          scrub: true,
+          onUpdate: (self) => {
+            const currentStep = Math.min(4, Math.floor(self.progress * 5));
+            setActivePhotoIdx(currentStep);
           },
-        }).to(".chapter-3 .sect-2-sticky", { yPercent: 100 });
+        },
+      });
 
-      } else {
-        // Mobile Animation
-        gsap.set(".chapter-3 .sect-2-wrap-mob", { opacity: 1 });
+      const items = document.querySelectorAll<HTMLElement>(".chapter-3 .sect-2-wrap .item");
+      items.forEach((itemEl, idx) => {
+        const imgEl = itemEl.querySelector("img");
+        if (idx > 0) {
+          photoTl.fromTo(
+            itemEl,
+            { clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)" },
+            { clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)", duration: 1 }
+          );
+          if (imgEl) {
+            photoTl.fromTo(imgEl, { scale: 1.15 }, { scale: 1.0, duration: 1 }, "<");
+          }
+        }
+      });
 
-        document.querySelectorAll<HTMLElement>(".chapter-3 .sect-2-wrap-mob .item-photo").forEach((photoEl) => {
-          gsap.timeline({
-            scrollTrigger: {
-              trigger: photoEl,
-              start: "top bottom",
-              toggleActions: "play none reverse none",
-            },
-          }).from(photoEl, { y: "6rem", opacity: 0, ease: "power2.out" });
-        });
-      }
+      // Exit Transition
+      gsap.timeline({
+        defaults: { ease: "none" },
+        scrollTrigger: {
+          trigger: ".chapter-3 .sect-2-wrap",
+          start: "bottom bottom",
+          end: "bottom top",
+          scrub: true,
+        },
+      }).to(".chapter-3 .sect-2-sticky", { yPercent: 100 });
 
       // ==========================================
       // SECTION 3: Horizontal Drifting Press Spread
@@ -208,7 +184,7 @@ export default function ChapterThreeSection() {
       const sect3Images = document.querySelectorAll<HTMLElement>(".chapter-3 .sect-3-img");
       const sect3Photos = document.querySelector<HTMLElement>(".chapter-3 .sect-3-photos");
 
-      if (sect3Container && sect3Photos) {
+      if (sect3Container && sect3Photos && typeof window !== "undefined" && window.innerWidth >= 1024) {
         const distance = sect3Photos.scrollWidth - window.innerWidth;
         const horizTl = gsap.to(sect3Photos, {
           x: -distance,
@@ -272,28 +248,20 @@ export default function ChapterThreeSection() {
       style={{ pointerEvents: "auto" }}
     >
       {/* ------------------------------------------------------------- */}
-      {/* ------------------------------------------------------------- */}
       {/* SUB-SECTION 1: Spotlight Radial Sweep (Objects of Desire)      */}
       {/* ------------------------------------------------------------- */}
       <div className="sect-1-wrap" data-v-da1c79fb="" data-v-61e9ac12="" style={{ opacity: 1 }}>
         <div className="sect-1-sticky" data-v-61e9ac12="">
-          <section className="sect-1" data-v-61e9ac12="" style={{ "--mx": "50%" } as React.CSSProperties}>
+          <section className="sect-1" data-v-61e9ac12="" style={{ "--mx": "50%" } as CSSProperties}>
             <div className="sect-1-content" data-v-61e9ac12="">
+              {/* Master Stylists Team Image (Full visibility across mobile and desktop) */}
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img className="img" src="/images/image_176.webp" alt="Ambient" data-v-61e9ac12="" />
-              <div className="chapter-title" data-v-61e9ac12="" data-v-8c7a0c4d="">
-                <div className="decor flex items-center gap-1 bg-transparent w-auto h-auto" data-v-8c7a0c4d="">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#1DE9B6]" />
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#FF6E40]" />
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#EC407A]" />
-                </div>
-                <div className="title-text l1-thin" data-v-8c7a0c4d="">
-                  OBJECTS OF <strong className="text-transparent bg-clip-text bg-gradient-to-r from-[#1DE9B6] via-[#FF6E40] to-[#EC407A]">DESIRE</strong>
-                </div>
-              </div>
-              <div className="chapter-count l1-thin" data-v-61e9ac12="" data-v-25e4460d="">
-                <span className="text-[#FF6E40]">chapter</span> III
-              </div>
+              <img
+                className="img"
+                src="/images/image_176.webp"
+                alt="Aluma Atelier Master Stylists Collective"
+                data-v-61e9ac12=""
+              />
             </div>
           </section>
         </div>
@@ -314,16 +282,16 @@ export default function ChapterThreeSection() {
         <div className="sect-2-sticky" data-v-ebc3b246="">
           {/* 5 Stacked Items (Using Authentic Photos from the Folder) */}
           <div className="items" data-v-ebc3b246="" style={{ opacity: 1 }}>
-            {/* Item 1: Architectural White Hero */}
+            {/* Item 1: Editorial Styling */}
             <div className="item" data-v-ebc3b246="">
               <div className="item-photo" data-v-ebc3b246="">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={photos[0].src} className="inner-img" alt="Look 01" data-v-ebc3b246="" />
+                <img src={photos[0].src} className="inner-img" alt="Look 01" data-v-ebc3b246="" style={{ objectPosition: photos[0].objectPosition || "center 22%" }} />
                 <div className="photo-badge">{photos[0].tag} • 01</div>
               </div>
             </div>
 
-            {/* Item 2: French Balayage (BOLD WHEN NEEDED) */}
+            {/* Item 2: Precision Cut (BOLD WHEN NEEDED) */}
             <div
               className="item"
               data-v-ebc3b246=""
@@ -331,7 +299,7 @@ export default function ChapterThreeSection() {
             >
               <div className="item-photo" data-v-ebc3b246="">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={photos[1].src} className="inner-img" alt="Look 02" data-v-ebc3b246="" style={{ transform: "scale(1.15, 1.15)" }} />
+                <img src={photos[1].src} className="inner-img" alt="Look 02" data-v-ebc3b246="" style={{ transform: "scale(1.15, 1.15)", objectPosition: photos[1].objectPosition || "center 20%" }} />
                 <div className="photo-badge">{photos[1].tag} • 02</div>
               </div>
               <div className="item-text" data-v-ebc3b246="">
@@ -353,7 +321,7 @@ export default function ChapterThreeSection() {
               </div>
             </div>
 
-            {/* Item 3: Cashmere Melt */}
+            {/* Item 3: Layered Form */}
             <div
               className="item"
               data-v-ebc3b246=""
@@ -361,12 +329,12 @@ export default function ChapterThreeSection() {
             >
               <div className="item-photo" data-v-ebc3b246="">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={photos[2].src} className="inner-img" alt="Look 03" data-v-ebc3b246="" style={{ transform: "scale(1.15, 1.15)" }} />
+                <img src={photos[2].src} className="inner-img" alt="Look 03" data-v-ebc3b246="" style={{ transform: "scale(1.15, 1.15)", objectPosition: photos[2].objectPosition || "center 20%" }} />
                 <div className="photo-badge">{photos[2].tag} • 03</div>
               </div>
             </div>
 
-            {/* Item 4: Botanical Treatment (QUIET WHEN CALLED) */}
+            {/* Item 4: Texture & Tone (QUIET WHEN CALLED) */}
             <div
               className="item"
               data-v-ebc3b246=""
@@ -374,7 +342,7 @@ export default function ChapterThreeSection() {
             >
               <div className="item-photo" data-v-ebc3b246="">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={photos[3].src} className="inner-img" alt="Look 04" data-v-ebc3b246="" style={{ transform: "scale(1.15, 1.15)" }} />
+                <img src={photos[3].src} className="inner-img" alt="Look 04" data-v-ebc3b246="" style={{ transform: "scale(1.15, 1.15)", objectPosition: photos[3].objectPosition || "center 20%" }} />
                 <div className="photo-badge">{photos[3].tag} • 04</div>
               </div>
               <div className="item-text" data-v-ebc3b246="">
@@ -396,7 +364,7 @@ export default function ChapterThreeSection() {
               </div>
             </div>
 
-            {/* Item 5: High Occasion Bridal (RELENTLESS FEARLESS, TIMELESS & BOLD) */}
+            {/* Item 5: High Occasion / Aluma Signature (RELENTLESS FEARLESS, TIMELESS & BOLD) */}
             <div
               className="item"
               data-v-ebc3b246=""
@@ -404,7 +372,7 @@ export default function ChapterThreeSection() {
             >
               <div className="item-photo" data-v-ebc3b246="">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={photos[4].src} className="inner-img" alt="Look 05" data-v-ebc3b246="" style={{ transform: "scale(1.15, 1.15)" }} />
+                <img src={photos[4].src} className="inner-img" alt="Look 05" data-v-ebc3b246="" style={{ transform: "scale(1.15, 1.15)", objectPosition: photos[4].objectPosition || "center 28%" }} />
                 <div className="photo-badge">{photos[4].tag} • 05</div>
               </div>
               <div className="item-text" data-v-ebc3b246="">
@@ -434,78 +402,6 @@ export default function ChapterThreeSection() {
         </div>
       </div>
 
-      {/* ------------------------------------------------------------- */}
-      {/* MOBILE SECTION 2: Vertical Stack with Parallax Photos         */}
-      {/* ------------------------------------------------------------- */}
-      <div className="sect-2-wrap-mob" data-v-da1c79fb="" data-v-7a9c6173="">
-        <div className="main-title title-anim" data-v-7a9c6173="">
-          <div className="text-shine h1-book title-book" data-v-7a9c6173="" data-v-0235e11e="" style={{ opacity: 1 }}>
-            BOLD
-          </div>
-          <div className="h1-thin title-thin" data-v-7a9c6173="" aria-label="whenneeded">
-            <div className="text-line" aria-hidden="true">
-              <div className="text-word" aria-hidden="true">
-                <div>w</div><div>h</div><div>e</div><div>n</div>
-              </div>
-            </div>
-            <div className="text-line" aria-hidden="true">
-              <div className="text-word" aria-hidden="true">
-                <div>n</div><div>e</div><div>e</div><div>d</div><div>e</div><div>d</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="items" data-v-7a9c6173="">
-          {photos.map((p, idx) => (
-            <div key={p.id} className="item" data-v-7a9c6173="">
-              <div className="item-photo parallax-image" data-v-7a9c6173="" style={{ overflow: "hidden" }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={p.src} className="inner-img" alt={p.title} data-v-7a9c6173="" style={{ transform: "translate(0px, -2rem) scale(1.15, 1.15)" }} />
-                <div className="photo-badge">{p.tag} • 0{p.id}</div>
-              </div>
-              {idx === 1 && (
-                <div className="item-text title-anim" data-v-7a9c6173="">
-                  <div className="text-shine h2-book title-book" data-v-7a9c6173="" data-v-0235e11e="" style={{ opacity: 1 }}>
-                    QUIET
-                  </div>
-                  <div className="h2-thin title-thin" data-v-7a9c6173="" aria-label="WHEN CALLED">
-                    <div className="text-line" aria-hidden="true">
-                      <div className="text-word" aria-hidden="true">
-                        <div>W</div><div>H</div><div>E</div><div>N</div>
-                      </div>
-                    </div>
-                    <div className="text-line" aria-hidden="true">
-                      <div className="text-word" aria-hidden="true">
-                        <div>C</div><div>A</div><div>L</div><div>L</div><div>E</div><div>D</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-              {idx === 3 && (
-                <div className="item-text title-anim" data-v-7a9c6173="">
-                  <div className="text-shine h2-book title-book" data-v-7a9c6173="" data-v-0235e11e="" style={{ opacity: 1 }}>
-                    RELENTLESS
-                  </div>
-                  <div className="h2-thin title-thin" data-v-7a9c6173="" aria-label="FEARLESS, TIMELESS &">
-                    <div className="text-line" aria-hidden="true">
-                      <div className="text-word" aria-hidden="true">
-                        <div>F</div><div>E</div><div>A</div><div>R</div><div>L</div><div>E</div><div>S</div><div>S</div>
-                      </div>
-                    </div>
-                    <div className="text-line" aria-hidden="true">
-                      <div className="text-word" aria-hidden="true">
-                        <div>T</div><div>I</div><div>M</div><div>E</div><div>L</div><div>E</div><div>S</div><div>S</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
 
       {/* ------------------------------------------------------------- */}
       {/* SUB-SECTION 3: Featured In the World's Leading Voices          */}
@@ -546,10 +442,10 @@ export default function ChapterThreeSection() {
                         </div>
                       </div>
                     </div>
-                    <div className="text-shine h1-book title-book" data-v-2b312de3="" data-v-0235e11e="" style={{ opacity: 0 }}>
+                    <div className="text-shine h1-book title-book" data-v-2b312de3="" data-v-0235e11e="">
                       Leading
                     </div>
-                    <div className="text-shine h1-book title-book" data-v-2b312de3="" data-v-0235e11e="" style={{ opacity: 0 }}>
+                    <div className="text-shine h1-book title-book" data-v-2b312de3="" data-v-0235e11e="">
                       Voices
                     </div>
                   </div>
@@ -558,28 +454,24 @@ export default function ChapterThreeSection() {
               <div className="sect-3-desc2 b1-light" data-v-2b312de3="" style={{ transform: "translate(0%, 105%)" }}>
                 Aluma&apos;s architectural artistry is recognized by premier luxury publications like{" "}
                 <span className="b1-bold" data-v-2b312de3="">
-                  Architectural Digest, ELLE Decoration, and VOGUE
+                  Architectural Digest, ELLE, VOGUE, and Harper&apos;s BAZAAR
                 </span>
                 , highlighting a vision of refined originality.
               </div>
               <div className="sect-3-images" data-v-2b312de3="">
                 <div className="sect-3-photos" data-v-2b312de3="">
-                  <div className="sect-3-img" data-v-2b312de3="">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src="/images/info-img-1.webp" className="inner-img" alt="Vogue" data-v-2b312de3="" />
-                  </div>
-                  <div className="sect-3-img" data-v-2b312de3="">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src="/images/info-img-2.webp" className="inner-img" alt="Elle" data-v-2b312de3="" />
-                  </div>
-                  <div className="sect-3-img" data-v-2b312de3="">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src="/images/info-img-3.webp" className="inner-img" alt="AD" data-v-2b312de3="" />
-                  </div>
-                  <div className="sect-3-img" data-v-2b312de3="">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src="/images/info-img-4.webp" className="inner-img" alt="Harper's" data-v-2b312de3="" />
-                  </div>
+                  {/* Two identical sets of covers for infinite seamless marquee auto-scroll on mobile */}
+                  {[...MAGAZINE_COVERS, ...MAGAZINE_COVERS].map((cover, idx) => (
+                    <div key={`${cover.id}-${idx}`} className="sect-3-img relative group" data-v-2b312de3="">
+                      {/* Top Magazine Label Badge */}
+                      <div className="absolute top-3 left-3 bg-black/70 backdrop-blur-md border border-white/20 px-2.5 py-1 rounded-full text-[10px] font-mono text-white flex items-center gap-1.5 z-10 shadow-md">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#20B364]" />
+                        <span>{cover.mag}</span>
+                      </div>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={cover.src} className="inner-img" alt={cover.alt} data-v-2b312de3="" />
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -588,7 +480,7 @@ export default function ChapterThreeSection() {
       </div>
 
       {/* ------------------------------------------------------------- */}
-      {/* EXACT STYLESHEET WITH BADHIYA PRESENTATION & CONTRAST         */}
+      {/* STYLESHEET                                                     */}
       {/* ------------------------------------------------------------- */}
       <style jsx global>{`
         :root {
@@ -605,9 +497,10 @@ export default function ChapterThreeSection() {
           color: #f1f1f1;
         }
 
-        /* 1. Sect 1 (Spotlight sweep) */
+        /* 1. Sect 1 (Spotlight sweep & Opacity glide) */
         .chapter-3 .sect-1-sticky {
           height: 100vh;
+          height: 100svh;
           left: 0;
           overflow: hidden;
           position: sticky;
@@ -621,33 +514,78 @@ export default function ChapterThreeSection() {
         }
         @media (max-width: 1023px) {
           .chapter-3 .sect-1-wrap {
-            height: 200vh;
+            height: 180vh; /* Smooth, natural scroll distance for mobile opacity sweep */
+            position: relative;
+          }
+          .chapter-3 .sect-1-sticky {
+            height: 100vh;
+            height: 100svh;
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
           }
         }
         .chapter-3 .sect-1 {
           height: 100vh;
+          height: 100svh;
           position: relative;
-          --mx: 0%;
-          -webkit-mask: radial-gradient(ellipse 30% 65% at var(--mx) 50%, #000 0, #000 35%, transparent 100%);
-          mask: radial-gradient(ellipse 30% 65% at var(--mx) 50%, #000 0, #000 35%, transparent 100%);
+          --mx: 50%;
+          /* Luminous spotlight at center, with sleek 35% silhouette opacity for rest of team */
+          -webkit-mask: radial-gradient(ellipse 50% 75% at var(--mx, 50%) 50%, #000 0%, #000 25%, rgba(0, 0, 0, 0.35) 70%, rgba(0, 0, 0, 0.22) 100%);
+          mask: radial-gradient(ellipse 50% 75% at var(--mx, 50%) 50%, #000 0%, #000 25%, rgba(0, 0, 0, 0.35) 70%, rgba(0, 0, 0, 0.22) 100%);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        @media (max-width: 1023px) {
+          .chapter-3 .sect-1 {
+            height: 100vh;
+            height: 100svh;
+            width: 100%;
+            /* Wide luminous spotlight for mobile: smoothly sweeps across all figures */
+            -webkit-mask: radial-gradient(ellipse 55% 75% at var(--mx, 50%) 50%, #000 0%, #000 25%, rgba(0, 0, 0, 0.38) 70%, rgba(0, 0, 0, 0.25) 100%) !important;
+            mask: radial-gradient(ellipse 55% 75% at var(--mx, 50%) 50%, #000 0%, #000 25%, rgba(0, 0, 0, 0.38) 70%, rgba(0, 0, 0, 0.25) 100%) !important;
+          }
         }
         .chapter-3 .sect-1-content {
           background: #08090C;
           inset: 0;
           position: absolute;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
         }
         .chapter-3 .sect-1-content .img {
           mix-blend-mode: lighten;
           position: absolute;
-          right: 19rem;
-          top: 2.5rem;
-          width: 39.375rem;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          width: 48rem;
+          max-width: 80vw;
+          max-height: 80vh;
+          object-fit: contain;
         }
         @media (max-width: 1023px) {
+          .chapter-3 .sect-1-content {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            background: #08090C;
+          }
           .chapter-3 .sect-1-content .img {
-            right: -7rem;
-            top: 6rem;
-            width: 28.125rem;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 95vw;
+            max-width: 32rem;
+            max-height: 72vh;
+            object-fit: contain;
           }
         }
         .chapter-3 .chapter-title {
@@ -693,46 +631,57 @@ export default function ChapterThreeSection() {
           }
         }
 
-        /* 2. Sect 2 (Desktop Pinned 800vh Track) */
+        /* 2. Sect 2 (Universal Pinned 5-Photo ClipPath Wipe Track) */
         .chapter-3 .sect-2-wrap {
           height: 800vh;
           position: relative;
         }
         @media (max-width: 1023px) {
           .chapter-3 .sect-2-wrap {
-            display: none;
+            height: 320vh; /* snappy, seamless transitions on mobile with zero dead zones */
+            display: block;
           }
         }
         .chapter-3 .sect-2-sticky {
           height: 100vh;
+          height: 100svh;
           left: 0;
           overflow: hidden;
           position: sticky;
           top: 0;
           width: 100%;
         }
-        .chapter-3 .circles {
-          left: 50%;
-          margin-left: -.5rem;
-          top: 50%;
-          transform: translate(-50%, -50%);
-          width: 71rem;
+        .chapter-3 .sect-2-sticky .main-title {
+          left: 26.625rem;
           position: absolute;
-          pointer-events: none;
+          top: 1.25rem;
           z-index: 5;
+        }
+        @media (max-width: 1023px) {
+          .chapter-3 .sect-2-sticky .main-title {
+            left: 1.25rem;
+            top: 1.25rem;
+          }
         }
         .chapter-3 .items {
           position: absolute;
           left: 50%;
           top: 50%;
           transform: translate(-50%, -50%);
-          width: min(560px, 85vw);
-          height: min(640px, 72vh);
+          width: min(560px, 86vw);
+          height: min(640px, 70vh);
           border-radius: 1.5rem;
           overflow: hidden;
           background: #08090C;
           box-shadow: 0 25px 70px -10px rgba(0, 0, 0, 0.95), 0 0 0 1px rgba(255, 255, 255, 0.12), 0 0 40px -10px rgba(104, 117, 233, 0.2);
           z-index: 10;
+        }
+        @media (max-width: 640px) {
+          .chapter-3 .items {
+            border-radius: 1.25rem;
+            width: 88vw;
+            height: 64vh;
+          }
         }
         .chapter-3 .item {
           position: absolute;
@@ -770,6 +719,14 @@ export default function ChapterThreeSection() {
           backdrop-filter: blur(14px);
           box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), 0 0 15px -3px rgba(32, 179, 100, 0.25);
         }
+        @media (max-width: 640px) {
+          .chapter-3 .photo-badge {
+            top: 1rem;
+            left: 1rem;
+            font-size: 0.65rem;
+            padding: 0.3rem 0.75rem;
+          }
+        }
         .chapter-3 .inner-img {
           height: 100%;
           left: 0;
@@ -787,6 +744,13 @@ export default function ChapterThreeSection() {
           bottom: 2rem;
           left: 2rem;
           right: 2rem;
+        }
+        @media (max-width: 640px) {
+          .chapter-3 .item-text {
+            bottom: 1.25rem;
+            left: 1.25rem;
+            right: 1.25rem;
+          }
         }
         .chapter-3 .item:nth-child(2) .item-text {
           text-align: right;
@@ -817,53 +781,31 @@ export default function ChapterThreeSection() {
         .chapter-3 .trigger-3 {
           top: 660vh;
         }
-
-        /* 3. Sect 2 Mobile */
-        .chapter-3 .sect-2-wrap-mob {
-          display: none;
-          position: relative;
-        }
         @media (max-width: 1023px) {
-          .chapter-3 .sect-2-wrap-mob {
-            display: block;
-            padding: 4rem 1rem 3.5rem;
+          .chapter-3 .trigger-1 {
+            top: 180vh;
+          }
+          .chapter-3 .trigger-2 {
+            top: 310vh;
+          }
+          .chapter-3 .trigger-3 {
+            top: 400vh;
           }
         }
-        .chapter-3 .main-title {
-          margin-bottom: clamp(2rem, 8vw, 4.5rem);
-        }
-        .chapter-3 .sect-2-wrap-mob .item:first-child .item-photo {
-          height: clamp(14rem, 40vh, 18rem);
-        }
-        .chapter-3 .sect-2-wrap-mob .item:not(:last-child) {
-          margin-bottom: 2.5rem;
-        }
-        .chapter-3 .sect-2-wrap-mob .item-photo {
-          height: clamp(16rem, 50vh, 24rem);
-          position: relative;
-          border-radius: 1.25rem;
-          overflow: hidden;
-          border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .chapter-3 .sect-2-wrap-mob .item-text {
-          margin-top: -2rem;
-          padding-bottom: 2rem;
-          position: relative;
-          z-index: 20;
-        }
-        .chapter-3 .sect-2-wrap-mob .item:nth-child(4) .item-text {
-          display: flex;
-          flex-direction: column;
-          text-align: right;
-        }
-        .chapter-3 .sect-2-wrap-mob .item:nth-child(4) .item-text .h2-book {
-          order: 2;
-        }
 
+        /* 4. Sect 3 (Featured In Leading Voices) */
         /* 4. Sect 3 (Featured In Leading Voices) */
         .chapter-3 .sect-3-container {
           height: 400vh;
           position: relative;
+        }
+        @media (max-width: 1023px) {
+          .chapter-3 .sect-3-container {
+            height: auto !important;
+            position: relative !important;
+            display: block !important;
+            padding: 3rem 1rem 4rem !important;
+          }
         }
         .chapter-3 .sect-3-sticky {
           height: 100vh;
@@ -872,6 +814,14 @@ export default function ChapterThreeSection() {
           position: sticky;
           top: 0;
           width: 100%;
+        }
+        @media (max-width: 1023px) {
+          .chapter-3 .sect-3-sticky {
+            position: relative !important;
+            height: auto !important;
+            width: 100% !important;
+            overflow: visible !important;
+          }
         }
         .chapter-3 .sect-3 {
           background: #08090C;
@@ -882,21 +832,38 @@ export default function ChapterThreeSection() {
         }
         @media (max-width: 1023px) {
           .chapter-3 .sect-3 {
-            padding: 0.5rem;
+            position: relative !important;
+            inset: auto !important;
+            padding: 0 !important;
+            background: transparent !important;
+            width: 100% !important;
           }
         }
         .chapter-3 .sect-3-wrap {
-          background: #f1f1f1;
-          color: #0b0b0b;
+          background: #0B0C10;
+          color: #F8FAFC;
+          border: 1px solid rgba(255, 255, 255, 0.12);
           height: 100%;
           overflow: hidden;
           position: relative;
           z-index: 100;
           border-radius: 1.5rem;
         }
+        @media (max-width: 1023px) {
+          .chapter-3 .sect-3-wrap {
+            height: auto !important;
+            min-height: auto !important;
+            padding: 2.25rem 1.25rem 2.5rem !important;
+            overflow: hidden !important;
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 1.5rem !important;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85) !important;
+          }
+        }
         @media (max-width: 640px) {
           .chapter-3 .sect-3-wrap {
-            border-radius: 1rem;
+            border-radius: 1.25rem;
           }
         }
         .chapter-3 .sect-3-descr {
@@ -907,10 +874,18 @@ export default function ChapterThreeSection() {
         }
         @media (max-width: 1023px) {
           .chapter-3 .sect-3-descr {
-            left: 0;
-            padding-top: clamp(16rem, 36vh, 25rem);
-            text-align: center;
-            width: 100%;
+            position: relative !important;
+            left: auto !important;
+            top: auto !important;
+            padding: 0 !important;
+            text-align: left !important;
+            width: 100% !important;
+            color: #20B364 !important;
+            font-size: 11px !important;
+            letter-spacing: 0.22em !important;
+            text-transform: uppercase !important;
+            font-weight: 700 !important;
+            font-family: var(--font-mono) !important;
           }
         }
         .chapter-3 .sect-3-title {
@@ -921,7 +896,26 @@ export default function ChapterThreeSection() {
         }
         @media (max-width: 1023px) {
           .chapter-3 .sect-3-title {
-            left: 1rem;
+            position: relative !important;
+            left: auto !important;
+            top: auto !important;
+            padding: 0 !important;
+            width: 100% !important;
+          }
+          .chapter-3 .sect-3-title .h1-thin,
+          .chapter-3 .sect-3-title .h1-book {
+            font-size: clamp(2.2rem, 9.5vw, 3.4rem) !important;
+            line-height: 92% !important;
+            letter-spacing: -0.04rem !important;
+          }
+          .chapter-3 .sect-3-title .text-word > div {
+            transform: none !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+          }
+          .chapter-3 .sect-3-title .text-shine {
+            opacity: 1 !important;
+            visibility: visible !important;
           }
         }
         .chapter-3 .sect-3-decor {
@@ -933,8 +927,9 @@ export default function ChapterThreeSection() {
           width: 1.25rem;
         }
         @media (max-width: 1023px) {
-          .chapter-3 .sect-3-decor {
-            display: none;
+          .chapter-3 .sect-3-decor,
+          .chapter-3 .sect-3-decor2 {
+            display: none !important;
           }
         }
         .chapter-3 .sect-3-images {
@@ -947,18 +942,43 @@ export default function ChapterThreeSection() {
           top: 0;
           width: 100%;
         }
-        .chapter-3 .sect-3-photos {
-          display: flex;
-          gap: 2.5rem;
-          padding: 0 35vw 0 45vw;
-          width: max-content;
-          will-change: transform;
-          align-items: center;
+        @keyframes autoGlideCovers {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(calc(-50% - 0.625rem));
+          }
         }
         @media (max-width: 1023px) {
+          .chapter-3 .sect-3-images {
+            position: relative !important;
+            inset: auto !important;
+            height: auto !important;
+            width: 100% !important;
+            margin: 1.25rem 0 !important;
+            overflow: hidden !important;
+            mask-image: linear-gradient(to right, transparent 0%, #000 6%, #000 94%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 6%, #000 94%, transparent 100%);
+          }
           .chapter-3 .sect-3-photos {
-            gap: 1rem;
-            padding: 0 10vw 0 15vw;
+            display: flex !important;
+            flex-direction: row !important;
+            gap: 1.25rem !important;
+            padding: 0.5rem 0 1.25rem !important;
+            width: max-content !important;
+            animation: autoGlideCovers 20s linear infinite !important;
+            will-change: transform !important;
+            touch-action: pan-y;
+          }
+          .chapter-3 .sect-3-photos:hover,
+          .chapter-3 .sect-3-photos:active {
+            animation-play-state: paused !important;
+          }
+        }
+        @media (min-width: 1024px) {
+          .chapter-3 .sect-3-photos {
+            animation: none !important;
           }
         }
         .chapter-3 .sect-3-img {
@@ -974,8 +994,22 @@ export default function ChapterThreeSection() {
         }
         @media (max-width: 1023px) {
           .chapter-3 .sect-3-img {
-            height: clamp(12rem, 30vh, 16rem);
-            width: clamp(9.5rem, 24vw, 12.5rem);
+            flex-shrink: 0 !important;
+            width: 220px !important;
+            height: 320px !important;
+            scroll-snap-align: center !important;
+            transform: none !important;
+            border-radius: 1rem !important;
+            overflow: hidden !important;
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.15) !important;
+            background: #000 !important;
+            position: relative !important;
+          }
+          .chapter-3 .sect-3-img .inner-img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            display: block !important;
           }
         }
         .chapter-3 .sect-3-desc2 {
@@ -992,9 +1026,17 @@ export default function ChapterThreeSection() {
         }
         @media (max-width: 1023px) {
           .chapter-3 .sect-3-desc2 {
-            left: 1rem;
-            padding-bottom: 1rem;
-            width: 15rem;
+            position: relative !important;
+            left: auto !important;
+            bottom: auto !important;
+            transform: none !important;
+            width: 100% !important;
+            padding-top: 1.25rem !important;
+            color: #CBD5E1 !important;
+            font-size: 13px !important;
+            line-height: 1.55 !important;
+            mix-blend-mode: normal !important;
+            border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
           }
         }
         .chapter-3 .sect-3-decor2 {
@@ -1099,23 +1141,27 @@ export default function ChapterThreeSection() {
           position: relative;
           display: inline-block;
         }
+        /* FIX: words were sticking together ("Inthe", "TIMELESS&") */
+        .text-word + .text-word {
+          margin-left: 0.28em;
+        }
         .text-word > div {
           position: relative;
           display: inline-block;
           will-change: transform, opacity;
         }
 
-        /* 6. Text Shine Effect (Using Authentic Aluma Triad: Sunset Orange #FF6E40, Radical Rose #EC407A, Tropical Green #1DE9B6) */
+        /* 6. Text Shine Effect (Aluma Logo Triad: Green #20B364, Iris Blue #6875E9, Orchid Pink #EA54DB) */
         .text-shine {
           background-clip: text;
           -webkit-background-clip: text;
           background-image: linear-gradient(
             90deg,
-            #FF6E40 0%,
-            #EC407A 25%,
+            #20B364 0%,
+            #6875E9 25%,
             #FFFFFF 50%,
-            #1DE9B6 75%,
-            #FF6E40 100%
+            #EA54DB 75%,
+            #20B364 100%
           );
           background-position: -100% 0;
           background-size: 200% 100%;
@@ -1130,6 +1176,17 @@ export default function ChapterThreeSection() {
           }
           100% {
             background-position: -100% 0;
+          }
+        }
+
+        /* 7. Mobile fix: use small-viewport height so the phone address bar
+              doesn't leave a blank strip under the pinned panels.
+              (Browsers without svh support just keep the 100vh above.) */
+        @media (max-width: 1023px) {
+          .chapter-3 .sect-1-sticky,
+          .chapter-3 .sect-1,
+          .chapter-3 .sect-3-sticky {
+            height: 100svh;
           }
         }
       `}</style>

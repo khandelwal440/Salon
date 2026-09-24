@@ -21,18 +21,18 @@ export default function Home() {
       {/* Sticky Luxury Header with Gliding Logo */}
       <Header onOpenBooking={() => setIsModalOpen(true)} />
 
-      <main className="relative min-h-screen bg-[#4A2C7B] text-[#F8FAFC]">
+      <main className="relative min-h-screen bg-[#0B0C10] text-[#F8FAFC]">
         {/* 01: Hero Section */}
         <Hero onOpenBooking={() => setIsModalOpen(true)} />
 
         {/* 02: Pure Clone of Nabil Issa Chapter III (Objects of Desire & Leading Voices) */}
         <ChapterThreeSection />
 
-        {/* 03: RunRobRun Creative Tools Reel, Pixel Runner & Procedural Work Canvas */}
+        {/* 04: RunRobRun Creative Tools Reel, Pixel Runner & Procedural Work Canvas */}
         <RunRobRunSection />
 
-        {/* 04: dottxt.ai Full Products Section */}
-        <DotTxtProductsFullSection />
+        {/* 05: Client Reviews & Salon Experiences Section with Soft Pink Grid Theme */}
+        <DotTxtProductsFullSection onOpenBooking={() => setIsModalOpen(true)} />
       </main>
 
       {/* Quick Reservation Modal */}
