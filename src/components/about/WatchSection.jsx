@@ -99,11 +99,11 @@ export default function WatchSection() {
       <div className="noise-overlay"></div>
       <div data-widget="more-watch-film" className="section__inner">
         <div className="container">
-          <div className="section__header section__header--center-and-mobile">
-            <div className="watch-film__inner">
-              <div className="section__content-wrapper">
-                <div className="section__heading_wrapper">
-                  <h2 className="heading heading--xl">Our story</h2>
+          <div className="section__header section__header--center-and-mobile" style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+            <div className="watch-film__inner" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', width: '100%', gap: 'clamp(2rem, 1.8rem + 1vw, 3.5rem)' }}>
+              <div className="section__content-wrapper" style={{ width: '100%', textAlign: 'center', display: 'flex', justifyContent: 'center' }}>
+                <div className="section__heading_wrapper" style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+                  <h2 className="heading heading--xl" style={{ margin: '0 auto', textAlign: 'center', width: '100%' }}>Our story</h2>
                 </div>
               </div>
 
@@ -114,7 +114,7 @@ export default function WatchSection() {
                 onClick={toggleTab}
                 role="button"
                 tabIndex={0}
-                style={{ cursor: 'pointer' }}
+                style={{ cursor: 'pointer', display: 'flex', justifyContent: 'center', width: '100%' }}
                 aria-label="Toggle between upcoming and past screenings"
               >
                 <div className="watch-film__change_inner">
