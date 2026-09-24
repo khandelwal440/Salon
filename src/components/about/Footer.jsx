@@ -114,18 +114,8 @@ export default function Footer() {
                   </a>
                 </li>
                 <li className="footer-list__item">
-                  <a href="#press" className="footer-list__nav-link w-inline-block">
-                    <div data-role="header-link-hover">PRESS</div>
-                  </a>
-                </li>
-                <li className="footer-list__item">
                   <a href="#watch" className="footer-list__nav-link w-inline-block">
-                    <div data-role="header-link-hover">WATCH</div>
-                  </a>
-                </li>
-                <li className="footer-list__item">
-                  <a href="#merch" className="footer-list__nav-link w-inline-block">
-                    <div data-role="header-link-hover">MERCH</div>
+                    <div data-role="header-link-hover">OUR STORY</div>
                   </a>
                 </li>
                 <li className="footer-list__item">

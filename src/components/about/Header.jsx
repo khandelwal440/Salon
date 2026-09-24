@@ -62,7 +62,7 @@ export default function Header() {
                       <div data-role="header-link-hover">TEAM</div>
                     </a>
                     <a href="#watch" onClick={closeMenu} className="header__link w-inline-block">
-                      <div data-role="header-link-hover">WATCH</div>
+                      <div data-role="header-link-hover">OUR STORY</div>
                     </a>
                     <a href="#contact" onClick={closeMenu} className="header__link w-inline-block">
                       <div data-role="header-link-hover">Contact</div>

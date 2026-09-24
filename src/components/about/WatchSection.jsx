@@ -103,9 +103,7 @@ export default function WatchSection() {
             <div className="watch-film__inner">
               <div className="section__content-wrapper">
                 <div className="section__heading_wrapper">
-                  <h2 className="heading heading--xl">
-                    Watch <span className="hidden-mobile">film</span>
-                  </h2>
+                  <h2 className="heading heading--xl">Our story</h2>
                 </div>
               </div>
 
