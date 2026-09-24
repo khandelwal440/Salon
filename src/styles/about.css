@@ -3221,11 +3221,11 @@ a {
 
 .additional-crew__list-item_heading {
   text-transform: uppercase;
-  font-family: 'Switzer Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: 1.15rem;
+  font-family: Newtitle, Anton, sans-serif;
+  font-size: clamp(1.5rem, 1.25rem + 1vw, 2.1rem);
   font-weight: 700;
-  letter-spacing: 0.15em;
-  line-height: 120%;
+  letter-spacing: 0.08em;
+  line-height: 110%;
 }
 
 .additional-crew__list-item_paragraph-wrapper {

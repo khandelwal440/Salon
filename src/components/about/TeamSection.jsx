@@ -177,7 +177,10 @@ export default function TeamSection() {
               <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-8">
                 {/* Associate Producers */}
                 <div className="space-y-2">
-                  <span className="font-sans text-sm uppercase tracking-[0.15em] font-bold text-[#141414] block border-b border-black/15 pb-2">
+                  <span
+                    className="text-xl sm:text-2xl uppercase tracking-[0.08em] font-bold text-[#141414] block border-b border-black/15 pb-2"
+                    style={{ fontFamily: 'Newtitle, Anton, sans-serif' }}
+                  >
                     Associate Producers
                   </span>
                   <p className="font-sans text-sm text-[#4A4843] leading-relaxed">
@@ -188,7 +191,10 @@ export default function TeamSection() {
 
                 {/* Executive Producers */}
                 <div className="space-y-2">
-                  <span className="font-sans text-sm uppercase tracking-[0.15em] font-bold text-[#141414] block border-b border-black/15 pb-2">
+                  <span
+                    className="text-xl sm:text-2xl uppercase tracking-[0.08em] font-bold text-[#141414] block border-b border-black/15 pb-2"
+                    style={{ fontFamily: 'Newtitle, Anton, sans-serif' }}
+                  >
                     Executive Producers
                   </span>
                   <p className="font-sans text-sm text-[#4A4843] leading-relaxed">
@@ -205,7 +211,10 @@ export default function TeamSection() {
 
                 {/* Co-Executive Producers */}
                 <div className="space-y-2">
-                  <span className="font-sans text-sm uppercase tracking-[0.15em] font-bold text-[#141414] block border-b border-black/15 pb-2">
+                  <span
+                    className="text-xl sm:text-2xl uppercase tracking-[0.08em] font-bold text-[#141414] block border-b border-black/15 pb-2"
+                    style={{ fontFamily: 'Newtitle, Anton, sans-serif' }}
+                  >
                     Co-Executive Producers
                   </span>
                   <p className="font-sans text-sm text-[#4A4843] leading-relaxed">
