@@ -161,7 +161,7 @@ export default function TeamSection() {
                   <div className="additional-crew__list">
                     <div className="additional-crew__list-item">
                       <div className="additional-crew__list-item_heading-wrapper">
-                        <div className="additional-crew__list-item_heading" style={{ letterSpacing: '0.22em' }}>Associate Producers</div>
+                        <div className="additional-crew__list-item_heading">Associate Producers</div>
                       </div>
                       <div className="additional-crew__list-item_paragraph-wrapper">
                         <p className="paragraph paragraph--l">
@@ -173,7 +173,7 @@ export default function TeamSection() {
 
                     <div className="additional-crew__list-item">
                       <div className="additional-crew__list-item_heading-wrapper">
-                        <div className="additional-crew__list-item_heading" style={{ letterSpacing: '0.22em' }}>Executive Producers</div>
+                        <div className="additional-crew__list-item_heading">Executive Producers</div>
                       </div>
                       <div className="additional-crew__list-item_paragraph-wrapper">
                         <p className="paragraph paragraph--l">
@@ -198,7 +198,7 @@ export default function TeamSection() {
 
                     <div className="additional-crew__list-item">
                       <div className="additional-crew__list-item_heading-wrapper">
-                        <div className="additional-crew__list-item_heading" style={{ letterSpacing: '0.22em' }}>Co-Executive Producers</div>
+                        <div className="additional-crew__list-item_heading">Co-Executive Producers</div>
                       </div>
                       <div className="additional-crew__list-item_paragraph-wrapper">
                         <p className="paragraph paragraph--l">
