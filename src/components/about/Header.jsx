@@ -49,22 +49,30 @@ export default function Header() {
               <div data-widget="navigation-link-hover" className="header__links-wrapper">
                 <div className="header__links-outer">
                   <div className="header__links header__links--main">
-                    <a href="#trailer" onClick={closeMenu} className="header__link mob w-inline-block">
+                    <a href="#trailer" onClick={closeMenu} className="header__link mob w-inline-block text-[#141414]">
                       <div data-role="header-link-hover">TRAILER</div>
                     </a>
-                    <a href="#trailer" onClick={closeMenu} className="header__link dec w-inline-block">
+                    <a href="#trailer" onClick={closeMenu} className="header__link dec w-inline-block text-[#141414]">
                       <div data-role="header-link-hover">TRAILER</div>
                     </a>
-                    <a href="#about" onClick={closeMenu} className="header__link w-inline-block">
-                      <div data-role="header-link-hover">ABOUT</div>
+                    {/* Active Page Indicator: Primary Green Accent */}
+                    <a
+                      href="#about"
+                      onClick={closeMenu}
+                      className="header__link header__link--active w-inline-block !text-[#22C55E]"
+                      style={{ color: '#22C55E' }}
+                    >
+                      <div data-role="header-link-hover" className="font-bold text-[#22C55E]" style={{ color: '#22C55E' }}>
+                        ABOUT
+                      </div>
                     </a>
-                    <a href="#team" onClick={closeMenu} className="header__link w-inline-block">
+                    <a href="#team" onClick={closeMenu} className="header__link w-inline-block text-[#141414]">
                       <div data-role="header-link-hover">TEAM</div>
                     </a>
-                    <a href="#watch" onClick={closeMenu} className="header__link w-inline-block">
+                    <a href="#watch" onClick={closeMenu} className="header__link w-inline-block text-[#141414]">
                       <div data-role="header-link-hover">OUR STORY</div>
                     </a>
-                    <a href="#contact" onClick={closeMenu} className="header__link w-inline-block">
+                    <a href="#contact" onClick={closeMenu} className="header__link w-inline-block text-[#141414]">
                       <div data-role="header-link-hover">Contact</div>
                     </a>
                   </div>

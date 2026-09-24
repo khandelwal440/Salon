@@ -131,9 +131,9 @@ export default function Footer() {
           <div className="footer__body">
             <div className="footer__body-email-form_wrapper">
               <a href="mailto:union@cineticmedia.org" className="footer__email">
-                union@
+                Aluma
                 <br />
-                cineticmedia.org
+                Salon
               </a>
 
               <div className="form__wrapper w-form">

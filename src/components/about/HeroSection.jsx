@@ -10,6 +10,7 @@ const laurels = [
   {
     src: '/images/awards/award_vogue_beauty.svg',
     alt: 'Vogue Beauty Awards 2024 Official Choice badge with laurel wreath',
+    featured: true, // Pink secondary accent spotlight
   },
   {
     src: '/images/awards/award_elle_wellness.svg',
@@ -61,7 +62,15 @@ export default function HeroSection() {
               </div>
 
               <div data-animation-video="video-container" className="section-hero__video-wrapper flex items-center justify-center">
-                <div data-animation-video="video-element" className="section-hero__video">
+                {/* Periwinkle Accent: Hairline ring around the circle mask */}
+                <div
+                  data-animation-video="video-element"
+                  className="section-hero__video"
+                  style={{
+                    border: '1.5px solid #8B9FF8',
+                    boxShadow: '0 0 0 1px rgba(139, 159, 248, 0.25)',
+                  }}
+                >
                   <div data-animation-video="video-embed" className="section-hero__video-embed w-embed">
                     <video
                       width="100%"
@@ -75,6 +84,14 @@ export default function HeroSection() {
                     >
                       <source src="/videos/C3815.MP4" type="video/mp4" />
                     </video>
+                  </div>
+                  {/* Green Primary Accent: SCROLL Actionable Cue */}
+                  <div
+                    data-animation-video="scroll"
+                    className="section-hero__video-text"
+                    style={{ color: '#22C55E' }}
+                  >
+                    scroll
                   </div>
                 </div>
                 <h1 data-animation-video="o" className="heading heading--xxl heading--xxl--ninna opacity-100 text-[#141414]">
@@ -153,8 +170,31 @@ export default function HeroSection() {
 
 function laurelItems(items) {
   return items.map((item, idx) => (
-    <div key={idx} className="section-hero__logo">
-      <img src={item.src} loading="lazy" alt={item.alt} className="section-hero__logo-image" />
+    <div
+      key={idx}
+      className={`section-hero__logo relative flex flex-col items-center justify-center ${
+        item.featured ? 'laurel-featured-item' : ''
+      }`}
+    >
+      <img
+        src={item.src}
+        loading="lazy"
+        alt={item.alt}
+        className={`section-hero__logo-image transition-all duration-300 ${
+          item.featured
+            ? 'filter drop-shadow-[0_2px_10px_rgba(244,114,182,0.45)]'
+            : ''
+        }`}
+      />
+      {/* Pink Secondary Accent: Dot indicator badge under featured laurel */}
+      {item.featured && (
+        <div className="absolute -bottom-2 flex items-center justify-center pointer-events-none">
+          <span
+            className="w-1.5 h-1.5 rounded-full bg-[#F472B6] shadow-[0_0_8px_rgba(244,114,182,0.9)] inline-block"
+            title="Featured Award Choice"
+          />
+        </div>
+      )}
     </div>
   ));
 }

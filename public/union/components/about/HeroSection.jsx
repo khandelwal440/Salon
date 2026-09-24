@@ -10,6 +10,7 @@ const laurels = [
   {
     src: '/images/awards/award_vogue_beauty.svg',
     alt: 'Vogue Beauty Awards 2024 Official Choice badge with laurel wreath',
+    featured: true,
   },
   {
     src: '/images/awards/award_elle_wellness.svg',
@@ -156,8 +157,30 @@ export default function HeroSection() {
 
 function laurelItems(items) {
   return items.map((item, idx) => (
-    <div key={idx} className="section-hero__logo">
-      <img src={item.src} loading="lazy" alt={item.alt} className="section-hero__logo-image" />
+    <div
+      key={idx}
+      className={`section-hero__logo relative flex flex-col items-center justify-center ${
+        item.featured ? 'laurel-featured-item' : ''
+      }`}
+    >
+      <img
+        src={item.src}
+        loading="lazy"
+        alt={item.alt}
+        className={`section-hero__logo-image transition-all duration-300 ${
+          item.featured
+            ? 'filter drop-shadow-[0_2px_10px_rgba(244,114,182,0.45)]'
+            : ''
+        }`}
+      />
+      {item.featured && (
+        <div className="absolute -bottom-2 flex items-center justify-center pointer-events-none">
+          <span
+            className="w-1.5 h-1.5 rounded-full bg-[#F472B6] shadow-[0_0_8px_rgba(244,114,182,0.9)] inline-block"
+            title="Featured Award Choice"
+          />
+        </div>
+      )}
     </div>
   ));
 }
