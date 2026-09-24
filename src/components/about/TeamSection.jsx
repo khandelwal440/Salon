@@ -178,8 +178,8 @@ export default function TeamSection() {
                 {/* Associate Producers */}
                 <div className="space-y-2">
                   <span
-                    className="text-xl sm:text-2xl uppercase tracking-[0.08em] font-bold text-[#141414] block border-b border-black/15 pb-2"
-                    style={{ fontFamily: 'Newtitle, Anton, sans-serif' }}
+                    className="text-2xl sm:text-3xl uppercase tracking-[0.2em] font-bold text-[#141414] block border-b border-black/15 pb-2"
+                    style={{ fontFamily: "'Playfair Display', 'Cormorant Garamond', Georgia, serif" }}
                   >
                     Associate Producers
                   </span>
@@ -192,8 +192,8 @@ export default function TeamSection() {
                 {/* Executive Producers */}
                 <div className="space-y-2">
                   <span
-                    className="text-xl sm:text-2xl uppercase tracking-[0.08em] font-bold text-[#141414] block border-b border-black/15 pb-2"
-                    style={{ fontFamily: 'Newtitle, Anton, sans-serif' }}
+                    className="text-2xl sm:text-3xl uppercase tracking-[0.2em] font-bold text-[#141414] block border-b border-black/15 pb-2"
+                    style={{ fontFamily: "'Playfair Display', 'Cormorant Garamond', Georgia, serif" }}
                   >
                     Executive Producers
                   </span>
@@ -212,8 +212,8 @@ export default function TeamSection() {
                 {/* Co-Executive Producers */}
                 <div className="space-y-2">
                   <span
-                    className="text-xl sm:text-2xl uppercase tracking-[0.08em] font-bold text-[#141414] block border-b border-black/15 pb-2"
-                    style={{ fontFamily: 'Newtitle, Anton, sans-serif' }}
+                    className="text-2xl sm:text-3xl uppercase tracking-[0.2em] font-bold text-[#141414] block border-b border-black/15 pb-2"
+                    style={{ fontFamily: "'Playfair Display', 'Cormorant Garamond', Georgia, serif" }}
                   >
                     Co-Executive Producers
                   </span>
