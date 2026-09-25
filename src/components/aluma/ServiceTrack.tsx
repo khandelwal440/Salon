@@ -87,6 +87,50 @@ export default function ServiceTrack() {
             <i />
             <i />
           </span>
+          <div className="al-pintro-mobile" aria-hidden="true">
+            <div className="al-pintro-card">
+              <div className="al-pintro-head">
+                <span className="al-pintro-badge">
+                  <i />
+                  Signature Repertoire
+                </span>
+                <span className="al-pintro-count">06 Services</span>
+              </div>
+              <div className="al-pintro-pills">
+                <span className="al-pintro-pill"><em>✂️</em> Cut & Blow-dry</span>
+                <span className="al-pintro-pill"><em>🎨</em> Colour & Balayage</span>
+                <span className="al-pintro-pill"><em>💆</em> Japanese Spa</span>
+                <span className="al-pintro-pill"><em>✨</em> Keratin Glass</span>
+                <span className="al-pintro-pill"><em>👰</em> Bridal Hair</span>
+                <span className="al-pintro-pill"><em>💅</em> Nails & Glow</span>
+              </div>
+              <div className="al-pintro-thumbs">
+                <div className="al-pintro-thumb">
+                  <img src="/aluma/svc-cut.webp" alt="Cut" />
+                  <span>Cut</span>
+                </div>
+                <div className="al-pintro-thumb">
+                  <img src="/aluma/svc-colour.webp" alt="Colour" />
+                  <span>Colour</span>
+                </div>
+                <div className="al-pintro-thumb">
+                  <img src="/aluma/svc-spa.webp" alt="Spa" />
+                  <span>Spa</span>
+                </div>
+                <div className="al-pintro-thumb">
+                  <img src="/aluma/svc-keratin.webp" alt="Keratin" />
+                  <span>Keratin</span>
+                </div>
+              </div>
+              <div className="al-pintro-prompt">
+                <span>Swipe left to explore</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
+                </svg>
+              </div>
+            </div>
+          </div>
         </article>
         {SERVICES.map((sv, i) => (
           <article className="al-panel al-sec" key={sv.name} data-off={(i + 2) % 7}>
