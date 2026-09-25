@@ -3,10 +3,10 @@ import { useEffect, useRef } from "react";
 import { gsap, reduced, splitText } from "./fx";
 
 const LOOKS = [
-  { name: "Glass straight", line: "Smoothing and keratin glass. Frizz stays out for up to six months.", meta: "150 min, from ₹5,999", f: "look-glass-front", b: "look-glass-back" },
-  { name: "Soft curls", line: "Wash, cut and a tong-set finish that holds through dinner.", meta: "60 min, from ₹1,499", f: "look-curls-front", b: "look-curls-back" },
-  { name: "Balayage melt", line: "Hand-painted from espresso roots to caramel ends. No stripe lines.", meta: "180 min, from ₹4,999", f: "look-melt-front", b: "look-melt-back" },
-  { name: "The sharp lob", line: "A clean shoulder-length cut, shaped to your jaw.", meta: "60 min, from ₹1,499", f: "look-lob-front", b: "look-lob-back" },
+  { name: "Glass straight", line: "Ironing and smoothing glass. Frizz stays out with a sleek, mirror-like finish.", meta: "60 min, from ₹899", f: "look-glass-front", b: "look-glass-back" },
+  { name: "Soft curls", line: "Signature wash and blow-dry curls or tong-set styling that holds through dinner.", meta: "60 min, from ₹699", f: "look-curls-front", b: "look-curls-back" },
+  { name: "Balayage melt", line: "Hand-painted seamless colour melt, bespoke tones and couture event hair do.", meta: "120 min, from ₹1,399", f: "look-melt-front", b: "look-melt-back" },
+  { name: "The sharp lob", line: "Basic & advance precision cut shaped to your jawline and natural silhouette.", meta: "45–60 min, from ₹699", f: "look-lob-front", b: "look-lob-back" },
 ];
 const BULBS = 18;
 

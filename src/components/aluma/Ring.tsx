@@ -2,7 +2,16 @@
 import { useEffect, useRef } from "react";
 import { gsap, reduced, splitText } from "./fx";
 
-const IMGS = ["party-1", "red-chair", "party-2", "wall-sit", "party-3", "before-after", "look-melt-back", "storefront"];
+const IMGS = [
+  "ring-lounge.jpg",
+  "ring-mirror.jpg",
+  "ring-balayage.jpg",
+  "ring-bridal.jpg",
+  "ring-waves.jpg",
+  "ring-cocktail.jpg",
+  "ring-haircut.jpg",
+  "ring-wash.jpg",
+];
 
 /** A carousel of salon nights and chair moments on a 3D ring that turns with the scroll. */
 export default function Ring() {
@@ -30,7 +39,12 @@ export default function Ring() {
           <div className="al-ring3d" style={{ ["--n" as any]: n }}>
             {IMGS.map((im, i) => (
               <figure key={im} className="al-ritem" style={{ ["--i" as any]: i }}>
-                <img src={`/aluma/${im}.webp`} alt="" loading="lazy" draggable={false} />
+                <img
+                  src={im.startsWith("/") ? im : im.includes(".") ? `/aluma/${im}` : `/aluma/${im}.webp`}
+                  alt="Aluma salon experience"
+                  loading="lazy"
+                  draggable={false}
+                />
               </figure>
             ))}
           </div>

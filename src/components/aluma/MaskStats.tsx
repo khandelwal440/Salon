@@ -36,11 +36,11 @@ export default function MaskStats() {
     return () => ctx.revert();
   }, []);
   return (
-    <section ref={sec} className="al-sec al-mask" data-off="5" aria-label="Fresh. 35,000 clients, 8 years, 3 studios.">
+    <section ref={sec} className="al-sec al-mask" data-off="5" aria-label="Aluma. 35,000 clients, 8 years, 3 studios.">
       <div className="al-mpin">
         <img className="al-mimg" src="/aluma/model-melt-side.webp" alt="" aria-hidden="true" />
         <p className="al-mtext" style={{ backgroundImage: "url(/aluma/model-melt-side.webp)" }} aria-hidden="true">
-          fresh
+          aluma
         </p>
         <div className="al-stats">
           {STATS.map((st) => (

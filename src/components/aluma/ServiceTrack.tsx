@@ -3,12 +3,48 @@ import { useEffect, useRef } from "react";
 import { gsap, reduced, splitText, wa } from "./fx";
 
 const SERVICES = [
-  { name: "Cut and|blow-dry", what: "A consult, a proper wash, a cut shaped to your face and a blow-dry you can repeat at home.", time: "60 min", price: "₹1,499", img: "svc-cut" },
-  { name: "Colour and|balayage", what: "Global colour or hand-painted balayage, sealed with a gloss so it fades soft.", time: "180 min", price: "₹4,999", img: "svc-colour" },
-  { name: "Japanese|head spa", what: "Scalp scan, a mist steam and a long shoulder and neck massage. People fall asleep.", time: "90 min", price: "₹2,499", img: "svc-spa" },
-  { name: "Keratin|glass", what: "Formaldehyde-free smoothing. Humidity stops winning for up to six months.", time: "150 min", price: "₹5,999", img: "svc-keratin" },
-  { name: "Bridal|hair", what: "A trial run first, then the day itself: updo or waves, veil set, touch-up kit to go.", time: "120 min", price: "₹7,999", img: "svc-bridal" },
-  { name: "Nails and|glow facial", what: "Nail art, gel or a clean buff, plus a hydrating facial while it sets.", time: "75 min", price: "₹2,899", img: "svc-nails" },
+  {
+    name: "Men's cut|& beard",
+    what: "Hair cut ₹399, kids hair cut ₹249, beard styling & shave ₹199, beard colour ₹299, and dandruff wash ₹899.",
+    time: "from 30 min",
+    price: "₹399",
+    img: "svc-cut.webp",
+  },
+  {
+    name: "Women's cut|& blow-dry",
+    what: "Basic cuts (U, V & Straight) ₹699, advance cut ₹899, blow-dry curls ₹699, ironing curls ₹1,099, and hair do ₹1,399.",
+    time: "from 45 min",
+    price: "₹699",
+    img: "svc-womencut.jpg",
+  },
+  {
+    name: "Hair wash|& scalp spa",
+    what: "Regular wash ₹299, sulphate-free restorative wash ₹599, dandruff wash ₹899, and wash & blow dry ₹499.",
+    time: "from 30 min",
+    price: "₹299",
+    img: "svc-wash.jpg",
+  },
+  {
+    name: "Clean-up &|luxury facials",
+    what: "Basic clean up ₹899, premium clean up ₹1,399, instant glow ₹2,999, glass skin ₹4,999, and hydra facial ₹6,999.",
+    time: "from 45 min",
+    price: "₹899",
+    img: "svc-facial.webp",
+  },
+  {
+    name: "Threading &|Rica waxing",
+    what: "Eyebrows ₹49, upper lip & chin ₹39, full face ₹249, Rica wax from ₹99, front wax ₹599, and full body ₹2,999.",
+    time: "from 15 min",
+    price: "₹39",
+    img: "svc-threading.jpg",
+  },
+  {
+    name: "Targeted & body|De-Tan",
+    what: "Underarms de-tan ₹200, face & neck ₹400, full back ₹700, feet ₹600, arms ₹1,100, legs ₹1,200, and full body ₹4,000.",
+    time: "from 20 min",
+    price: "₹200",
+    img: "svc-detan.jpg",
+  },
 ];
 
 /** Pinned horizontal menu. Each service gets its own colour; the photo tilts in 3D as it slides past. */
@@ -92,34 +128,34 @@ export default function ServiceTrack() {
               <div className="al-pintro-head">
                 <span className="al-pintro-badge">
                   <i />
-                  Signature Repertoire
+                  Official Salon Menu
                 </span>
                 <span className="al-pintro-count">06 Services</span>
               </div>
               <div className="al-pintro-pills">
-                <span className="al-pintro-pill"><em>✂️</em> Cut & Blow-dry</span>
-                <span className="al-pintro-pill"><em>🎨</em> Colour & Balayage</span>
-                <span className="al-pintro-pill"><em>💆</em> Japanese Spa</span>
-                <span className="al-pintro-pill"><em>✨</em> Keratin Glass</span>
-                <span className="al-pintro-pill"><em>👰</em> Bridal Hair</span>
-                <span className="al-pintro-pill"><em>💅</em> Nails & Glow</span>
+                <span className="al-pintro-pill"><em>✂️</em> Men's Cut (₹399)</span>
+                <span className="al-pintro-pill"><em>💇</em> Women's Cut (₹699)</span>
+                <span className="al-pintro-pill"><em>💆</em> Scalp Wash (₹299)</span>
+                <span className="al-pintro-pill"><em>✨</em> Facials (₹899)</span>
+                <span className="al-pintro-pill"><em>🌸</em> Threading (₹39)</span>
+                <span className="al-pintro-pill"><em>☀️</em> De-Tan (₹200)</span>
               </div>
               <div className="al-pintro-thumbs">
                 <div className="al-pintro-thumb">
-                  <img src="/aluma/svc-cut.webp" alt="Cut" />
+                  <img src="/aluma/svc-cut.webp" alt="Men's Cut" />
                   <span>Cut</span>
                 </div>
                 <div className="al-pintro-thumb">
-                  <img src="/aluma/svc-colour.webp" alt="Colour" />
-                  <span>Colour</span>
+                  <img src="/aluma/svc-womencut.jpg" alt="Women's Cut" />
+                  <span>Style</span>
                 </div>
                 <div className="al-pintro-thumb">
-                  <img src="/aluma/svc-spa.webp" alt="Spa" />
-                  <span>Spa</span>
+                  <img src="/aluma/svc-wash.jpg" alt="Wash" />
+                  <span>Wash</span>
                 </div>
                 <div className="al-pintro-thumb">
-                  <img src="/aluma/svc-keratin.webp" alt="Keratin" />
-                  <span>Keratin</span>
+                  <img src="/aluma/svc-facial.webp" alt="Facial" />
+                  <span>Facial</span>
                 </div>
               </div>
               <div className="al-pintro-prompt">
@@ -140,7 +176,12 @@ export default function ServiceTrack() {
             <h3 className="al-pname" data-lines={sv.name}></h3>
             <div className="al-pstage">
               <div className="al-pframe">
-                <img src={`/aluma/${sv.img}.webp`} alt="" loading="lazy" draggable={false} />
+                <img
+                  src={sv.img.startsWith("/") ? sv.img : sv.img.includes(".") ? `/aluma/${sv.img}` : `/aluma/${sv.img}.webp`}
+                  alt=""
+                  loading="lazy"
+                  draggable={false}
+                />
               </div>
             </div>
             <div className="al-pfoot">
@@ -150,7 +191,7 @@ export default function ServiceTrack() {
                   {sv.price}
                   <small>{sv.time}</small>
                 </span>
-                <a className="al-obtn mag" href={wa(`Hi Aluma! I'd like to book: ${sv.name.replace("|", " ")}.`)} target="_blank" rel="noopener">
+                <a className="al-obtn mag" href={wa(`Hi Aluma! I'd like to book: ${sv.name.replace("|", " ")} (${sv.price}).`)} target="_blank" rel="noopener">
                   Book this
                 </a>
               </div>
