@@ -21,14 +21,19 @@ export default function ServiceTrack() {
     const track = s.querySelector<HTMLElement>(".al-track")!;
     const bar = s.querySelector<HTMLElement>(".al-hprog i")!;
     const ctx = gsap.context(() => {
-      const dist = () => track.scrollWidth - innerWidth;
+      const getDist = () => {
+        const panels = Array.from(track.querySelectorAll<HTMLElement>(".al-panel"));
+        if (!panels.length) return track.scrollWidth - innerWidth;
+        const last = panels[panels.length - 1];
+        return Math.max(0, last.offsetLeft + last.offsetWidth - innerWidth);
+      };
       const move = gsap.to(track, {
-        x: () => -dist(),
+        x: () => -getDist(),
         ease: "none",
         scrollTrigger: {
           trigger: s,
           start: "top top",
-          end: () => "+=" + dist(),
+          end: () => "+=" + getDist(),
           pin: true,
           scrub: 0.6,
           invalidateOnRefresh: true,

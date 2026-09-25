@@ -33,9 +33,15 @@ export default function Turnaround() {
         ease: "back.out(2)",
         scrollTrigger: { trigger: s, start: "top 70%" },
       });
-      gsap.set(cards, { rotationY: -110, xPercent: -40, opacity: 0 });
+      cards.forEach((c) => {
+        const f = c.querySelector<HTMLElement>(".al-face.front");
+        const b = c.querySelector<HTMLElement>(".al-face.back");
+        gsap.set(c, { xPercent: -40, opacity: 0 });
+        if (f) gsap.set(f, { rotationY: 0, autoAlpha: 1 });
+        if (b) gsap.set(b, { rotationY: -90, autoAlpha: 0 });
+      });
       gsap.set(caps, { opacity: 0, y: 40 });
-      gsap.set(cards[0], { rotationY: 0, xPercent: 0, opacity: 1 });
+      gsap.set(cards[0], { xPercent: 0, opacity: 1 });
       gsap.set(caps[0], { opacity: 1, y: 0 });
       const tl = gsap.timeline({
         defaults: { ease: "power2.inOut" },
@@ -53,17 +59,26 @@ export default function Turnaround() {
       });
       cards.forEach((c, i) => {
         const at = i * 1.2;
+        const front = c.querySelector<HTMLElement>(".al-face.front");
+        const back = c.querySelector<HTMLElement>(".al-face.back");
+        const lips = c.querySelectorAll<HTMLElement>(".al-lip");
+
         if (i > 0) {
-          tl.to(cards[i - 1], { rotationY: 270, xPercent: 60, opacity: 0, duration: 0.3 }, at)
+          tl.to(cards[i - 1], { xPercent: 60, opacity: 0, duration: 0.3 }, at)
             .to(caps[i - 1], { opacity: 0, y: -40, duration: 0.2 }, at)
-            .to(c, { rotationY: 0, xPercent: 0, opacity: 1, duration: 0.35 }, at + 0.1)
+            .to(c, { xPercent: 0, opacity: 1, duration: 0.35 }, at + 0.1)
             .to(caps[i], { opacity: 1, y: 0, duration: 0.25 }, at + 0.2);
         }
-        tl.to(c, { rotationY: 180, duration: 0.5 }, at + 0.5).to(
-          c.querySelector(".al-lip"),
-          { scaleY: 1.2, duration: 0.25, yoyo: true, repeat: 1 },
-          at + 0.5
-        );
+
+        // Turnaround flip: front turns 0 -> 90 and hides, back reveals from -90 -> 0.
+        // Neither face is ever seen from behind, preventing mirrored/opposite words.
+        if (front && back) {
+          tl.to(front, { rotationY: 90, duration: 0.25, ease: "power1.in" }, at + 0.5)
+            .set(front, { autoAlpha: 0 }, at + 0.75)
+            .set(back, { autoAlpha: 1, rotationY: -90 }, at + 0.75)
+            .to(back, { rotationY: 0, duration: 0.25, ease: "power1.out" }, at + 0.75)
+            .to(lips, { scaleY: 1.2, duration: 0.2, yoyo: true, repeat: 1 }, at + 0.75);
+        }
       });
       tl.to({}, { duration: 0.3 });
     }, s);
