@@ -33,25 +33,18 @@ export default function Loader({ onLoaded }: { onLoaded?: () => void }) {
   return (
     <div
       className={`fixed inset-0 z-[9999] flex flex-col justify-between p-6 md:p-12 pointer-events-none transition-all duration-700 ease-[cubic-bezier(0.85,0,0.15,1)] ${
-        shutterOpen ? "-translate-y-full opacity-0" : "opacity-100"
+        shutterOpen ? "-translate-y-full opacity-0" : "bg-[#4A2C7B] opacity-100"
       }`}
-      style={{
-        background: "radial-gradient(ellipse at 50% 45%, #151922 0%, #0B0C10 70%, #060709 100%)",
-      }}
     >
       {/* Top row */}
-      <div className="flex justify-between items-center text-xs tracking-[0.25em] text-[#94A3B8] font-mono">
-        <div className="flex items-center gap-2">
-          <span className="text-[#20B364]">✦</span>
-          <span className="text-white font-bold">ALUMA SALON</span>
-        </div>
-        <span className="text-white/60">MAYFAIR • SOHO</span>
+      <div className="flex justify-between items-center text-xs tracking-[0.25em] text-[#D8CCE8] font-mono">
+        <span>ALUMA SALON</span>
+        <span>MAYFAIR • SOHO</span>
       </div>
 
       {/* Centerpiece */}
       <div className="text-center my-auto flex flex-col items-center">
-        {/* Triad Logo Mark with Emerald/Iris aura */}
-        <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-white/30 p-2.5 bg-white flex items-center justify-center mb-6 shadow-[0_0_45px_rgba(32,179,100,0.35)] transition-transform hover:scale-105 duration-300">
+        <div className="w-16 h-16 rounded-full border border-white/20 p-2 bg-white flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(255,110,64,0.3)]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/aluma-assets/logo.svg"
@@ -59,40 +52,22 @@ export default function Loader({ onLoaded }: { onLoaded?: () => void }) {
             className="w-full h-full object-contain"
           />
         </div>
-
-        {/* Monumental Brand Name */}
-        <h1 className="font-alata text-5xl md:text-7xl tracking-[0.08em] text-[#FFFFFF] font-normal drop-shadow-[0_10px_25px_rgba(0,0,0,0.8)]">
+        <h1 className="font-alata text-4xl md:text-6xl tracking-[0.1em] text-[#FFFFFF] font-normal">
           ALUMA
         </h1>
-
-        {/* Subtitle in High-Voltage Emerald Green */}
-        <p className="font-mono text-xs sm:text-sm tracking-[0.3em] font-bold text-[#20B364] mt-3 uppercase flex items-center gap-2">
-          <span className="text-[#6875E9] text-xs">✦</span>
-          <span>Haute Coiffure &amp; Artistry</span>
-          <span className="text-[#EA54DB] text-xs">✦</span>
+        <p className="font-mono text-xs tracking-[0.3em] text-[#FF6E40] mt-3 uppercase">
+          Haute Coiffure &amp; Artistry
         </p>
       </div>
 
-      {/* Bottom Counter & Status */}
-      <div className="space-y-4">
-        {/* Gradient Progress Track */}
-        <div className="w-full h-[2px] bg-white/10 rounded-full overflow-hidden">
-          <div
-            className="h-full bg-gradient-to-r from-[#20B364] via-[#6875E9] to-[#EA54DB] transition-all duration-100 ease-out"
-            style={{ width: `${count}%` }}
-          />
+      {/* Bottom Counter */}
+      <div className="flex justify-between items-end border-t border-white/10 pt-4 text-xs font-mono text-[#D8CCE8]">
+        <div className="flex items-center gap-3">
+          <span className="inline-block w-2 h-2 rounded-full bg-[#1DE9B6] animate-pulse" />
+          <span className="tracking-widest uppercase text-[#F8FAFC]">Initialising Experience</span>
         </div>
-
-        <div className="flex justify-between items-end text-xs font-mono text-[#94A3B8]">
-          <div className="flex items-center gap-3">
-            <span className="inline-block w-2.5 h-2.5 rounded-full bg-[#20B364] animate-pulse shadow-[0_0_10px_#20B364]" />
-            <span className="tracking-widest uppercase text-[#F8FAFC] font-semibold text-[11px] sm:text-xs">
-              Initialising Experience
-            </span>
-          </div>
-          <div className="font-serif-luxury text-3xl md:text-5xl text-[#FFFFFF] font-light tracking-tight">
-            {count.toString().padStart(3, "0")}%
-          </div>
+        <div className="font-serif-luxury text-3xl md:text-5xl text-[#F4F0EA] font-light tracking-tight">
+          {count.toString().padStart(3, "0")}%
         </div>
       </div>
     </div>

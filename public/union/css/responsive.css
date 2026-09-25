@@ -1,288 +1,129 @@
 /* ==========================================================================
-   ALUMA SALON - COMPLETE MOBILE & TABLET RESPONSIVE STYLES
-   Applies exclusively to viewports <= 991px.
+   MOBILE & TABLET RESPONSIVE STYLES FOR ABOUT PAGE
+   Applies exclusively to mobile & tablet viewports (<= 991px).
    Leaves desktop (>= 992px) 100% pixel-perfect and unmodified.
    ========================================================================== */
 
-/* Default desktop state for mobile-only elements */
-.mobile-hero-cue {
-  display: none;
-}
-
-/* --------------------------------------------------------------------------
-   1. GLOBAL VIEWPORT & SCROLLING SAFETY
-   -------------------------------------------------------------------------- */
+/* 1. Global Viewport Safety for Mobile */
 @media (max-width: 991px) {
   html, body {
     width: 100% !important;
     max-width: 100vw !important;
+    height: 100% !important;
+    overflow: hidden !important;
     -webkit-text-size-adjust: 100%;
     background-color: #f4f3ed !important;
   }
 
-  #smooth-wrapper,
-  #smooth-content,
-  .main {
+  #smooth-wrapper, #smooth-content, .main {
+    width: 100% !important;
     max-width: 100vw !important;
-    overflow-x: hidden !important;
+    height: 100% !important;
+    min-height: 100% !important;
+    overflow: hidden !important;
     background-color: #f4f3ed !important;
+    padding: 0 !important;
+    margin: 0 !important;
   }
 
   *, *::before, *::after {
     box-sizing: border-box;
   }
+}
 
+/* 2. Container & Header (<= 991px) */
+@media (max-width: 991px) {
   .container {
     width: 100% !important;
     max-width: 100% !important;
-    padding-left: clamp(1rem, 4vw, 1.75rem) !important;
-    padding-right: clamp(1rem, 4vw, 1.75rem) !important;
-    box-sizing: border-box !important;
+    padding-left: clamp(0.75rem, 3vw, 1.5rem) !important;
+    padding-right: clamp(0.75rem, 3vw, 1.5rem) !important;
   }
 
-  /* Ensure all content below the hero section opens and is 100% visible on mobile */
-  #about,
-  #about *,
-  .section--padding-top-m,
-  .section--padding-top-m *,
-  .gallery,
-  .gallery *,
-  .gallery__image-wrapper,
-  .gallery__image,
-  #team,
-  #team *,
-  #partners,
-  #partners *,
-  .footer,
-  .footer * {
-    opacity: 1 !important;
-    visibility: visible !important;
-  }
-
-  [data-scroll-animation-role="scroll-top-opacity"],
-  [data-base-animation-role="fade-up"],
-  [data-base-animation-role="fade"]:not(.section-hero__video):not(.section-hero__video-wrapper) {
-    opacity: 1 !important;
-    filter: none !important;
-  }
-
-  [data-widget='text-animation'] .word,
-  [data-widget='text-animation'].js--initialized .word {
-    opacity: 1 !important;
-    filter: none !important;
-  }
-
-  [data-widget='text-animation'][data-animation-type='blur'] .line {
-    white-space: normal !important;
-    display: inline !important;
-  }
-
-  [data-widget='text-animation'][data-animation-type='blur'] .word {
-    white-space: normal !important;
-  }
-
-  .guide-overlay {
-    display: none !important;
-  }
-}
-
-/* --------------------------------------------------------------------------
-   2. HEADER & MOBILE DRAWER NAVIGATION
-   -------------------------------------------------------------------------- */
-@media (max-width: 991px) {
   .header-wrapper {
-    position: fixed !important;
+    position: absolute !important;
     top: 0 !important;
     left: 0 !important;
     width: 100% !important;
-    padding: 0.75rem 1rem !important;
-    z-index: 1000 !important;
-    pointer-events: auto !important;
-    background: transparent !important;
-    transition: background-color 0.3s ease, transform 0.3s ease !important;
-  }
-
-  .header {
-    width: 100% !important;
-    display: block !important;
-  }
-
-  .main-navigation__inner {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    width: 100% !important;
-  }
-
-  .logo-link.header__logo-link {
-    width: clamp(75px, 20vw, 100px) !important;
-    height: auto !important;
-    display: flex !important;
-    align-items: center !important;
-    z-index: 1002 !important;
-    color: #0b0e14 !important;
-  }
-
-  .logo-embed svg {
-    width: 100% !important;
-    height: auto !important;
-    max-height: 24px !important;
-    display: block !important;
+    padding-top: 1rem !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    z-index: 50 !important;
   }
 
   .burger {
-    width: 44px !important;
-    height: 44px !important;
+    width: 3.5rem !important;
+    height: 3.5rem !important;
     display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
     cursor: pointer !important;
-    touch-action: manipulation !important;
-    z-index: 1002 !important;
-    background: rgba(244, 243, 237, 0.88) !important;
-    backdrop-filter: blur(8px) !important;
-    -webkit-backdrop-filter: blur(8px) !important;
-    border-radius: 50% !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+    touch-action: manipulation;
   }
 
-  .burger__inner {
-    width: 22px !important;
-    height: 14px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: space-between !important;
-    position: relative !important;
-  }
-
-  .burger-line {
-    width: 100% !important;
-    height: 2px !important;
-    background-color: #0b0e14 !important;
-    border-radius: 1px !important;
-    transition: transform 0.3s ease, opacity 0.3s ease !important;
-  }
-
-  /* Full Screen Overlay Navigation Menu */
   .header__links-wrapper {
-    position: fixed !important;
-    inset: 0 !important;
-    width: 100vw !important;
+    background-color: #f4f3ed !important;
     min-height: 100dvh !important;
     max-height: 100dvh !important;
-    height: 100dvh !important;
-    background-color: #f4f3ed !important;
     padding: 6rem 1.5rem 3rem !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-    align-items: center !important;
-    gap: 1.75rem !important;
-    z-index: 1001 !important;
-    transform: translateY(-115%) !important;
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
-    overflow-y: auto !important;
-  }
-
-  [data-widget="header"].js--open .header__links-wrapper,
-  .header.js--open .header__links-wrapper {
-    transform: translateY(0) !important;
-  }
-
-  .header__links.header__links--main {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 1.5rem !important;
-    width: 100% !important;
-  }
-
-  .header__link {
-    font-size: clamp(2rem, 6.5vw, 2.75rem) !important;
-    line-height: 1.1 !important;
-    text-align: center !important;
-    font-weight: 700 !important;
-    color: #0b0e14 !important;
-    text-transform: uppercase !important;
-    letter-spacing: -0.02em !important;
-    font-family: Newtitle, Arial, sans-serif !important;
-    text-decoration: none !important;
-    display: block !important;
-  }
-
-  .header__link.dec {
-    display: none !important;
-  }
-
-  .header__link.mob {
-    display: block !important;
-  }
-}
-
-/* --------------------------------------------------------------------------
-   3. HERO SECTION (AB [O] UT) ON TABLET & MOBILE (<= 991px)
-   -------------------------------------------------------------------------- */
-@media (max-width: 991px) {
-  :root {
-    --hero-video-radius: 9999px;
-    --hero-video-border: 1.5px solid var(--about-green, #3fae63);
-    --hero-video-outline: 1px solid var(--about-periwinkle, #7c68fc);
-    --hero-video-shadow: 0 0 24px rgba(63, 174, 99, 0.28), 0 0 45px rgba(108, 122, 224, 0.15);
-  }
-
-  /* 1. Hero Section Container */
-  .section.section--hero {
-    position: relative !important;
-    z-index: 1 !important;
-    background-color: var(--about-cream, #f4f3ed) !important;
-    box-sizing: border-box !important;
-    padding-bottom: 2rem !important;
-    overflow: visible !important;
-  }
-
-  .section.section--hero .container {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    margin: 0 !important;
-    overflow: visible !important;
-  }
-
-  /* 2. Pin Trigger Inner — Sits cleanly below fixed mobile header */
-  .section-hero__inner {
-    position: relative !important;
-    z-index: 2 !important;
-    width: 100% !important;
-    min-height: 100vh !important;
-    min-height: 100svh !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: flex-start !important;
     align-items: center !important;
-    margin: 0 auto !important;
-    padding-top: 85px !important;
-    padding-bottom: 2rem !important;
+    gap: 1.5rem !important;
+    z-index: 100 !important;
+  }
+
+  .header__link {
+    font-size: clamp(2.2rem, 7.5vw, 3.8rem) !important;
+    line-height: 1 !important;
+    text-align: center !important;
+  }
+}
+
+/* 3. Hero Section (<= 991px) - Desktop-Style High Impact AB[O]UT Hero (Image 2) */
+@media (max-width: 991px) {
+  .section.section--hero {
+    min-height: 100vh !important;
+    min-height: 100svh !important;
+    height: 100vh !important;
+    height: 100svh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 0 0.5rem !important;
+    margin: 0 !important;
+    position: relative !important;
+    z-index: 1 !important;
+    background-color: #f4f3ed !important;
     box-sizing: border-box !important;
-    overflow: visible !important;
+    overflow: hidden !important;
+  }
+
+  .section-hero__inner {
+    position: relative !important;
+    z-index: 2 !important;
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 0 auto !important;
   }
 
   .section-hero__content {
     position: relative !important;
     width: 100% !important;
     display: flex !important;
-    flex-direction: column !important;
     justify-content: center !important;
     align-items: center !important;
     margin: 0 auto !important;
-    overflow: visible !important;
   }
 
+  /* Hide static vector on mobile so interactive ABOUT with Video in 'O' is shown */
   .section-hero__heading-vector {
     display: none !important;
   }
 
+  /* Exact Desktop-Style AB [O] UT Flex Row on Mobile */
   .section-hero__heading-wrapper {
     display: flex !important;
     flex-direction: row !important;
@@ -295,96 +136,67 @@
     position: relative !important;
     text-align: center !important;
     white-space: nowrap !important;
-    will-change: transform;
   }
 
-  /* Ensure AB and UT outer flex wrappers collapse with zero min-width resistance */
-  .section-hero__heading-wrapper > div:first-child,
-  .section-hero__heading-wrapper > div:last-child {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    overflow: hidden !important;
-    min-width: 0 !important;
-  }
-
-  /* 3. Fluid Typography — Perfectly proportioned so AB [O] UT stays in 1 pristine row */
+  /* Dynamic fluid typography matching Desktop Newtitle style (Image 2) */
   .heading.heading--xxl {
-    font-size: clamp(3.2rem, 15vw, 6.2rem) !important;
-    line-height: 85% !important;
-    letter-spacing: -0.03em !important;
+    font-size: clamp(6.5rem, 32vw, 14rem) !important;
+    line-height: 82% !important;
+    letter-spacing: -0.02em !important;
     text-transform: uppercase !important;
     font-family: Newtitle, Arial, sans-serif !important;
     font-weight: 700 !important;
     color: var(--about-ink, #0B0E14) !important;
     margin: 0 !important;
     padding: 0 !important;
-    display: inline-block !important;
-    overflow: hidden; /* Clean clipping when GSAP collapses width to 0 */
-    vertical-align: middle !important;
+    display: block !important;
   }
 
+  /* The actual 'O' letter from Ninna Trial font — EXACT MATCH TO DESKTOP */
   .heading.heading--xxl.heading--xxl--ninna {
-    display: inline-block !important;
-    font-size: clamp(3.2rem, 15vw, 6.2rem) !important;
+    display: block !important;
+    font-size: clamp(6.5rem, 32vw, 14rem) !important;
     font-family: Ninna Trial, Arial, sans-serif !important;
     font-weight: 400 !important;
     letter-spacing: -0.06em !important;
-    line-height: 85% !important;
-    z-index: 2;
+    line-height: 82% !important;
+    z-index: 2 !important;
     pointer-events: none !important;
     position: relative !important;
     color: var(--about-ink, #0B0E14) !important;
     margin: 0 !important;
     padding: 0 !important;
-    vertical-align: middle !important;
   }
 
-  /* 4. Interactive Video Container & Mask */
+  /* Video wrapper positioned naturally around the 'O' — EXACT MATCH TO DESKTOP */
   .section-hero__video-wrapper {
     position: relative !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    margin: 0 !important;
-    padding: 0 !important;
+    margin-top: -3% !important;
+    margin-left: -3% !important;
     overflow: visible !important;
+    display: inline-block !important;
     width: auto !important;
     height: auto !important;
-    vertical-align: middle !important;
-    cursor: pointer;
+    border-radius: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
   }
 
-  /* The Expanding Video Element — Centered EXACTLY inside the 'O' */
+  /* Circular video fitted inside the 'O' — EXACT MATCH TO DESKTOP */
   .section-hero__video {
-    width: 76%;
-    height: 82%;
-    min-width: 0;
-    min-height: 0;
-    position: absolute !important;
-    inset: auto !important;
-    top: 50% !important;
-    left: 50% !important;
-    transform: translate(-50%, -50%) !important;
-    display: flex !important;
+    border-radius: 100vh !important;
     justify-content: center !important;
     align-items: center !important;
+    width: 88% !important;
+    height: 94% !important;
+    display: flex !important;
+    position: absolute !important;
+    inset: 51% 0 0 54% !important;
     overflow: hidden !important;
+    transform: translate(-51.3%, -50%) !important;
     z-index: 1 !important;
-    border-radius: var(--hero-video-radius, 9999px) !important;
-    border: var(--hero-video-border, 1.5px solid var(--about-green, #3fae63)) !important;
-    outline: var(--hero-video-outline, 1px solid var(--about-periwinkle, #7c68fc)) !important;
-    outline-offset: 2.5px;
-    box-shadow: var(--hero-video-shadow, 0 0 24px rgba(63, 174, 99, 0.28)) !important;
-    transition: none !important;
-    will-change: transform, width, height, border-radius;
-  }
-
-  /* Touch / active state enhancement on mobile */
-  .section-hero__video:active {
-    --hero-video-border: 1.5px solid var(--about-pink, #e84fa9);
-    --hero-video-outline: 1px solid rgba(232, 79, 169, 0.6);
-    --hero-video-shadow: 0 0 35px rgba(232, 79, 169, 0.35);
+    border: none !important;
+    box-shadow: none !important;
   }
 
   .section-hero__video-embed {
@@ -392,7 +204,7 @@
     height: 100% !important;
     position: absolute !important;
     inset: 0 !important;
-    transform: scale(2); /* No !important so GSAP can scrub down to scale(1) */
+    transform: scale(2) !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -402,70 +214,22 @@
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
-    border-radius: 0 !important;
-    filter: grayscale(0.15) contrast(1.05);
+    border-radius: 100vh !important;
   }
 
-  /* 5. "SCROLL" Cue inside Video */
+  /* Pink SCROLL text inside video cue as in Image 2 */
   .section-hero__video-text {
     position: relative !important;
     z-index: 2 !important;
-    color: var(--about-green, #3fae63) !important;
+    color: #e84fa9 !important;
     text-transform: uppercase !important;
     font-family: Newtitle, Arial, sans-serif !important;
-    font-size: clamp(0.55rem, 2.2vw, 0.85rem) !important;
+    font-size: clamp(0.7rem, 3.2vw, 1.25rem) !important;
     font-weight: 700 !important;
     line-height: 89% !important;
-    letter-spacing: 0.16em !important;
+    letter-spacing: 0.12em !important;
     pointer-events: none !important;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7) !important;
-    animation: heroScrollPulse 2s ease-in-out infinite;
-  }
-
-  @keyframes heroScrollPulse {
-    0%, 100% {
-      opacity: 0.9;
-      transform: translateY(0);
-    }
-    50% {
-      opacity: 0.55;
-      transform: translateY(2px);
-    }
-  }
-
-  /* 6. Floating Sub-cue below Title on Mobile */
-  .mobile-hero-cue {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 0.5rem !important;
-    margin-top: clamp(2rem, 6vh, 3.5rem) !important;
-    opacity: 0.8 !important;
-    pointer-events: none !important;
-  }
-
-  .mobile-hero-cue__tag {
-    font-family: Ninna Trial, Arial, sans-serif !important;
-    font-size: 0.85rem !important;
-    letter-spacing: 0.08em !important;
-    color: var(--about-ink, #0B0E14) !important;
-    text-transform: uppercase !important;
-  }
-
-  .mobile-hero-cue__arrow {
-    width: 14px !important;
-    height: 14px !important;
-    color: var(--about-green, #3fae63) !important;
-    animation: heroArrowBounce 1.8s ease-in-out infinite !important;
-  }
-
-  @keyframes heroArrowBounce {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(5px);
-    }
+    text-shadow: none !important;
   }
 
   .section-hero__logo-wrapper,
@@ -474,921 +238,32 @@
     display: none !important;
   }
 
-  .botom-scrol,
-  #trailer-botom {
-    display: block !important;
-    height: 1px !important;
-    width: 100% !important;
-    visibility: hidden !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-}
-
-
-/* --------------------------------------------------------------------------
-   4. ABOUT SECTION (#about)
-   -------------------------------------------------------------------------- */
-@media (max-width: 991px) {
+  /* FULL DELETE / HIDE OF ALL REMAINING CONTENT ON MOBILE VIEW */
   #about,
   section#about,
-  .section.section--padding-top-l {
-    display: block !important;
-    visibility: visible !important;
-    height: auto !important;
-    min-height: auto !important;
-    max-height: none !important;
-    overflow: visible !important;
-    pointer-events: auto !important;
-    padding-top: clamp(3rem, 7vw, 5rem) !important;
-    padding-bottom: clamp(2rem, 5vw, 3.5rem) !important;
-    background-color: #f4f3ed !important;
-    position: relative !important;
-  }
-
-  .section__inner {
-    width: 100% !important;
-    display: flex !important;
-    flex-direction: column !important;
-  }
-
-  .section__header {
-    width: 100% !important;
-    position: relative !important;
-  }
-
-  .section__content-wrapper {
-    width: 100% !important;
-  }
-
-  .sub-heading__wrapper {
-    margin-bottom: 0.75rem !important;
-  }
-
-  .sub-heading {
-    font-size: clamp(0.85rem, 3.2vw, 1.05rem) !important;
-    letter-spacing: 0.06em !important;
-    color: #666666 !important;
-    font-weight: 600 !important;
-    text-transform: uppercase !important;
-  }
-
-  .section__heading_wrapper,
-  .section__heading_wrapper--astounding {
-    width: 100% !important;
-    max-width: 100% !important;
-    position: relative !important;
-  }
-
-  .heading.heading--xl {
-    font-size: clamp(1.85rem, 6.5vw, 3rem) !important;
-    line-height: 1.15 !important;
-    letter-spacing: -0.025em !important;
-    color: #0b0e14 !important;
-    font-weight: 700 !important;
-    margin: 0.5rem 0 1.5rem !important;
-  }
-
-  .section__svg-wrapper--astounding {
-    position: absolute !important;
-    right: -5% !important;
-    top: -15% !important;
-    width: 55% !important;
-    max-width: 240px !important;
-    height: auto !important;
-    opacity: 0.22 !important;
-    pointer-events: none !important;
-    z-index: 0 !important;
-  }
-
-  .astounding__content {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 1.5rem !important;
-    width: 100% !important;
-    margin-top: 1rem !important;
-    position: relative !important;
-    z-index: 1 !important;
-  }
-
-  .section__box {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-
-  .blockquote__wrapper {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0.5rem 0 1.5rem !important;
-  }
-
-  .blockquote {
-    border-left: 3px solid #0b0e14 !important;
-    padding-left: 1.25rem !important;
-    margin: 0 !important;
-    background: transparent !important;
-    border-radius: 0 !important;
-  }
-
-  .blockquote__paragraph {
-    font-size: clamp(1.15rem, 4vw, 1.45rem) !important;
-    line-height: 1.45 !important;
-    color: #111111 !important;
-    font-family: 'Playfair Display', Georgia, serif !important;
-    font-weight: 600 !important;
-    font-style: italic !important;
-  }
-
-  .section__paragrph-box {
-    width: 100% !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 1rem !important;
-  }
-
-  .paragraph.paragraph--l {
-    font-size: clamp(0.95rem, 3.4vw, 1.05rem) !important;
-    line-height: 1.65 !important;
-    color: #383838 !important;
-    margin: 0 !important;
-  }
-}
-
-/* --------------------------------------------------------------------------
-   5. GALLERY SECTION (.section--padding-top-m)
-   -------------------------------------------------------------------------- */
-@media (max-width: 991px) {
-  .section.section--padding-top-m {
-    display: block !important;
-    visibility: visible !important;
-    height: auto !important;
-    min-height: auto !important;
-    max-height: none !important;
-    overflow: visible !important;
-    pointer-events: auto !important;
-    padding-top: 1.5rem !important;
-    padding-bottom: 2rem !important;
-    background-color: #f4f3ed !important;
-    position: relative !important;
-  }
-
-  .gallery__wrapper {
-    overflow: visible !important;
-    width: 100% !important;
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-
-  .gallery__outer {
-    width: 100% !important;
-    position: static !important;
-    transform: none !important;
-  }
-
-  .gallery {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 0.75rem !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    height: auto !important;
-    position: static !important;
-    overflow: visible !important;
-  }
-
-  .gallery__image-wrapper {
-    position: static !important;
-    width: 100% !important;
-    height: auto !important;
-    aspect-ratio: 1 / 1 !important;
-    border-radius: 8px !important;
-    overflow: hidden !important;
-    transform: none !important;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06) !important;
-  }
-
-  /* First photo acts as lead banner spanning full width */
-  .gallery__image-wrapper.gallery__image-wrapper--first {
-    grid-column: 1 / -1 !important;
-    aspect-ratio: 16 / 9 !important;
-  }
-
-  .gallery__image {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    border-radius: 8px !important;
-    display: block !important;
-  }
-}
-
-/* --------------------------------------------------------------------------
-   6. CREATIVE TEAM SECTION (#team)
-   -------------------------------------------------------------------------- */
-@media (max-width: 991px) {
+  .section.section--padding-top-m,
+  .section.section--padding-top-l,
+  .section.section--padding-bottom-l,
   #team,
   section#team,
-  .section--postion--relative {
-    display: block !important;
-    visibility: visible !important;
-    height: auto !important;
-    min-height: auto !important;
-    max-height: none !important;
-    overflow: visible !important;
-    pointer-events: auto !important;
-    padding-top: clamp(2.5rem, 6vw, 4rem) !important;
-    padding-bottom: clamp(2rem, 5vw, 3.5rem) !important;
-    background-color: #f4f3ed !important;
-    position: relative !important;
-  }
-
-  .section__header--center {
-    text-align: center !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    margin-bottom: 1.5rem !important;
-  }
-
-  .section__svg-wrapper--creative {
-    display: none !important;
-  }
-
-  .team__content {
-    width: 100% !important;
-    margin-top: 1rem !important;
-    overflow: visible !important;
-  }
-
-  .team__slider-wrapper.swiper {
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    -webkit-overflow-scrolling: touch !important;
-    scrollbar-width: none !important;
-    width: 100% !important;
-    padding: 0.5rem 1rem 1.5rem !important;
-    box-sizing: border-box !important;
-  }
-
-  .team__slider-wrapper.swiper::-webkit-scrollbar {
-    display: none !important;
-  }
-
-  .team__slider.swiper-wrapper {
-    display: flex !important;
-    flex-direction: row !important;
-    gap: 1rem !important;
-    width: max-content !important;
-    transform: none !important;
-  }
-
-  .embla-slide {
-    flex-shrink: 0 !important;
-    width: auto !important;
-  }
-
-  .team__card {
-    width: clamp(240px, 72vw, 300px) !important;
-    min-width: clamp(240px, 72vw, 300px) !important;
-    height: auto !important;
-    min-height: 380px !important;
-    padding: 1.75rem 1.25rem !important;
-    border-radius: 12px !important;
-    background: #ffffff !important;
-    border: 1px dashed #b0b0b0 !important;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: space-between !important;
-    cursor: pointer !important;
-    box-sizing: border-box !important;
-  }
-
-  .team__card-info {
-    width: 100% !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    text-align: center !important;
-  }
-
-  .team__card-info_top {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 0.75rem !important;
-    width: 100% !important;
-  }
-
-  .team__card_image-wrapper {
-    width: 130px !important;
-    height: 160px !important;
-    min-width: 130px !important;
-    max-width: 130px !important;
-    border-radius: 65px !important;
-    margin: 0 auto !important;
-    overflow: hidden !important;
-  }
-
-  .team__card_image {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-  }
-
-  .team__card-info_job {
-    font-size: 0.9rem !important;
-    line-height: 1.35 !important;
-    color: #666666 !important;
-    text-align: center !important;
-    margin: 0.25rem 0 !important;
-  }
-
-  .heading.heading--l.heading--transform-90deg {
-    writing-mode: horizontal-tb !important;
-    transform: none !important;
-    font-size: clamp(1.4rem, 5vw, 1.85rem) !important;
-    line-height: 1.1 !important;
-    text-align: center !important;
-    margin-top: 0.75rem !important;
-    font-weight: 700 !important;
-    color: #0b0e14 !important;
-  }
-
-  .team__card-description {
-    display: none !important;
-  }
-
-  .swiper-pagination__wrapper--press {
-    display: none !important;
-  }
-
-  /* Team Popup Modal */
-  .team-popup {
-    position: fixed !important;
-    inset: 0 !important;
-    background: rgba(0, 0, 0, 0.75) !important;
-    backdrop-filter: blur(8px) !important;
-    -webkit-backdrop-filter: blur(8px) !important;
-    z-index: 2000 !important;
-    display: none !important;
-    align-items: center !important;
-    justify-content: center !important;
-    padding: 1.5rem !important;
-    box-sizing: border-box !important;
-  }
-
-  .team-popup.js--open {
-    display: flex !important;
-    opacity: 1 !important;
-    pointer-events: auto !important;
-  }
-
-  .team-popup__inner {
-    width: 100% !important;
-    max-width: 380px !important;
-    max-height: 82vh !important;
-    overflow-y: auto !important;
-    background: #1c1c1c !important;
-    color: #f4f3ed !important;
-    border-radius: 16px !important;
-    padding: 2rem 1.5rem !important;
-    position: relative !important;
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6) !important;
-    box-sizing: border-box !important;
-  }
-
-  .team-popup__close {
-    position: absolute !important;
-    top: 1rem !important;
-    right: 1rem !important;
-    width: 36px !important;
-    height: 36px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    cursor: pointer !important;
-    z-index: 10 !important;
-  }
-
-  .team-popup__close-icon svg {
-    width: 20px !important;
-    height: 20px !important;
-  }
-
-  .team-popup__top {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    text-align: center !important;
-    gap: 0.75rem !important;
-    margin-bottom: 1.25rem !important;
-  }
-
-  .team-popup__image-wrapper {
-    width: 110px !important;
-    height: 140px !important;
-    border-radius: 55px !important;
-    overflow: hidden !important;
-  }
-
-  .team-popup__image-wrapper img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-  }
-
-  .team-popup__info .heading--l {
-    font-size: 1.5rem !important;
-    color: #ffffff !important;
-    font-weight: 700 !important;
-    margin: 0.25rem 0 !important;
-  }
-
-  .team-popup__info .team__card-info_job {
-    font-size: 0.9rem !important;
-    color: #aaaaaa !important;
-  }
-
-  .team-popup__content p {
-    font-size: 0.92rem !important;
-    line-height: 1.6 !important;
-    color: #dddddd !important;
-  }
-
-  /* Additional Crew */
-  .team__content-inner {
-    width: 100% !important;
-    margin-top: 2.5rem !important;
-  }
-
-  .additional-crew__heading-wrapper {
-    width: 100% !important;
-    margin-bottom: 1.25rem !important;
-  }
-
-  .additional-crew__heading-wrapper .heading--m {
-    font-size: clamp(1.25rem, 4.5vw, 1.65rem) !important;
-    color: #0b0e14 !important;
-    font-weight: 700 !important;
-    text-transform: uppercase !important;
-    letter-spacing: -0.01em !important;
-  }
-
-  .additional-crew__list {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 1.25rem !important;
-    width: 100% !important;
-  }
-
-  .additional-crew__list-item {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 0.35rem !important;
-    padding-bottom: 0.75rem !important;
-    border-bottom: 1px dashed rgba(0, 0, 0, 0.12) !important;
-  }
-
-  .additional-crew__list-item_heading {
-    font-size: 0.95rem !important;
-    font-weight: 700 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.05em !important;
-    color: #0b0e14 !important;
-  }
-
-  .additional-crew__list-item_paragraph-wrapper p {
-    font-size: 0.9rem !important;
-    line-height: 1.55 !important;
-    color: #555555 !important;
-  }
-}
-
-/* --------------------------------------------------------------------------
-   7. PARTNERS SECTION (#partners)
-   -------------------------------------------------------------------------- */
-@media (max-width: 991px) {
   #partners,
   section#partners,
-  .section.section--padding-bottom-l {
-    display: block !important;
-    visibility: visible !important;
-    height: auto !important;
-    min-height: auto !important;
-    max-height: none !important;
-    overflow: hidden !important;
-    pointer-events: auto !important;
-    padding-top: clamp(2.5rem, 6vw, 4rem) !important;
-    padding-bottom: clamp(2rem, 5vw, 3.5rem) !important;
-    background-color: #f4f3ed !important;
-    position: relative !important;
-  }
-
-  .section__svg-wrapper--film {
-    display: none !important;
-  }
-
-  .marquee-horizontal__wrapper {
-    width: 100% !important;
-    overflow: hidden !important;
-    padding: 1.25rem 0 !important;
-  }
-
-  .marquee-vertical__slider {
-    width: 100% !important;
-    display: flex !important;
-    overflow: hidden !important;
-  }
-
-  .marquee-horizontal__list {
-    display: flex !important;
-    align-items: center !important;
-  }
-
-  .partner_box {
-    width: 120px !important;
-    min-width: 120px !important;
-    height: 50px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    margin: 0 0.5rem !important;
-  }
-
-  .partner_box-image_wrapper {
-    width: 95px !important;
-    height: 40px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-  }
-
-  .partner_box-image_wrapper img {
-    max-width: 100% !important;
-    max-height: 100% !important;
-    object-fit: contain !important;
-    filter: grayscale(100%) contrast(1.1) !important;
-    opacity: 0.8 !important;
-  }
-}
-
-/* --------------------------------------------------------------------------
-   8. PHILOSOPHY & STATEMENT SECTION (.section--bg-darck)
-   -------------------------------------------------------------------------- */
-@media (max-width: 991px) {
   .section.section--bg-darck,
-  [data-role-section="dark"] {
-    display: block !important;
-    visibility: visible !important;
-    height: auto !important;
-    min-height: auto !important;
-    max-height: none !important;
-    overflow: hidden !important;
-    pointer-events: auto !important;
-    background-color: #0b0e14 !important;
-    color: #f4f3ed !important;
-    padding: clamp(3rem, 7vw, 5rem) 0 !important;
-    position: relative !important;
-  }
-
-  .statement-list {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 3rem !important;
-    width: 100% !important;
-    padding: 0 1rem !important;
-    box-sizing: border-box !important;
-  }
-
-  .statement-list__item,
-  .statement-list__item.statement-list__item--revers {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 1.5rem !important;
-    width: 100% !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-    padding-bottom: 2.5rem !important;
-  }
-
-  .statement-list__item-box {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-
-  .statement-list__item-text_wrapper {
-    width: 100% !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 0.75rem !important;
-  }
-
-  .statement-list__item-text_wrapper .heading--l {
-    font-size: clamp(1.4rem, 4.8vw, 1.85rem) !important;
-    color: #E1EDBA !important;
-    font-family: 'Playfair Display', Georgia, serif !important;
-    font-weight: 700 !important;
-  }
-
-  .statement-list__item-paragraph {
-    font-size: clamp(1rem, 3.6vw, 1.15rem) !important;
-    line-height: 1.6 !important;
-    color: #d8d8d8 !important;
-    font-style: italic !important;
-    margin: 0 !important;
-  }
-
-  .text-link.text-link--light {
-    color: #E1EDBA !important;
-    font-size: 0.85rem !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.08em !important;
-    text-decoration: underline !important;
-    font-weight: 600 !important;
-    margin-top: 0.5rem !important;
-    display: inline-block !important;
-  }
-
-  .statement-list__item-box_image-wrapper {
-    width: 100% !important;
-    height: auto !important;
-    aspect-ratio: 16 / 10 !important;
-    border-radius: 10px !important;
-    overflow: hidden !important;
-  }
-
-  .statement__image {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    display: block !important;
-  }
-}
-
-/* --------------------------------------------------------------------------
-   9. OUR STORY / SCREENINGS SECTION (#watch)
-   -------------------------------------------------------------------------- */
-@media (max-width: 991px) {
   #watch,
-  section#watch {
-    display: block !important;
-    visibility: visible !important;
-    height: auto !important;
-    min-height: auto !important;
-    max-height: none !important;
-    overflow: hidden !important;
-    pointer-events: auto !important;
-    background-color: #0b0e14 !important;
-    color: #f4f3ed !important;
-    padding: clamp(3rem, 7vw, 5rem) 0 !important;
-    position: relative !important;
-  }
-
-  #watch .heading.heading--xl {
-    color: #ffffff !important;
-    text-align: center !important;
-  }
-
-  .watch-film__change_wrapper {
-    display: flex !important;
-    justify-content: center !important;
-    margin: 1.5rem auto 2rem !important;
-    cursor: pointer !important;
-  }
-
-  .watch-film__change_inner {
-    display: flex !important;
-    align-items: center !important;
-    gap: 0.75rem !important;
-  }
-
-  .watch-film__change_text {
-    font-size: 0.9rem !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.06em !important;
-  }
-
-  .watch-film__list-wrapper {
-    width: 100% !important;
-    display: none !important;
-    flex-direction: column !important;
-    padding: 0 1rem !important;
-    box-sizing: border-box !important;
-  }
-
-  .watch-film__list-wrapper.js--active {
-    display: flex !important;
-  }
-
-  .watch-film__list {
-    display: flex !important;
-    flex-direction: column !important;
-    width: 100% !important;
-  }
-
-  .watch-film__list-item {
-    display: block !important;
-    width: 100% !important;
-    text-decoration: none !important;
-  }
-
-  .watch-film__list-item_inner {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 0.5rem !important;
-    padding: 1.25rem 0 !important;
-    border-bottom: 1px dashed rgba(255, 255, 255, 0.18) !important;
-    width: 100% !important;
-  }
-
-  .watch-film__list-item_content .heading--l {
-    font-size: 1.35rem !important;
-    color: #ffffff !important;
-    font-weight: 700 !important;
-  }
-
-  .watch-film__list-item_paragraph {
-    font-size: 0.95rem !important;
-    color: #a0a0a0 !important;
-    margin: 0.25rem 0 !important;
-  }
-
-  .watch-film__list-item_link {
-    font-size: 0.85rem !important;
-    color: #E1EDBA !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.05em !important;
-    text-decoration: underline !important;
-  }
-
-  .section__button-wrapper {
-    display: flex !important;
-    justify-content: center !important;
-    margin-top: 2rem !important;
-  }
-
-  .button-light {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    padding: 0.75rem 2rem !important;
-    border: 1px solid #E1EDBA !important;
-    color: #E1EDBA !important;
-    border-radius: 100px !important;
-    text-decoration: none !important;
-    font-size: 0.9rem !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.08em !important;
-  }
-}
-
-/* --------------------------------------------------------------------------
-   10. FOOTER & CONTACT SECTION (#contact.footer)
-   -------------------------------------------------------------------------- */
-@media (max-width: 991px) {
+  section#watch,
   #contact,
-  .footer {
-    display: block !important;
-    visibility: visible !important;
-    height: auto !important;
-    min-height: auto !important;
-    max-height: none !important;
-    overflow: hidden !important;
-    pointer-events: auto !important;
-    background-color: #0b0e14 !important;
-    color: #f4f3ed !important;
-    padding: 3.5rem 0 2rem !important;
-    position: relative !important;
-  }
-
-  .footer__container {
-    width: 100% !important;
-    padding: 0 1.25rem !important;
-    box-sizing: border-box !important;
-  }
-
-  .footer__inner {
-    width: 100% !important;
-    display: flex !important;
-    flex-direction: column !important;
-  }
-
-  .footer__download {
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 0.75rem !important;
-    color: #E1EDBA !important;
-    font-size: 0.9rem !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.06em !important;
-    text-decoration: none !important;
-    margin-bottom: 2rem !important;
-  }
-
-  .footer-lists__wrapper {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 2rem !important;
-    width: 100% !important;
-  }
-
-  .footer-social__wrapper,
-  .footer-list {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    gap: 0.75rem 1.25rem !important;
-    list-style: none !important;
+  .footer,
+  #trailer-botom,
+  .botom-scrol,
+  .guide-overlay {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    max-height: 0 !important;
     padding: 0 !important;
     margin: 0 !important;
-  }
-
-  .footer-list__nav-link {
-    font-size: 0.95rem !important;
-    color: #f4f3ed !important;
-    text-decoration: none !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.04em !important;
-  }
-
-  .footer__body {
-    margin-top: 3rem !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 2rem !important;
-    width: 100% !important;
-  }
-
-  .footer__email {
-    font-size: clamp(1.4rem, 5.5vw, 2.2rem) !important;
-    color: #ffffff !important;
-    word-break: break-all !important;
-    line-height: 1.15 !important;
-    text-decoration: none !important;
-    display: block !important;
-  }
-
-  .form__wrapper {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-
-  .form__label {
-    font-size: 0.8rem !important;
-    color: #aaaaaa !important;
-    letter-spacing: 0.08em !important;
-    margin-bottom: 0.5rem !important;
-    display: block !important;
-  }
-
-  .filed__wrapper {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.35) !important;
-    padding-bottom: 0.25rem !important;
-  }
-
-  .filed.w-input {
-    background: transparent !important;
-    border: none !important;
-    color: #ffffff !important;
-    font-size: 1rem !important;
-    padding: 0.5rem 0 !important;
-    width: 100% !important;
-    outline: none !important;
-  }
-
-  .form__button-submit {
-    background: #E1EDBA !important;
-    border: none !important;
-    width: 36px !important;
-    height: 36px !important;
-    border-radius: 50% !important;
-    cursor: pointer !important;
-    flex-shrink: 0 !important;
-  }
-
-  .footer__bg-union {
-    width: 100% !important;
-    height: auto !important;
-    object-fit: contain !important;
-    margin: 2rem 0 1rem !important;
-  }
-
-  .footer__copyrights {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 0.5rem !important;
-    font-size: 0.85rem !important;
-    color: #666666 !important;
-    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
-    padding-top: 1.5rem !important;
-    margin-top: 1.5rem !important;
-  }
-
-  .footer__copyright-link {
-    color: #aaaaaa !important;
-    text-decoration: underline !important;
+    overflow: hidden !important;
+    pointer-events: none !important;
   }
 }

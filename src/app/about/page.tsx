@@ -1,16 +1,12 @@
-'use client';
+import type { Metadata, Viewport } from "next";
+import AboutPage from "@/components/aluma/AboutPage";
 
-import React from 'react';
+export const metadata: Metadata = {
+  title: "About Aluma Salon | Three dots, one chair at a time",
+  description: "Aluma is a Bangalore salon, open since 2018, with studios in Whitefield, HSR Layout and Sarjapur Road.",
+};
+export const viewport: Viewport = { themeColor: "#6875E9", viewportFit: "cover" };
 
-export default function AboutPage() {
-  return (
-    <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', margin: 0, padding: 0, border: 'none', overflow: 'hidden', zIndex: 9999 }}>
-      <iframe
-        src="/union/index.html?v=6.1"
-        style={{ width: '100%', height: '100%', border: 'none', display: 'block' }}
-        title="Union Awards"
-      />
-    </div>
-  );
+export default function Page() {
+  return <AboutPage />;
 }
-

@@ -61,9 +61,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${serifFont.variable} ${sansFont.variable} ${monoFont.variable} dark scroll-smooth bg-[#0B0C10] text-[#F8FAFC]`}
+      className={`${serifFont.variable} ${sansFont.variable} ${monoFont.variable} dark scroll-smooth bg-[#4A2C7B] text-[#F8FAFC]`}
     >
-      <body className="min-h-screen bg-[#0B0C10] text-[#F8FAFC] antialiased selection:bg-[#20B364] selection:text-[#0B0C10] overflow-x-hidden font-sans">
+      <body className="min-h-screen bg-[#4A2C7B] text-[#F8FAFC] antialiased selection:bg-[#FF6E40] selection:text-[#FFFFFF] overflow-x-hidden font-sans">
         {children}
       </body>
     </html>

@@ -31,7 +31,7 @@ import "./lib/XLquPqC1.js";
   };
 
   const initFeatures = async () => {
-    const featuresUrl = new URL('./features.js?v=6.1', import.meta.url).href;
+    const featuresUrl = new URL('./features.js', import.meta.url).href;
     try {
       await import(featuresUrl);
     } catch (err) {

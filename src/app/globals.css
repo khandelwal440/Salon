@@ -7,46 +7,40 @@
   --font-alata: "Alata", sans-serif;
   --font-mono: "Space Mono", monospace;
 
-  /* Official Aluma Color Schema (Triad Logo & Editorial Contrast) */
-  --color-aluma-emerald: #20B364;
-  /* Top Circle Green */
-  --color-aluma-iris: #6875E9;
-  /* Bottom Left Circle Iris Blue */
-  --color-aluma-orchid: #EA54DB;
-  /* Bottom Right Circle Orchid Pink */
+  /* Official Aluma Color Schema */
+  --color-aluma-emerald: #1DE9B6; /* Tropical Green */
+  --color-aluma-iris: #FF6E40;    /* Sunset Orange */
+  --color-aluma-orchid: #EC407A;  /* Radical Rose */
   --color-aluma-mint: #1DE9B6;
-  --color-aluma-pastel-pink: #FCEEF6;
-  /* Soft Bubblegum Grid Canvas */
+  --color-aluma-violet: #FF6E40;
 
-  /* Editorial Noir Canvas & High-Contrast Tones */
-  --color-noir-950: #0B0C10;
-  /* Obsidian Noir */
-  --color-noir-900: #12141C;
-  --color-noir-850: #1A1D27;
-  --color-noir-800: #252837;
-  --color-noir-700: #33384C;
+  /* Deep Lavender Primary Canvas & Tonal Steps */
+  --color-noir-950: #4A2C7B; /* Deep Lavender */
+  --color-noir-900: #3D2267; /* Deep Lavender Dark */
+  --color-noir-850: #331A59; /* Deep Plum */
+  --color-noir-800: #583592; /* Rich Violet */
+  --color-noir-700: #683FA6; /* Luminous Lavender */
 
   /* Pure High-End Neutral Typography */
   --color-pearl-50: #FFFFFF;
   --color-pearl-100: #F8FAFC;
   --color-pearl-200: #E2E8F0;
   --color-pearl-300: #CBD5E1;
-  --color-pearl-400: #94A3B8;
-  --color-pearl-500: #64748B;
+  --color-pearl-400: #D8CCE8;
+  --color-pearl-500: #B4A0CD;
 }
 
 :root {
-  --bg-primary: #0B0C10;
-  --bg-secondary: #12141C;
-  --bg-card: #1A1D27;
+  --bg-primary: #4A2C7B;   /* Deep Lavender */
+  --bg-secondary: #3D2267; /* Darker Lavender */
+  --bg-card: #56338E;      /* Rich Lavender Card */
   --text-primary: #FFFFFF;
-  --text-muted: #CBD5E1;
-
-  /* Triad Logo Accents */
-  --accent-emerald: #20B364;
-  --accent-iris: #6875E9;
-  --accent-orchid: #EA54DB;
-  --accent-pink-canvas: #FCEEF6;
+  --text-muted: #D8CCE8;
+  
+  /* Triad Domain Accents */
+  --accent-emerald: #1DE9B6; /* Tropical Green */
+  --accent-iris: #FF6E40;    /* Sunset Orange */
+  --accent-orchid: #EC407A;  /* Radical Rose */
   --border-aluma: rgba(255, 255, 255, 0.12);
 }
 
@@ -63,22 +57,13 @@
   font-family: "Space Mono", monospace;
 }
 
-/*
-  FIX: "overflow-x: hidden" on html/body breaks position: sticky on mobile,
-  which makes the pinned sections scroll away and leaves big blank gaps.
-  "overflow-x: clip" stops horizontal scrolling WITHOUT breaking sticky.
-  (The "hidden" line is only a fallback for very old browsers.)
-*/
-html,
-body {
+html, body {
   overflow-x: hidden;
-  overflow-x: clip;
-  max-width: 100%;
+  max-width: 100vw;
 }
 
 /* Smooth Lenis styles */
-html.lenis,
-html.lenis body {
+html.lenis, html.lenis body {
   height: auto;
 }
 
@@ -100,29 +85,31 @@ html.lenis body {
 
 /* Luminous Logo Gradients */
 .bg-aluma-triad {
-  background: linear-gradient(135deg, #20B364 0%, #6875E9 50%, #EA54DB 100%);
+  background: linear-gradient(135deg, #1DE9B6 0%, #FF6E40 50%, #EC407A 100%);
 }
 
 .text-gradient-triad {
-  background: linear-gradient(135deg, #20B364 0%, #6875E9 50%, #EA54DB 100%);
+  background: linear-gradient(135deg, #1DE9B6 0%, #FF6E40 50%, #EC407A 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .border-gradient-triad {
-  border-image: linear-gradient(135deg, #20B364, #6875E9, #EA54DB) 1;
+  border-image: linear-gradient(135deg, #1DE9B6, #FF6E40, #EC407A) 1;
 }
 
-/* Authentic Holographic Metallic Text Shine with Logo Triad */
+/* Authentic Holographic Metallic Text Shine */
 .aluma-text-shine {
   background-clip: text;
   -webkit-background-clip: text;
-  background-image: linear-gradient(90deg,
-      #20B364 0%,
-      #6875E9 25%,
-      #FFFFFF 50%,
-      #EA54DB 75%,
-      #20B364 100%);
+  background-image: linear-gradient(
+    90deg,
+    #FF6E40 0%,
+    #EC407A 25%,
+    #FFFFFF 50%,
+    #1DE9B6 75%,
+    #FF6E40 100%
+  );
   background-position: -100% 0;
   background-size: 200% 100%;
   color: transparent !important;
@@ -139,40 +126,21 @@ html.lenis body {
   }
 }
 
-/* Neo-Brutalist Infinite Marquee Animation */
-@keyframes marquee {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-33.333333%);
-  }
-}
-
-.animate-marquee {
-  animation: marquee 24s linear infinite;
-  will-change: transform;
-}
-
-.animate-marquee:hover {
-  animation-play-state: paused;
-}
-
 /* Glow Effects */
 .aluma-glow-card {
-  box-shadow: 0 12px 35px -10px rgba(0, 0, 0, 0.7), 0 0 1px 1px rgba(32, 179, 100, 0.3);
+  box-shadow: 0 12px 35px -10px rgba(0, 0, 0, 0.7), 0 0 1px 1px rgba(255, 110, 64, 0.3);
 }
 
 .aluma-glow-emerald {
-  box-shadow: 0 0 30px -5px rgba(32, 179, 100, 0.45);
+  box-shadow: 0 0 30px -5px rgba(29, 233, 182, 0.45);
 }
 
 .aluma-glow-iris {
-  box-shadow: 0 0 30px -5px rgba(104, 117, 233, 0.45);
+  box-shadow: 0 0 30px -5px rgba(255, 110, 64, 0.45);
 }
 
 .aluma-glow-orchid {
-  box-shadow: 0 0 30px -5px rgba(234, 84, 219, 0.45);
+  box-shadow: 0 0 30px -5px rgba(236, 64, 122, 0.45);
 }
 
 /* Numbered Eyebrow */
@@ -184,26 +152,42 @@ html.lenis body {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  color: #20B364;
+  color: #FF6E40;
+}
+
+/* Infinite Marquee */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
 }
 
 /* Custom subtle scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
 }
-
 ::-webkit-scrollbar-track {
-  background: #0B0C10;
+  background: #4A2C7B;
 }
-
 ::-webkit-scrollbar-thumb {
-  background: #1A1D27;
+  background: #331A59;
   border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
 }
-
 ::-webkit-scrollbar-thumb:hover {
-  background: #20B364;
+  background: #FF6E40;
 }
 
 /* Hide credits list and laurels in About pages */
@@ -211,3 +195,4 @@ html.lenis body {
 .section-hero__logo-wrapper {
   display: none !important;
 }
+
