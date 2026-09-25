@@ -195,9 +195,10 @@ body.al-loading { overflow: hidden; }
   flex: none;
 }
 .al-ttitle {
-  font-size: clamp(32px, 8.8vw, 44px);
+  font-size: clamp(42px, 11.5vw, 56px);
   text-align: center;
-  line-height: .92;
+  line-height: .86;
+  letter-spacing: -.01em;
 }
 .al-ttitle .ln {
   text-align: center;
@@ -205,7 +206,7 @@ body.al-loading { overflow: hidden; }
 }
 .al-ttext .al-lede {
   font-size: 13.5px;
-  margin: 5px auto 0;
+  margin: 6px auto 0;
   max-width: 38ch;
   text-align: center;
   line-height: 1.35;
@@ -213,9 +214,9 @@ body.al-loading { overflow: hidden; }
 .al-mirror {
   position: relative;
   flex: none;
-  height: clamp(230px, 35svh, 280px);
+  height: clamp(210px, 33svh, 265px);
   width: auto;
-  max-width: min(78vw, 250px);
+  max-width: min(76vw, 240px);
   aspect-ratio: 3 / 4;
   margin: 0 auto;
 }
