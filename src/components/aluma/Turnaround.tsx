@@ -48,39 +48,39 @@ export default function Turnaround() {
         scrollTrigger: {
           trigger: s.querySelector(".al-tpin"),
           start: "top top",
-          end: () => "+=" + innerHeight * LOOKS.length * 1.1,
+          end: () => "+=" + innerHeight * LOOKS.length * 1.7,
           pin: true,
-          scrub: 0.7,
+          scrub: 0.8,
           onUpdate: (st) => {
             const lit = Math.round(st.progress * BULBS);
             bulbs.forEach((b, i) => b.classList.toggle("on", i < lit));
           },
         },
       });
+      const STEP = 2.0;
       cards.forEach((c, i) => {
-        const at = i * 1.2;
+        const at = i * STEP;
         const front = c.querySelector<HTMLElement>(".al-face.front");
         const back = c.querySelector<HTMLElement>(".al-face.back");
         const lips = c.querySelectorAll<HTMLElement>(".al-lip");
 
         if (i > 0) {
-          tl.to(cards[i - 1], { xPercent: 60, opacity: 0, duration: 0.3 }, at)
-            .to(caps[i - 1], { opacity: 0, y: -40, duration: 0.2 }, at)
-            .to(c, { xPercent: 0, opacity: 1, duration: 0.35 }, at + 0.1)
-            .to(caps[i], { opacity: 1, y: 0, duration: 0.25 }, at + 0.2);
+          tl.to(cards[i - 1], { xPercent: 60, opacity: 0, duration: 0.35 }, at)
+            .to(caps[i - 1], { opacity: 0, y: -30, duration: 0.25 }, at)
+            .to(c, { xPercent: 0, opacity: 1, duration: 0.4 }, at + 0.15)
+            .to(caps[i], { opacity: 1, y: 0, duration: 0.3 }, at + 0.25);
         }
 
-        // Turnaround flip: front turns 0 -> 90 and hides, back reveals from -90 -> 0.
-        // Neither face is ever seen from behind, preventing mirrored/opposite words.
+        // Turnaround flip: hold front view first, then flip smoothly, then hold back view
         if (front && back) {
-          tl.to(front, { rotationY: 90, duration: 0.25, ease: "power1.in" }, at + 0.5)
-            .set(front, { autoAlpha: 0 }, at + 0.75)
-            .set(back, { autoAlpha: 1, rotationY: -90 }, at + 0.75)
-            .to(back, { rotationY: 0, duration: 0.25, ease: "power1.out" }, at + 0.75)
-            .to(lips, { scaleY: 1.2, duration: 0.2, yoyo: true, repeat: 1 }, at + 0.75);
+          tl.to(front, { rotationY: 90, duration: 0.3, ease: "power1.in" }, at + 0.7)
+            .set(front, { autoAlpha: 0 }, at + 1.0)
+            .set(back, { autoAlpha: 1, rotationY: -90 }, at + 1.0)
+            .to(back, { rotationY: 0, duration: 0.3, ease: "power1.out" }, at + 1.0)
+            .to(lips, { scaleY: 1.2, duration: 0.2, yoyo: true, repeat: 1 }, at + 1.0);
         }
       });
-      tl.to({}, { duration: 0.3 });
+      tl.to({}, { duration: 0.6 });
     }, s);
     return () => {
       ctx.revert();
