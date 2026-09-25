@@ -36,9 +36,9 @@ export default function Beliefs() {
   }, []);
   return (
     <section ref={sec} className="al-beliefs" aria-label="What we believe">
-      {CARDS.map(({ h, p, P, off }) => (
-        <div className="al-bcard" key={h}>
-          <div className="al-binner al-sec" data-off={off}>
+      {CARDS.map(({ h, p, P }, i) => (
+        <div className="al-bcard" key={h} style={{ zIndex: i + 1 }}>
+          <div className="al-binner">
             <Ex className="al-bprop" depth={6}>
               <P />
             </Ex>

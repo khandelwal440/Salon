@@ -797,38 +797,41 @@ body.al-loading { overflow: hidden; }
 
 /* beliefs */
 .al-beliefs { position: relative; background: #1C1442; }
-.al-bcard { position: sticky; top: 0; height: 100svh; min-height: 560px; padding: calc(74px + var(--safe-t)) 10px 10px; perspective: 1200px; }
+.al-bcard {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  min-height: 560px;
+  padding: calc(74px + var(--safe-t)) 10px calc(24px + var(--barh));
+  perspective: 1200px;
+}
+.al-bcard:nth-child(1) { z-index: 1; }
+.al-bcard:nth-child(2) { z-index: 2; }
+.al-bcard:nth-child(3) { z-index: 3; }
+
 .al-binner {
   position: relative; height: 100%; border-radius: 34px; padding: 26px 22px; overflow: hidden;
   display: flex; flex-direction: column; justify-content: flex-end; transform-origin: 50% 0;
   box-shadow: 0 -16px 40px rgba(0, 0, 0, .25);
-  background-color: var(--bg, #EA54DB);
-  color: var(--ink, #1C1442);
-  transition: background-color .5s ease, color .5s ease;
+  transition: transform .3s ease, filter .3s ease;
 }
 .al-bcard:nth-child(1) .al-binner {
-  --bg: #EA54DB;
-  --ink: #1C1442;
-  --pop: #20B364;
-  --popInk: #FFFFFF;
-  background-color: #EA54DB;
-  color: #1C1442;
+  background-color: #EA54DB !important;
+  color: #1C1442 !important;
+  --line: #1C1442;
+  --c: #20B364;
 }
 .al-bcard:nth-child(2) .al-binner {
-  --bg: #FFFFFF;
-  --ink: #1C1442;
-  --pop: #EA54DB;
-  --popInk: #FFFFFF;
-  background-color: #FFFFFF;
-  color: #1C1442;
+  background-color: #FFFFFF !important;
+  color: #1C1442 !important;
+  --line: #1C1442;
+  --c: #6875E9;
 }
 .al-bcard:nth-child(3) .al-binner {
-  --bg: #BDF5D5;
-  --ink: #0B4A2A;
-  --pop: #EA54DB;
-  --popInk: #FFFFFF;
-  background-color: #BDF5D5;
-  color: #0B4A2A;
+  background-color: #BDF5D5 !important;
+  color: #0B4A2A !important;
+  --line: #0B4A2A;
+  --c: #EA54DB;
 }
 .al-binner .al-h2 { font-size: clamp(54px, 15vw, 170px); max-width: 9ch; }
 .al-binner .al-lede { font-size: 18px; }
