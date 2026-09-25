@@ -6,7 +6,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Lenis from "lenis";
 import { gsap, ScrollTrigger, reduced, finePointer, magnetize, wa, PHONE, buzz, splitText } from "./fx";
-import { paint, C } from "./palette";
+import { paint, C, onPaint } from "./palette";
 import { Dots } from "./Props";
 
 type Props = { page: "home" | "about"; children: React.ReactNode };
@@ -138,24 +138,54 @@ export default function Shell({ page, children }: Props) {
     const letters  = Array.from(foot.querySelectorAll<HTMLElement>(".al-fl"));
     const offs: (() => void)[] = [];
 
-    // A  L  U  M  A — each letter gets its own distinct brand colour
+    // Contrast protection against dynamic background palette
+    const hexToRgb = (hex: string) => {
+      let c = hex.replace("#", "").trim();
+      if (c.length === 3) c = c.split("").map((x) => x + x).join("");
+      const n = parseInt(c, 16);
+      return { r: (n >> 16) & 255, g: (n >> 8) & 255, b: n & 255 };
+    };
+    const dist = (h1: string, h2: string) => {
+      try {
+        const a = hexToRgb(h1), b = hexToRgb(h2);
+        return Math.hypot(a.r - b.r, a.g - b.g, a.b - b.b);
+      } catch { return 0; }
+    };
+    const getBg = () => getComputedStyle(foot).getPropertyValue("--bg").trim() || C.pink;
+    const pickSafe = (col: string, bg: string, pool: string[]) => {
+      if (dist(col, bg) >= 125) return col;
+      return pool.find((c) => dist(c, bg) >= 125) || (dist(C.night, bg) > dist(C.white, bg) ? C.night : C.white);
+    };
+
+    // A  L  U  M  A — distinct brand colours
     const baseCols  = [C.night, C.iris,  C.green, C.blush, C.lilac];
     const hoverCols = [C.pink,  C.blush, C.iris,  C.green, C.pink ];
     const clickCols = [C.iris, C.green, C.blush, C.lilac, C.white, C.pink, C.night];
+    const letterState = letters.map((_, i) => ({
+      base: baseCols[i % baseCols.length],
+      k: i,
+    }));
+
+    const updateColors = () => {
+      const bg = getBg();
+      letters.forEach((l, i) => {
+        const safe = pickSafe(letterState[i].base, bg, [C.pink, C.white, C.night, C.iris, C.blush, C.lilac]);
+        letterState[i].base = safe;
+        l.style.color = safe;
+      });
+    };
+
+    updateColors();
+    offs.push(onPaint(updateColors));
 
     letters.forEach((l, i) => {
-      // set distinct initial colour per letter
-      let baseColor = baseCols[i % baseCols.length];
-      l.style.color = baseColor;
-      let k = i;
-
       // click: elastic bounce + advance colour cycle
       const hit = () => {
-        k++;
-        const bg = getComputedStyle(foot).getPropertyValue("--bg").trim();
-        let col = clickCols[k % clickCols.length];
-        if (col.toLowerCase() === bg.toLowerCase()) col = clickCols[(k + 1) % clickCols.length];
-        baseColor = col;   // update so hover-out restores the new clicked colour
+        letterState[i].k++;
+        const bg = getBg();
+        let col = clickCols[letterState[i].k % clickCols.length];
+        col = pickSafe(col, bg, clickCols);
+        letterState[i].base = col;
         l.style.color = col;
         buzz(15);
         const jumpY = window.innerWidth < 640 ? -36 : -60;
@@ -169,11 +199,13 @@ export default function Shell({ page, children }: Props) {
       // hover: flash to per-letter accent, restore on leave
       const over = () => {
         l.classList.add("hov");
-        l.style.color = hoverCols[i % hoverCols.length];
+        const bg = getBg();
+        const hCol = pickSafe(hoverCols[i % hoverCols.length], bg, [C.white, C.pink, C.night, C.iris, C.blush]);
+        l.style.color = hCol;
       };
       const out = () => {
         l.classList.remove("hov");
-        l.style.color = baseColor;   // always restores current base (post-click aware)
+        l.style.color = letterState[i].base;
         if (!reduced()) gsap.to(l, { rotation: 0, x: 0, duration: 0.4, ease: "power2.out", overwrite: "auto" });
       };
       const move = (e: MouseEvent) => {

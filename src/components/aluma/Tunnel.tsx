@@ -56,7 +56,7 @@ export default function Tunnel() {
                 key={i}
                 className={`al-ti ${it.t}`}
                 style={{
-                  transform: `translate(-50%,-50%) translate3d(${it.t === "img" ? (it.x || 0) * 26 : 0}vw, ${it.t === "img" ? (i % 2 ? -4 : 5) : 0}vh, ${-i * GAP}px) rotateY(${it.t === "img" ? -(it.x || 0) * 14 : 0}deg)`,
+                  transform: `translate(-50%,-50%) translate3d(calc(${it.t === "img" ? (it.x || 0) : 0} * var(--tun-x, 26vw)), ${it.t === "img" ? (i % 2 ? -3 : 4) : 0}vh, ${-i * GAP}px) rotateY(${it.t === "img" ? -(it.x || 0) * 12 : 0}deg)`,
                 }}
               >
                 {it.t === "img" ? (
