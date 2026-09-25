@@ -37,18 +37,24 @@ export const onPaint = (fn: (b: number) => void) => {
   };
 };
 
+let isPainting = false;
 export function paint() {
-  if (typeof document === "undefined") return;
-  document.querySelectorAll<HTMLElement>("[data-off]").forEach((el) => {
-    const p = pal(+(el.dataset.off || 0));
-    el.style.setProperty("--bg", p.bg);
-    el.style.setProperty("--ink", p.ink);
-    el.style.setProperty("--pop", p.pop);
-    el.style.setProperty("--popInk", p.popInk);
-  });
-  const meta = document.querySelector('meta[name="theme-color"]');
-  if (meta) meta.setAttribute("content", pal(0).bg);
-  subs.forEach((f) => f(base));
+  if (typeof document === "undefined" || isPainting) return;
+  isPainting = true;
+  try {
+    document.querySelectorAll<HTMLElement>("[data-off]").forEach((el) => {
+      const p = pal(+(el.dataset.off || 0));
+      el.style.setProperty("--bg", p.bg);
+      el.style.setProperty("--ink", p.ink);
+      el.style.setProperty("--pop", p.pop);
+      el.style.setProperty("--popInk", p.popInk);
+    });
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute("content", pal(0).bg);
+    subs.forEach((f) => f(base));
+  } finally {
+    isPainting = false;
+  }
 }
 
 export function setBase(b: number) {

@@ -2,7 +2,7 @@
 import { useEffect, useRef } from "react";
 import { gsap, reduced } from "./fx";
 import { Scissors, Comb, Dryer, Ex } from "./Props";
-import { paint, onPaint } from "./palette";
+import { paint } from "./palette";
 
 const CARDS = [
   { h: "We listen before we cut.", p: "Five minutes of questions saves five weeks of growing out a mistake.", P: Scissors, off: 0 },
@@ -16,8 +16,7 @@ export default function Beliefs() {
   useEffect(() => {
     const s = sec.current!;
     paint();
-    const unPaint = onPaint(() => paint());
-    if (reduced()) return () => unPaint();
+    if (reduced()) return;
     const cards = gsap.utils.toArray<HTMLElement>(".al-bcard", s);
     const ctx = gsap.context(() => {
       cards.forEach((c, i) => {
@@ -33,10 +32,7 @@ export default function Beliefs() {
           });
       });
     }, s);
-    return () => {
-      unPaint();
-      ctx.revert();
-    };
+    return () => ctx.revert();
   }, []);
   return (
     <section ref={sec} className="al-beliefs" aria-label="What we believe">
