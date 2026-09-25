@@ -16,8 +16,8 @@ export default function Ring() {
         scrollTrigger: { trigger: s.querySelector(".al-rpin"), start: "top top", end: () => "+=" + innerHeight * 2, pin: true, scrub: 0.8 },
       });
       tl.from(ch, { yPercent: 120, stagger: 0.02, duration: 0.15, ease: "back.out(2)" }, 0)
-        .fromTo(".al-ring3d", { rotationY: 40, rotationX: -18 }, { rotationY: -320, rotationX: 8, ease: "none", duration: 1 }, 0)
-        .fromTo(".al-rstage", { scale: 0.6 }, { scale: 1.05, ease: "power1.out", duration: 0.35 }, 0);
+        .fromTo(".al-ring3d", { rotationY: 40, rotationX: -14 }, { rotationY: -320, rotationX: 8, ease: "none", duration: 1 }, 0)
+        .fromTo(".al-rstage", { scale: 0.75 }, { scale: 1, ease: "power1.out", duration: 0.35 }, 0);
     }, s);
     return () => ctx.revert();
   }, []);

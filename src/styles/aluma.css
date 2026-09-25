@@ -723,13 +723,88 @@ body.al-loading { overflow: hidden; }
 }
 
 /* ring */
-.al-rpin { height: 100svh; min-height: 620px; display: grid; grid-template-rows: auto minmax(0, 1fr) auto; padding: calc(80px + var(--safe-t)) 16px var(--barh); overflow: hidden; }
+.al-rpin {
+  height: 100svh; min-height: 620px;
+  display: grid; grid-template-rows: auto minmax(0, 1fr) auto;
+  padding: calc(80px + var(--safe-t)) 16px var(--barh);
+  overflow: hidden;
+}
 .al-rstage { perspective: 1400px; display: grid; place-items: center; min-height: 0; }
-.al-ring3d { --w: min(40vw, 280px); --r: calc(var(--w) * 1.42); position: relative; width: var(--w); height: calc(var(--w) * 1.3); transform-style: preserve-3d; }
-.al-ritem { position: absolute; inset: 0; transform: rotateY(calc(var(--i) * 360deg / var(--n))) translateZ(var(--r)); }
-.al-ritem img { width: 100%; height: 100%; object-fit: cover; border-radius: 18px; border: 3px solid var(--ink); }
+.al-ring3d {
+  --w: min(40vw, 280px); --r: calc(var(--w) * 1.42);
+  position: relative; width: var(--w); height: calc(var(--w) * 1.3);
+  transform-style: preserve-3d;
+}
+.al-ritem {
+  position: absolute; inset: 0;
+  transform: rotateY(calc(var(--i) * 360deg / var(--n))) translateZ(var(--r));
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+.al-ritem img {
+  width: 100%; height: 100%; object-fit: cover;
+  border-radius: 18px; border: 3px solid var(--ink);
+  box-shadow: 6px 6px 0 var(--ink);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  background: var(--ink);
+}
 .al-rlede { font-size: 15px; }
-@media (min-width: 900px) { .al-rpin { padding: 110px 40px 40px; } .al-rlede { font-size: 18px; } }
+
+@media (min-width: 900px) {
+  .al-rpin {
+    padding: calc(90px + var(--safe-t)) 40px calc(40px + var(--safe-b));
+    display: grid;
+    grid-template-columns: minmax(360px, 44vw) 1fr;
+    grid-template-rows: auto 1fr auto;
+    height: 100svh;
+    min-height: 620px;
+    overflow: hidden;
+  }
+  .al-rtitle {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: start;
+  }
+  .al-rlede {
+    grid-column: 1;
+    grid-row: 3;
+    align-self: end;
+    font-size: 18px;
+    line-height: 1.45;
+    max-width: 36ch;
+    margin-bottom: 8px;
+  }
+  .al-rstage {
+    grid-column: 2;
+    grid-row: 1 / 4;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    perspective: 1400px;
+  }
+  .al-ring3d {
+    --w: clamp(200px, 19vw, 280px);
+    --r: calc(var(--w) * 1.38);
+    position: relative;
+    width: var(--w);
+    height: calc(var(--w) * 1.32);
+    transform-style: preserve-3d;
+  }
+  .al-ritem {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  .al-ritem img {
+    border-radius: 20px;
+    border: 4px solid var(--ink);
+    box-shadow: 10px 10px 0 var(--ink);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+}
 
 /* ==========================================================================
    Reduced motion: no pinning, everything readable in normal flow
