@@ -203,7 +203,7 @@ body.al-loading { overflow: hidden; }
   position: absolute; left: 50%; bottom: 9%; transform: translateX(-50%); padding: 6px 12px; border-radius: 999px;
   background: var(--ink); color: var(--bg); font-weight: 800; font-size: 13px; transition: background-color .5s, color .5s;
 }
-.al-tcaps { position: relative; height: 128px; }
+.al-tcaps { position: relative; height: 128px; margin-top: 32px; }
 .al-tcap { position: absolute; inset: 0; }
 .al-tcap h3 { font-family: var(--disp); font-weight: 900; font-stretch: 62%; text-transform: uppercase; font-size: 40px; line-height: .9; }
 .al-tcap p { font-size: 15px; line-height: 1.4; max-width: 40ch; margin-top: 6px; }
@@ -212,7 +212,7 @@ body.al-loading { overflow: hidden; }
   .al-tpin { grid-template-columns: 1fr 1fr; grid-template-rows: auto 1fr; grid-template-areas: "t m" "c m"; padding: 110px 40px 40px; column-gap: 40px; }
   .al-ttext { grid-area: t; }
   .al-mirror { grid-area: m; margin: 0 auto; height: auto; width: min(100%, calc((100svh - 170px) * .75)); align-self: center; }
-  .al-tcaps { grid-area: c; align-self: end; height: 180px; }
+  .al-tcaps { grid-area: c; align-self: end; height: 180px; margin-top: 0; }
   .al-tcap h3 { font-size: 64px; }
   .al-tcap p { font-size: 18px; }
   .al-ttext .al-lede { font-size: 18px; }
