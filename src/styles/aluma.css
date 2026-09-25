@@ -26,6 +26,15 @@ body.al-loading { overflow: hidden; }
 
 .al-sec { background: var(--bg); color: var(--ink); transition: background-color .5s ease, color .5s ease; }
 
+/* Palette fallbacks so sections & cards NEVER render transparent/blank */
+[data-off="0"] { --bg: #EA54DB; --ink: #1C1442; --pop: #20B364; --popInk: #FFFFFF; }
+[data-off="1"] { --bg: #20B364; --ink: #1C1442; --pop: #FFC7F6; --popInk: #1C1442; }
+[data-off="2"] { --bg: #6875E9; --ink: #FFFFFF; --pop: #FFC7F6; --popInk: #1C1442; }
+[data-off="3"] { --bg: #FFFFFF; --ink: #1C1442; --pop: #EA54DB; --popInk: #FFFFFF; }
+[data-off="4"] { --bg: #1C1442; --ink: #FFC7F6; --pop: #20B364; --popInk: #1C1442; }
+[data-off="5"] { --bg: #BDF5D5; --ink: #0B4A2A; --pop: #EA54DB; --popInk: #FFFFFF; }
+[data-off="6"] { --bg: #FFC7F6; --ink: #3A2BB5; --pop: #6875E9; --popInk: #FFFFFF; }
+
 /* ---------- type ---------- */
 .al-h1, .al-h2, .al-disp {
   font-family: var(--disp);
@@ -793,6 +802,33 @@ body.al-loading { overflow: hidden; }
   position: relative; height: 100%; border-radius: 34px; padding: 26px 22px; overflow: hidden;
   display: flex; flex-direction: column; justify-content: flex-end; transform-origin: 50% 0;
   box-shadow: 0 -16px 40px rgba(0, 0, 0, .25);
+  background-color: var(--bg, #EA54DB);
+  color: var(--ink, #1C1442);
+  transition: background-color .5s ease, color .5s ease;
+}
+.al-bcard:nth-child(1) .al-binner {
+  --bg: #EA54DB;
+  --ink: #1C1442;
+  --pop: #20B364;
+  --popInk: #FFFFFF;
+  background-color: #EA54DB;
+  color: #1C1442;
+}
+.al-bcard:nth-child(2) .al-binner {
+  --bg: #FFFFFF;
+  --ink: #1C1442;
+  --pop: #EA54DB;
+  --popInk: #FFFFFF;
+  background-color: #FFFFFF;
+  color: #1C1442;
+}
+.al-bcard:nth-child(3) .al-binner {
+  --bg: #BDF5D5;
+  --ink: #0B4A2A;
+  --pop: #EA54DB;
+  --popInk: #FFFFFF;
+  background-color: #BDF5D5;
+  color: #0B4A2A;
 }
 .al-binner .al-h2 { font-size: clamp(54px, 15vw, 170px); max-width: 9ch; }
 .al-binner .al-lede { font-size: 18px; }

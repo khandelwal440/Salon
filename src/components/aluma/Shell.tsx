@@ -46,6 +46,10 @@ export default function Shell({ page, children }: Props) {
     };
   }, []);
 
+  useEffect(() => {
+    paint();
+  }, [page]);
+
   // ---------- loader ----------
   useEffect(() => {
     const L = document.getElementById("al-loader")!;
